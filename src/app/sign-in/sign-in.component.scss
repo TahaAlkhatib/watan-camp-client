@@ -1,0 +1,12 @@
+:host {
+    background-image: linear-gradient(60deg, var(--color-primary), var(--color-secondry));
+    mix-blend-mode: normal;
+    display: grid;
+    place-content: center;
+    gap: 25px;
+}
+form{
+    display: grid;
+    gap: 10px;
+    place-content: center;
+}

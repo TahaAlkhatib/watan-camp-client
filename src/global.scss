@@ -42,54 +42,112 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   src: url();
 }
+
 // placed here instead of tutorial.scss due to slide els not getting ng scoping attribute
 .swiper-slide {
   display: block;
 }
 
-$color-primary: #0d3b6f;
-$color-secondry: #00a29d;
-$color-danger: #EE273A;
-$color-warning: #f9a11c;
-$color-light-blue: #12b2ef;
-$color-dark-blue: #053061;
+:root {
+  --color-primary: #0d3b6f;
+  --color-secondry: #00a29d;
+  --color-danger: #EE273A;
+  --color-warning: #f9a11c;
+  --color-light-blue: #12b2ef;
+  --color-dark-blue: #053061;
+}
+
+
 
 
 .btn {
   min-width: 60px;
   min-height: 30px;
-  background-color: $color-primary;
+  background-color: var(--color-primary);
   border-radius: 5px;
+
   &:hover {
-    background-color: $color-secondry;
+    background-color: var(--color-secondry);
   }
 }
 
 .btn-accept {
   min-width: 60px;
   min-height: 30px;
-  background-color: $color-secondry;
+  background-color: var(--color-secondry);
   border-radius: 5px;
+
   &:hover {
-    background-color: $color-warning;
+    background-color: var(--color-warning);
   }
 }
+
 .btn-warning {
   min-width: 60px;
   min-height: 30px;
-  background-color: $color-warning;
+  background-color: var(--color-warning);
   border-radius: 5px;
+
   &:hover {
-    background-color: $color-secondry;
+    background-color: var(--color-secondry);
   }
 }
 
 .btn-danger {
   min-width: 60px;
   min-height: 30px;
-  background-color: $color-danger;
+  background-color: var(--color-danger);
   border-radius: 5px;
+
   &:hover {
-    background-color: $color-secondry;
+    background-color: var(--color-secondry);
   }
+}
+
+.input-holder {
+  background: var(--color-secondry);
+  color: var(--color-primary);
+  height: 30px;
+  border-radius: 5px;
+  input {
+    background: transparent;
+    border: none;
+    height: 100%;
+    &:focus-visible{
+      outline: none;
+    }
+  }
+}
+.block {
+	position: relative;
+}
+
+.block:before, .block:after {
+	content: '';
+	position: absolute;
+	left: -1px;
+    top: -1px;
+    background: linear-gradient(45deg,#0d3b6f,#00a29d, #0d3b6f, #00a29d, #0d3b6f);
+	background-size: 400%;
+	width: calc(100% + 2px);
+	height: calc(100% + 2px);
+  border-radius: 5px;
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.block:after {
+	filter: blur(50px);
 }
