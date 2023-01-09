@@ -13,7 +13,7 @@ form {
 
     .btn {
         font-weight: bold;
-        max-width: 60px;
+        max-width: 65px;
 
 
     }
@@ -23,10 +23,6 @@ form {
         width: 100%;
         justify-content: space-between;
         align-items: center;
-
-        a {
-            color: var(--color-secondry)
-        }
     }
 }
 .external-login{

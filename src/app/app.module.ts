@@ -11,6 +11,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
   ],
   declarations: [
     AppComponent,
-    SignInComponent
+    SignInComponent,
+    SignUpComponent
   ],
   providers: [InAppBrowser],
   bootstrap: [AppComponent]

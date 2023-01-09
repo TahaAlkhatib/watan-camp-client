@@ -1,9 +1,19 @@
 <img src="/assets/general/Watan-logo.png" alt="" width="200px">
-<form>
+<form autocomplete="off">
     <div class="input-holder block">
-        <input type="text" id="userName" name="userName" placeholder="User name">
+        <input type="text" id="userName" name="userName" autocomplete="false" placeholder="User name">
     </div>
     <div class="input-holder block">
-        <input type="password" id="password" name="password" placeholder="password">
+        <input type="password" id="password" name="password" autocomplete="false" placeholder="password">
     </div>
+<div class="btns">
+    <a href="#">forgetpassword</a>
+    <button class="btn">Sign in</button>
+</div>
 </form>
+<div class="external-login">
+    <div class="btn"><img src="/assets/icons/google.png" width="20px" alt="">&nbsp; Continue with Google</div>
+    <div class="btn"><img src="/assets/icons/facebook.png" width="20px" alt="">&nbsp;Continue with Facbook</div>
+</div>
+<p>You don't have an account?</p>
+<button class="btn" routerLink="/sign-up">Sign up now!</button>
