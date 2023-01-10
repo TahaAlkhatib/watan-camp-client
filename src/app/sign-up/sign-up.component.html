@@ -1,27 +1,26 @@
 <img src="/assets/general/Watan-logo.png" alt="" width="200px">
 <form autocomplete="off" #f="ngForm">
     <div class="input-holder block">
-        <input type="text" id="FirstName" name="FirstName" autocomplete="false" placeholder="First name" ngModel>
+        <input type="text" id="FirstName" name="FirstName" autocomplete="off" placeholder="First name" ngModel>
     </div>
     <div class="input-holder block">
-        <input type="text" id="LastName" name="LastName" autocomplete="false" placeholder="Last name" ngModel>
+        <input type="text" id="LastName" name="LastName" autocomplete="off" placeholder="Last name" ngModel>
     </div>
     <div class="input-holder block">
-        <input type="text" id="Phone" name="Phone" autocomplete="false" placeholder="Phone number" ngModel>
+        <input type="text" id="Phone" name="Phone" autocomplete="off" placeholder="Phone number" ngModel>
     </div>
     <div class="input-holder block">
-        <input type="email" id="email" name="email" autocomplete="false" placeholder="Email" ngModel>
+        <input type="email" id="email" name="email" autocomplete="off" placeholder="Email" ngModel>
     </div>
     <div class="input-holder block">
-        <input type="password" id="password" name="password" autocomplete="false" placeholder="password" ngModel>
+        <input type="password" id="password" name="password" autocomplete="off" placeholder="password" ngModel>
     </div>
     <div class="input-holder block">
-        <input type="password" id="ConfirmPassword" name="ConfirmPassword" autocomplete="false" placeholder="Consfirm password" ngModel>
+        <input type="password" id="ConfirmPassword" name="ConfirmPassword" autocomplete="off" placeholder="Consfirm password" ngModel>
     </div>
 <div class="btns">
     <button class="btn" (click)="f.resetForm()">Reset</button>
     <button class="btn" routerLink="/sign-in">back</button>
-
     <button class="btn">Sign up</button>
 </div>
 </form>
