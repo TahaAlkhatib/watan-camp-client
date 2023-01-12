@@ -37,6 +37,9 @@
     background: white;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
+    box-shadow: 0 -4px 10px #464646;
+    
+
 }
 
 .menu-btn {
@@ -98,8 +101,8 @@
         position: absolute;
         top: 13px;
         left: -5px;
-        width: 30px;
-        height: 30px;
+        width: 31px;
+        height: 31px;
         z-index: 3;
     }
 
@@ -109,7 +112,6 @@
         }
 
         &::after {
-            box-shadow: none;
             transform: translateX(-40px);
         }
 

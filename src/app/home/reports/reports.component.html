@@ -1,0 +1,18 @@
+<div class="header">
+    <img src="/assets/icons/report.png" alt="">
+    <div class="title">Reports</div>
+    <div class="back" (click)="back()">Back</div>
+</div>
+<div class="btns">
+    <div class="graphs">
+        <div class="left">
+            <img src="/assets/img/line-chart.png" alt="">
+        </div>
+        <div class="right">
+            <img src="/assets/img/pie-chart.png" alt="">
+        </div>
+    </div>
+    <button class="normal-btn" *ngFor="let manual of manuals" (click)="navTo(manual.url)">
+        {{manual.name}}
+    </button>
+</div>
