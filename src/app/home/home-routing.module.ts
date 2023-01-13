@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AwarenessComponent } from './awareness/awareness.component';
+import { BensComponent } from './bens/bens.component';
+import { HealthCareComponent } from './bens/health-care/health-care.component';
+import { LearningAndTrainingComponent } from './bens/learning-and-training/learning-and-training.component';
 import { HomeComponent } from './home.component';
 import { ReportsComponent } from './reports/reports.component';
 
@@ -18,6 +21,18 @@ const routes: Routes = [
   {
     path:'reports',
     component:ReportsComponent
+  },
+  {
+    path:'bens',
+    component:BensComponent
+  },
+  {
+    path:'bens/health-care',
+    component:HealthCareComponent
+  },
+  {
+    path:'bens/learning-and-training',
+    component:LearningAndTrainingComponent
   }
 ];
 

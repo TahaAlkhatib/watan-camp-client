@@ -12,6 +12,7 @@ import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { VideoDialogComponent } from './dialogs/video-dialog/video-dialog.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   declarations: [
     AppComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    VideoDialogComponent
   ],
   providers: [InAppBrowser],
   bootstrap: [AppComponent]

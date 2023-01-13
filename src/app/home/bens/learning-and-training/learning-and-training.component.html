@@ -1,0 +1,10 @@
+<div class="header">
+    <img src="/assets/img/healthcare.png" alt="">
+    <div class="title">Health Care</div>
+    <div class="back" (click)="back()">Back</div>
+</div>
+<div class="btns">
+    <button class="normal-btn" *ngFor="let btn of btns" routerLink="{{btn.url}}">
+        {{btn.name}}
+    </button>
+</div>
