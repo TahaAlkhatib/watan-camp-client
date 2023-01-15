@@ -136,6 +136,28 @@
     }
   }
 }
+.normal-btn {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 40px;
+  border-radius: 25px;
+  color: #3171e0;
+  font-size: 0.4em;
+  overflow: hidden;
+  transition: all 0.2s;
+  box-shadow: 0 1px 5px silver;
+
+
+  &:hover {
+      color: aliceblue;
+      background-color: var(--color-primary);
+      margin-top: 5px;
+      margin-bottom: 5px;
+      transform: scale(1.1);
+
+      box-shadow: 0 1px 7px var(--color-primary);
+  }
+}
 
 .block {
   position: relative;

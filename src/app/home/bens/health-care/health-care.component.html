@@ -1,0 +1,18 @@
+<div class="header">
+    <img src="/assets/img/healthcare.png" alt="">
+    <div class="title">Health Care</div>
+    <div class="back" (click)="back()">Back</div>
+</div>
+<div class="btns">
+    <div class="graphs">
+        <div class="left" [class.selected]="selection=='health-care'" (click)="selection='health-care'">
+            <img src="/assets/img/health-care.png" alt="">
+        </div>
+        <div class="right" [class.selected]="selection=='physical'" (click)="selection='physical'">
+            <img src="/assets/img/physical-health.png" alt="">
+        </div>
+    </div>
+    <button class="normal-btn" *ngFor="let btn of btns" (click)="navTo(btn.url)">
+        {{btn.name}}
+    </button>
+</div>

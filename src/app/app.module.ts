@@ -12,6 +12,7 @@ import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { VideoDialogComponent } from './dialogs/video-dialog/video-dialog.component';
 
 import { LanguageModule, TranslationModule, LanguageService } from '@upupa/language';
 import { AuthModule, DEFAULT_SIGNIN, DEFAULT_VERIFY } from '@upupa/auth';
@@ -55,7 +56,8 @@ const verifyProvider: Provider = {
   declarations: [
     AppComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    VideoDialogComponent
   ],
   providers: [InAppBrowser],
   bootstrap: [AppComponent]
