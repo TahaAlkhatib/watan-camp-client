@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "downlevelIteration": true,
     "importHelpers": true,
     "module": "es2020",
@@ -9,11 +11,31 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2015",
+    "target": "es2020",
     "skipLibCheck": true,
     "lib": [
-      "es2017",
+      "es2018",
       "dom"
-    ]
+    ],
+    "baseUrl": "./",
+    "paths": {
+        "@noah-ark/common": ["src/libs/noah-ark/common/src/index.ts"],
+        "@noah-ark/event-bus": ["src/libs/noah-ark/event-bus/src/index.ts"],
+        "@noah-ark/expression-engine": ["src/libs/noah-ark/expression-engine/src/index.ts"],
+        "@noah-ark/json-patch": ["src/libs/noah-ark/json-patch/src/index.ts"],
+        "@noah-ark/path-matcher": ["src/libs/noah-ark/path-matcher/src/index.ts"],
+        "@upupa/data": ["src/libs/upupa/data/src/index.ts"],
+        "@upupa/auth": ["src/libs/upupa/auth/src/index.ts"],
+        "@upupa/common": ["src/libs/upupa/common/src/index.ts"],
+        "@upupa/language": ["src/libs/upupa/language/src/index.ts"],
+        "@upupa/upload": ["src/libs/upupa/upload/src/index.ts"],
+        "@upupa/table": ["src/libs/upupa/table/src/index.ts"],
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": false
   }
 }
