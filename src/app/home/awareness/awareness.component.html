@@ -1,7 +1,11 @@
 <div class="header">
     <img src="/assets/img/awareness.png" alt="">
     <div class="title">Awareness</div>
-    <div class="back" (click)="back()">Back</div>
+    <button class="back" (click)="back()">
+        <mat-icon>
+            keyboard_backspace
+        </mat-icon>
+    </button>
 </div>
 <div class="btns">
     <button class="normal-btn" *ngFor="let manual of manuals" (click)="navTo(manual.url)">

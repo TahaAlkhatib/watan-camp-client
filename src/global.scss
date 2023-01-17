@@ -141,21 +141,22 @@
   max-width: 250px;
   min-height: 40px;
   border-radius: 25px;
-  color: #3171e0;
+  background-color: var(--color-primary);
+  color: #fff;
   font-size: 0.4em;
   overflow: hidden;
   transition: all 0.2s;
-  box-shadow: 0 1px 5px silver;
+  box-shadow: 0 1px 5px var(--color-primary);
 
 
   &:hover {
       color: aliceblue;
-      background-color: var(--color-primary);
+      background-color: var(--color-secondry);
       margin-top: 5px;
       margin-bottom: 5px;
       transform: scale(1.1);
 
-      box-shadow: 0 1px 7px var(--color-primary);
+      box-shadow: 0 1px 7px var(--color-secondry);
   }
 }
 
