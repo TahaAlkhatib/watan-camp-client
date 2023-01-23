@@ -12,7 +12,7 @@ import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { VideoDialogComponent } from './dialogs/video-dialog/video-dialog.component';
+import { DynamicDialogComponent } from './dialogs/dynamic-dialog/dynamic-dialog.component';
 
 import { LanguageModule, TranslationModule, LanguageService } from '@upupa/language';
 import { AuthModule, DEFAULT_SIGNIN, DEFAULT_VERIFY } from '@upupa/auth';
@@ -20,6 +20,7 @@ import { ConfirmModule, EventBus, UtilsModule } from '@upupa/common';
 import { DataModule } from '@upupa/data';
 import { UploadModule } from '@upupa/upload';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { YoutubePipe } from './pipes/youtube.pipe';
 
 const x = { DEFAULT_SIGNIN };
 const signinProvider: Provider = {
@@ -57,7 +58,8 @@ const verifyProvider: Provider = {
     AppComponent,
     SignInComponent,
     SignUpComponent,
-    VideoDialogComponent
+    DynamicDialogComponent,
+    YoutubePipe
   ],
   providers: [InAppBrowser],
   bootstrap: [AppComponent]

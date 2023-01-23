@@ -19,7 +19,9 @@ export class HealthCareComponent{
     navTo(url:string){
 
     }
-    back(){
+    back() {
+        setTimeout(() => {
         this.router.navigate(['home/bens'])
+        }, 200);
     }
 }
