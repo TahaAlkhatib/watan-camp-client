@@ -5,7 +5,8 @@ import { DynamicDialogComponent } from "src/app/dialogs/dynamic-dialog/dynamic-d
 export enum btnType {
     VIDEO ,
     HTML_CONTENT,
-    URL
+    URL,
+    PDF
 }
 @Component({
     selector: 'bens',
@@ -17,7 +18,7 @@ export class BensComponent {
         { type: btnType.HTML_CONTENT, name: "Contact Camp Management", context: `<h1>hello</h1>
         <p>this is paragraph</p>` },
         { type: btnType.VIDEO, name: "Camp location", context: "https://www.youtube.com/watch?v=dj4VoPO-2pE" },
-        { type: '', name: "Emergency contacts", context: "#" },
+        { type: btnType.PDF, name: "Emergency contacts", context: "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf" },
         { type: btnType.URL, name: "Health care", context: "home/bens/health-care" },
         { type: '', name: "Learning and training", context: "learning-and-training" },
         { type: '', name: "WATAN services ", context: "#" },
@@ -35,12 +36,16 @@ export class BensComponent {
                     this.router.navigate([context])
                     break;
                 case btnType.HTML_CONTENT:
-                    this.dialog.open(DynamicDialogComponent,{data:{inputs:{type:'htmlContent',context}}})
+                    this.dialog.open(DynamicDialogComponent,{data:{inputs:{type:'htmlContent',context}},panelClass:'dynamic-dialog-content'})
     
                     break;
                 case btnType.VIDEO:
-                    this.dialog.open(DynamicDialogComponent,{autoFullScreen:false,data:{inputs:{type:'video',context}}})
+                    this.dialog.open(DynamicDialogComponent,{autoFullScreen:false,data:{inputs:{type:'video',context}},panelClass:'dynamic-dialog-youtube'})
     
+    
+                    break;
+                    case btnType.PDF:
+                    this.router.navigate([`home/pdf`,context])    
     
                     break;
                 default:

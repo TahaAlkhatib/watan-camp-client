@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PdfComponent } from '../pdf/pdf.component';
 import { AwarenessComponent } from './awareness/awareness.component';
 import { BensComponent } from './bens/bens.component';
 import { HealthCareComponent } from './bens/health-care/health-care.component';
@@ -33,7 +34,12 @@ const routes: Routes = [
   {
     path:'bens/learning-and-training',
     component:LearningAndTrainingComponent
+  },
+  {
+    path:'pdf/:pdf',
+    component:PdfComponent
   }
+
 ];
 
 @NgModule({

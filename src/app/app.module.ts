@@ -21,6 +21,10 @@ import { DataModule } from '@upupa/data';
 import { UploadModule } from '@upupa/upload';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { YoutubePipe } from './pipes/youtube.pipe';
+import {PdfViewerModule} from 'ng2-pdf-viewer'
+import { PdfComponent } from './pdf/pdf.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer'
+
 
 const x = { DEFAULT_SIGNIN };
 const signinProvider: Provider = {
@@ -36,6 +40,8 @@ const verifyProvider: Provider = {
 
 @NgModule({
   imports: [
+    NgxExtendedPdfViewerModule,
+    PdfViewerModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -59,7 +65,8 @@ const verifyProvider: Provider = {
     SignInComponent,
     SignUpComponent,
     DynamicDialogComponent,
-    YoutubePipe
+    YoutubePipe,
+    PdfComponent
   ],
   providers: [InAppBrowser],
   bootstrap: [AppComponent]
