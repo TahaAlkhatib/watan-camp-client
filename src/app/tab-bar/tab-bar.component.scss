@@ -13,9 +13,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.2s;
 
     img {
         max-width: 25px;
         filter: brightness(0) invert(1);
+    }
+    &:hover{
+        transform: scale(1.3);
     }
 }
