@@ -1,0 +1,269 @@
+header {
+    margin-top: 60px;
+    font-family: "Arial", Times, serif;
+    font: size 18px;
+    // font-size: 1 rem;
+}
+header h1 {
+    font-family: "Calibri";
+    margin-left: 2%;
+}
+.section {
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+    width: 100%;
+}
+.cont {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.section img {
+    width: 80px;
+    border-radius: 100%;
+    margin-right: 10%;
+}
+span {
+    color: #5dade2;
+}
+.container {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.box:nth-child(1) {
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.box:nth-child(2) {
+    background-color: #af7ac5;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.box:nth-child(3) {
+    background-color: #f7dc6f;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.box:nth-child(4) {
+    background-color: #52be80;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.box:nth-child(5) {
+    background-color: #34495e;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.box:nth-child(6) {
+    background-color: #5dade2;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.box:last-child {
+    background-color: #f1948a;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.box {
+    width: 20%;
+    cursor: pointer;
+    text-align: center;
+    padding: 50px 15px;
+    height: 14vh;
+    border-radius: 5px;
+    background-color: #99a3a4;
+
+    &:hover {
+        background-color: grey;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        :hover {
+            color: #34495e;
+        }
+    }
+}
+
+.basic-drop-shadow {
+    box-shadow: 0 0 10px;
+}
+.card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 50px;
+    width: 100%;
+    position: absolute;
+}
+
+.card .item {
+    position: relative;
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px #e1e5ee;
+    background-color: white;
+    text-align: left;
+    overflow: hidden;
+    // width: 750px;
+}
+
+thead {
+    box-shadow: 0 5px 10px #e1e5ee;
+}
+
+th {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    font-weight: 900;
+    color: #34495e;
+}
+
+td {
+    padding: 1rem 1.2rem;
+}
+td:nth-child(4) {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f6fb;
+}
+
+a {
+    color: #34495e;
+}
+
+td:nth-child(2),
+td:nth-child(1) {
+    white-space: nowrap;
+}
+
+.status[data-status="approved"]:after {
+    content: "approved";
+    color: white;
+    border-radius: 5px;
+    // background-color: #82E0AA;
+    background-color: #27ae60;
+    font-weight: bold;
+    padding: 0.7rem;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.status[data-status="created"]:after {
+    content: "created";
+    color: white;
+    border-radius: 5px;
+    // background-color: #85C1E9;
+    background-color: #5dade2;
+    font-weight: bold;
+    padding: 0.8rem 1.1rem;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.status[data-status="rejected"]:after {
+    content: "rejected";
+    color: white;
+    border-radius: 5px;
+    background-color: #cd6155;
+    font-weight: bold;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.status[data-status="awaiting management"]:after {
+    content: "awaiting management";
+    color: #d68910;
+    border-radius: 0.2rem;
+    background-color: #f8c471;
+    font-weight: bold;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.status[data-status="awaiting accountant"]:after {
+    content: "awaiting";
+    color: #ba4a00;
+    border-radius: 0.2rem;
+    background-color: #e59866;
+    font-weight: bold;
+    padding: 0.8rem 1rem;
+    white-space: nowrap;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+/*   
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+// @media
+// only screen and (max-width: 760px),
+// (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+// 	table {
+// 	  	width: 100%;
+// 	}
+
+// 	/* Force table to not be like tables anymore */
+// 	table, thead, tbody, th, td, tr {
+// 		display: block;
+// 	}
+
+// 	/* Hide table headers (but not display: none;, for accessibility) */
+// 	thead tr {
+// 		position: absolute;
+// 		top: -9999px;
+// 		left: -9999px;
+// 	}
+
+// 	tr { border: 1px solid #ccc; }
+
+// 	td {
+// 		/* Behave  like a "row" */
+// 		border: none;
+// 		border-bottom: 1px solid #eee;
+// 		position: relative;
+// 		padding-left: 50%;
+// 	}
+
+// 	td:before {
+// 		/* Now like a table header */
+// 		position: absolute;
+// 		/* Top/left values mimic padding */
+// 		top: 6px;
+// 		left: 6px;
+// 		width: 45%;
+// 		padding-right: 10px;
+// 		white-space: nowrap;
+// 		/* Label the data */
+// 		content: attr(data-column);
+
+// 		color: #000;
+// 		font-weight: bold;
+// 	}
+
+// }

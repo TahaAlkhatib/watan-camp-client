@@ -21,6 +21,7 @@ import { DataModule } from '@upupa/data';
 import { UploadModule } from '@upupa/upload';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { YoutubePipe } from './pipes/youtube.pipe';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 
 const x = { DEFAULT_SIGNIN };
 const signinProvider: Provider = {
@@ -59,7 +60,8 @@ const verifyProvider: Provider = {
     SignInComponent,
     SignUpComponent,
     DynamicDialogComponent,
-    YoutubePipe
+    YoutubePipe,
+    AdminLayoutComponent
   ],
   providers: [InAppBrowser],
   bootstrap: [AppComponent]

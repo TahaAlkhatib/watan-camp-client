@@ -30,6 +30,10 @@
         "@upupa/language": ["src/libs/upupa/language/src/index.ts"],
         "@upupa/upload": ["src/libs/upupa/upload/src/index.ts"],
         "@upupa/table": ["src/libs/upupa/table/src/index.ts"],
+        "@upupa/membership": ["src/libs/upupa/membership/src/index.ts"],
+        "@upupa/dynamic-form": ["src/libs/upupa/dynamic-form/src/index.ts"],
+        "@upupa/dynamic-form-material-theme": ["src/libs/upupa/dynamic-form-material-theme/src/index.ts"],
+        "@upupa/dynamic-form-native-theme": ["src/libs/upupa/dynamic-form-native-theme/src/index.ts"],
     }
   },
   "angularCompilerOptions": {

@@ -9,7 +9,6 @@ import { SplashScreen } from '@capacitor/splash-screen';
 
 import { Storage } from '@ionic/storage';
 
-import { UserData } from './providers/user-data';
 
 @Component({
   selector: 'app-root',
@@ -48,7 +47,6 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private router: Router,
     private storage: Storage,
-    private userData: UserData,
     private swUpdate: SwUpdate,
     private toastCtrl: ToastController,
   ) {
@@ -56,7 +54,6 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.checkLoginStatus();
     this.listenForLoginEvents();
 
     this.swUpdate.available.subscribe(async res => {
@@ -89,11 +86,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  checkLoginStatus() {
-    return this.userData.isLoggedIn().then(loggedIn => {
-      return this.updateLoggedInStatus(loggedIn);
-    });
-  }
+  
 
   updateLoggedInStatus(loggedIn: boolean) {
     setTimeout(() => {
@@ -115,11 +108,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  logout() {
-    this.userData.logout().then(() => {
-      return this.router.navigateByUrl('/app/tabs/schedule');
-    });
-  }
+  
 
   openTutorial() {
     this.menu.enable(false);
