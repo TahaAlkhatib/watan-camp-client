@@ -22,7 +22,7 @@ import { UploadModule } from '@upupa/upload';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { YoutubePipe } from './pipes/youtube.pipe';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
-import { PdfComponent } from './pdf/pdf.component';
+import { TabBarComponent } from './tab-bar/tab-bar.component';
 
 
 const x = { DEFAULT_SIGNIN };
@@ -64,7 +64,7 @@ const verifyProvider: Provider = {
     DynamicDialogComponent,
     YoutubePipe,
     AdminLayoutComponent,
-    PdfComponent
+    TabBarComponent
   ],
   providers: [InAppBrowser],
   bootstrap: [AppComponent]

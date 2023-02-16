@@ -1,0 +1,35 @@
+<div class="header">
+<h1>Provide multi sectoral assistance project</h1>
+    
+</div>
+<div class="wrappar">
+    <div class="details" *ngFor="let item of data">
+        <div class="line">
+            <div class="left">governorate:</div>
+            <div class="right"> {{item.governorate}}</div>
+        </div>
+        <div class="line">
+            <div class="left">district:</div>
+            <div class="right"> {{item.district}}</div>
+        </div>
+        <div class="line">
+            <div class="left">subsdistrict:</div>
+            <div class="right"> {{item.subsdistrict}}</div>
+        </div>
+        <div class="line">
+            <div class="left">community:</div>
+            <div class="right"> {{item.community}}</div>
+        </div>
+        <div class="line">
+            <div class="left">site:</div>
+            <div class="right"> {{item.site}}</div>
+        </div>
+
+    </div>
+    <img src="/assets/general/Watan-logo.png" alt="">
+</div>
+<button class="back" (click)="back()">
+    <mat-icon>
+        keyboard_backspace
+    </mat-icon>
+</button>

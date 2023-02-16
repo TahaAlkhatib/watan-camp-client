@@ -7,6 +7,8 @@ import { HealthCareComponent } from "./bens/health-care/health-care.component";
 import { LearningAndTrainingComponent } from "./bens/learning-and-training/learning-and-training.component";
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
+import { NumberOfBensComponent } from "./reports/number-of-bens/number-of-bens.component";
+import { ProvideMultiSectoralComponent } from "./reports/provide-multi-sectoral/provide-multi-sectoral.component";
 import { ReportsComponent } from "./reports/reports.component";
 const materials = [MatIconModule]
 @NgModule({
@@ -20,7 +22,9 @@ const materials = [MatIconModule]
         ReportsComponent,
         HealthCareComponent,
         BensComponent,
-    LearningAndTrainingComponent]
+        LearningAndTrainingComponent,
+        ProvideMultiSectoralComponent,
+        NumberOfBensComponent]
 
 })
 export class HomeModule {

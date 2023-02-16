@@ -16,7 +16,7 @@
             <img src="/assets/img/pie-chart.png" alt="">
         </div>
     </div>
-    <button class="normal-btn" *ngFor="let manual of manuals" (click)="navTo(manual.url)">
+    <button class="normal-btn" *ngFor="let manual of manuals" (mousedown)="navTo(manual.url)">
         {{manual.name}}
     </button>
 </div>

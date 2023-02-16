@@ -1,0 +1,21 @@
+:host {
+    width: 90vw;
+    height: 40px;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.tab-btn {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        max-width: 25px;
+        filter: brightness(0) invert(1);
+    }
+}
