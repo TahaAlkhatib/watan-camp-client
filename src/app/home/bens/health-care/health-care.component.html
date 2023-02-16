@@ -7,16 +7,16 @@
         </mat-icon>
     </button>
 </div>
-<div class="btns">
+<div class="btns" [@simpleFadeAnimation]="btns.length">
     <div class="graphs">
-        <div class="left" [class.selected]="selection=='health-care'" (click)="selection='health-care'">
+        <div class="left" [class.selected]="selection=='health-care'" (mousedown)="healthy()">
             <img src="/assets/img/health-care.png" alt="">
         </div>
-        <div class="right" [class.selected]="selection=='physical'" (click)="selection='physical'">
+        <div class="right" [class.selected]="selection=='physical'" (mousedown)="physical()">
             <img src="/assets/img/physical-health.png" alt="">
         </div>
     </div>
-    <button class="normal-btn" *ngFor="let btn of btns" (click)="navTo(btn.url)">
+    <button [@simpleFadeAnimation] class="normal-btn" *ngFor="let btn of btns" (mousedown)="navTo(btn.url)">
         {{btn.name}}
     </button>
 </div>

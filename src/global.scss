@@ -197,3 +197,35 @@
   // filter: blur(50px);
 }
 
+.dynamic-dialog-youtube{
+  mat-dialog-container{
+
+display: grid;
+    background-color: transparent;
+    padding: 0;
+    justify-items: center;
+    box-shadow: none;
+    
+    button{
+      color: #fff;
+    }
+    iframe{
+      background-color: gray;
+    }
+  }
+}
+.dynamic-dialog-content{
+
+  mat-dialog-container{
+        background-color: white;
+        padding: 10px;
+        color:black
+      }
+}
+.dynamic-dialog-pdf{
+  mat-dialog-container{
+    background-color: white;
+    padding: 10px;
+    color:black
+  }
+}
