@@ -7,9 +7,12 @@ import { HealthCareComponent } from "./bens/health-care/health-care.component";
 import { LearningAndTrainingComponent } from "./bens/learning-and-training/learning-and-training.component";
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
+import { CentersComponent } from "./reports/centers/centers.component";
+import { NeedsComponent } from "./reports/needs/needs.component";
 import { NumberOfBensComponent } from "./reports/number-of-bens/number-of-bens.component";
 import { ProvideMultiSectoralComponent } from "./reports/provide-multi-sectoral/provide-multi-sectoral.component";
 import { ReportsComponent } from "./reports/reports.component";
+import { ServicesActivityUpdatesComponent } from "./reports/service-activity-updates/service-activity-updates.component";
 const materials = [MatIconModule]
 @NgModule({
     imports: [
@@ -24,7 +27,11 @@ const materials = [MatIconModule]
         BensComponent,
         LearningAndTrainingComponent,
         ProvideMultiSectoralComponent,
-        NumberOfBensComponent]
+        NumberOfBensComponent,
+        CentersComponent,
+        ServicesActivityUpdatesComponent,
+        NeedsComponent
+    ]
 
 })
 export class HomeModule {

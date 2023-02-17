@@ -11,41 +11,13 @@ export class ReportsComponent {
         { name: "Provide multi-sectoral assistance project", url: "provide-multi-sectoral-assistant-project" },
         { name: "Number of benenficires ", url: "number-of-bens" },
         {
-            name: 'Centers of services', url: "#", data: [
-                {
-                    sector: 'FSL', centers: [{
-                        name: 'asd',
-                        governorate: 'sdf',
-                        district: 'dsf',
-                        subsDistrict: 'ert',
-                        bakery: 'dsf'
-                    }]
-                },
-                {
-                    sector: 'health', centers: [{
-                        name: 'asd',
-                        governorate: 'sdf',
-                        district: 'dsf',
-                        subsDistrict: 'ert',
-                        bakery: 'dsf'
-                    }]
-                }
-            ]
+            name: 'Centers of services', url: "centers"
         },
         {
-            name: "Services/activities update", url: "#", data: [
-                { sector: 'FSL', activities: [{ name: 'sdf', update: 'completed' }] },
-                { sector: 'cccm', activities: [{ name: 'sdf', update: 'completed' }] },
-                { sector: 'health', activities: [{ name: 'sdf', update: 'completed' }] },
-            ]
+            name: "Services/activities update", url: "service-activity-updates",
         },
         {
-            name: "Needs ", url: "#", data: [
-                { sector: 'CCCM', needs: 'Rain drainage, road maintenance, sewage maintenance, fuel supply for water pumping stations_insulators.' },
-                { sector: 'FSL', needs: 'Distributing food baskets _ distributing Cash_ Extending bread distribution service' },
-                { sector: 'Health', needs: `Providing More types of medicine _ Children's clinic _ Extending the center's services _ Providing malnutrition treatment services` },
-
-            ]
+            name: "Needs ", url: "needs", 
         },
     ]
     constructor(private router: Router) {

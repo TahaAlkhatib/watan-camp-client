@@ -1,0 +1,30 @@
+<div class="header">
+    <h1>Services/Activities updates</h1>
+
+</div>
+<div class="wrappar">
+    <div class="card" *ngFor="let item of data">
+        <div class="title">sector: {{item.sector}}</div>
+        <div class="details" *ngFor="let activity of item.activities">
+            <!-- <div class="line">
+                <div class="left">Service/activity:</div>
+                <div class="right"> &nbsp;{{activity.name}}</div>
+            </div>
+            <div class="line">
+                <div class="left">update:</div>
+                <div class="right"> &nbsp;{{activity.update}}</div>
+            </div> -->
+            <div class="line">
+                <div class="left">{{activity.name}}:</div>
+                <div class="right"> &nbsp;{{activity.update}}</div>
+            </div>
+        </div>
+    </div>
+    <img src="/assets/general/Watan-logo.png" alt="">
+</div>
+<button class="back" (click)="back()">
+    <mat-icon>
+        keyboard_backspace
+    </mat-icon>
+</button>
+<div class="white-space"></div>

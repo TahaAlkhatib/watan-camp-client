@@ -1,0 +1,41 @@
+<div class="header">
+    <h1>centers of Services</h1>
+
+</div>
+<div class="wrappar">
+    <div class="card" *ngFor="let item of data">
+        <div class="title">sector: {{item.sector}}</div>
+        <div class="details" *ngFor="let center of item.centers">
+            <div class="line">
+                <div class="left">Center:</div>
+                <div class="right"> &nbsp;{{center.name}}</div>
+            </div>
+            <div class="line">
+                <div class="left">Governorate:</div>
+                <div class="right"> &nbsp;{{center.governorate}}</div>
+            </div>
+            <div class="line">
+                <div class="left">District:</div>
+                <div class="right"> &nbsp;{{center.district}}</div>
+            </div>
+            <div class="line">
+                <div class="left">SubsDistrict:</div>
+                <div class="right"> &nbsp;{{center.subsDistrict}}</div>
+            </div>
+            <div class="line">
+                <div class="left">Community:</div>
+                <div class="right"> &nbsp;{{center.community}}</div>
+            </div><div class="line">
+                <div class="left">Bakery:</div>
+                <div class="right"> &nbsp;{{center.bakery}}</div>
+            </div>
+        </div>
+    </div>
+    <img src="/assets/general/Watan-logo.png" alt="">
+</div>
+<button class="back" (click)="back()">
+    <mat-icon>
+        keyboard_backspace
+    </mat-icon>
+</button>
+<div class="white-space"></div>
