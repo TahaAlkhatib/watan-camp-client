@@ -8,6 +8,8 @@ import { StatusBar } from '@capacitor/status-bar';
 import { SplashScreen } from '@capacitor/splash-screen';
 
 import { Storage } from '@ionic/storage';
+import { DialogService } from '@upupa/common';
+import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.component';
 
 
 @Component({
@@ -17,6 +19,7 @@ import { Storage } from '@ionic/storage';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
+  camp = localStorage.getItem('camp')
   appPages = [
     {
       title: 'Schedule',
@@ -49,12 +52,16 @@ export class AppComponent implements OnInit {
     private storage: Storage,
     private swUpdate: SwUpdate,
     private toastCtrl: ToastController,
+    private dialog:DialogService
   ) {
     this.initializeApp();
   }
 
   async ngOnInit() {
     this.listenForLoginEvents();
+    const lang = localStorage.getItem('language')
+    console.log(lang)
+    if(!lang) this.dialog.open(ChooseLanuageComponent,{panelClass:'custom-modalbox',autoFullScreen:false,width:'90svw',showCLoseButton:false})
 
     this.swUpdate.available.subscribe(async res => {
       const toast = await this.toastCtrl.create({

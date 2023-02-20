@@ -13,7 +13,6 @@ import { ReportsComponent } from './reports/reports.component';
 import { ServicesActivityUpdatesComponent } from './reports/service-activity-updates/service-activity-updates.component';
 
 
-
 const routes: Routes = [
   {
     path: '',

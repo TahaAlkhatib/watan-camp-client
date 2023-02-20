@@ -56,7 +56,8 @@ export class BensComponent {
     }
     back() {
         setTimeout(() => {
-            this.router.navigate([''])
+            const lang = localStorage.getItem('language')
+            this.router.navigate([`${lang}/home`])
         }, 200);
     }
 }

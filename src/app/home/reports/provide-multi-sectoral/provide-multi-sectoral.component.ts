@@ -15,6 +15,7 @@ constructor(private router:Router){}
      site: 'Watan camp 2 - Kafr Jalal' }]
 
      back() {
-        this.router.navigate(['en/home/reports'])
+        const lang = localStorage.getItem('language')
+        this.router.navigate([`${lang}/home/reports`])
     }
 }
