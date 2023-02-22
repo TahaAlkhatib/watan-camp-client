@@ -10,15 +10,14 @@ import { LanguageService } from "@upupa/language";
 })
 export class ChooseLanuageComponent{
 
-constructor(private dialogRef:MatDialogRef<ChooseLanuageComponent>,private language:LanguageService, private router:Router){
-    dialogRef.disableClose = true;
+constructor(private language:LanguageService, private router:Router){
 }
 
 changeLang(lang:string){
 localStorage.setItem('language',lang)
 this.language.language = lang
-window.location.reload()
-this.router.navigate([''])
-this.dialogRef.close()
+setTimeout(() => {
+    this.router.navigate([`${lang}/home`])
+}, 200);
 }
 }

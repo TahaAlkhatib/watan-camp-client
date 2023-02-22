@@ -2,48 +2,48 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { ChooseCampComponent } from './choose-camp/choose-camp.component';
+import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
-const CAMP = localStorage.getItem('camp')
 const lang = localStorage.getItem('language')
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: CAMP?`/${lang??'en'}/home`:`/${lang??'en'}/choose-camp`,
+        redirectTo: !lang?'choose-language':`${lang??'en'}/home`,
         pathMatch: 'full'
     },
     {
-        path: `${lang??'en'}/sign-in`,
+        path: ':lang/sign-in',
         component: SignInComponent
     }
     ,
     {
-        path: `${lang??'en'}/sign-up`,
+        path: ':lang/sign-up',
         component: SignUpComponent
     }
     ,
     {
-        path: `${lang??'en'}/home`,
+        path: ':lang/home',
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
     },
     {
-        path: `${lang??'en'}/choose-camp`,
-        component:ChooseCampComponent
+        path: 'choose-language',
+        component:ChooseLanuageComponent
     },
     {
-        path: `${lang??'en'}/account`,
+        path: ':lang/account',
         component: AdminLayoutComponent,
         loadChildren: () => import('./account/account.module').then(m => m.AccountsModule)
     },
     {
-        path: `${lang??'en'}/admin-tabs`,
+        path: ':lang/admin-tabs',
         component: AdminLayoutComponent,
         loadChildren: () => import('./pages/tabs-page/tabs-page.module').then(m => m.TabsModule)
     },
     {
-        path: `${lang??'en'}/admin`,
+        path: ':lang/admin',
         component: AdminLayoutComponent,
         loadChildren: () => import('./admin-panel/admin.module').then(m => m.AdminModule)
     },

@@ -74,9 +74,6 @@
   padding: auto;
 
   &:hover {
-    background-color: var(--color-secondry);
-    color: #053061;
-    box-shadow: 0px 0px 4px var(--color-dark-blue);
     transition: all 0.1s;
     transform: scale(1.05);
   }

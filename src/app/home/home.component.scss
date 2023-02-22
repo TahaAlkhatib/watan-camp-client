@@ -45,7 +45,7 @@
 .menu-btn {
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     min-width: 200px;
     min-height: 60px;
@@ -89,7 +89,6 @@
     p {
 
         color: var(--color-light);
-        margin-left: 54px;
         margin-top: 0;
         margin-bottom: 0;
         z-index: 1;

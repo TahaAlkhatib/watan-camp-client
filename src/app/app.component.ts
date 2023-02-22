@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 
@@ -10,6 +10,7 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import { Storage } from '@ionic/storage';
 import { DialogService } from '@upupa/common';
 import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.component';
+import { ChooseCampComponent } from './choose-camp/choose-camp.component';
 
 
 @Component({
@@ -20,6 +21,7 @@ import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.componen
 })
 export class AppComponent implements OnInit {
   camp = localStorage.getItem('camp')
+  
   appPages = [
     {
       title: 'Schedule',
@@ -59,9 +61,9 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     this.listenForLoginEvents();
-    const lang = localStorage.getItem('language')
-    console.log(lang)
-    if(!lang) this.dialog.open(ChooseLanuageComponent,{panelClass:'custom-modalbox',autoFullScreen:false,width:'90svw',showCLoseButton:false})
+    const camp = localStorage.getItem('camp')
+    console.log(camp)
+    if(!camp) this.dialog.open(ChooseCampComponent,{panelClass:'custom-modalbox',autoFullScreen:false,width:'90svw',showCLoseButton:false})
 
     this.swUpdate.available.subscribe(async res => {
       const toast = await this.toastCtrl.create({
