@@ -22,6 +22,7 @@ import { Router } from "@angular/router";
 })
 export class HealthCareComponent {
     selection: string = 'health-care'
+    lang= localStorage.getItem('language')
     btns = [
         { name: "General Sports Exercises", url: "#" },
         { name: "General nutritional Program", url: "#" },
@@ -82,7 +83,7 @@ export class HealthCareComponent {
     }
     back() {
         setTimeout(() => {
-            this.router.navigate(['home/bens'])
+            this.router.navigate([`${this.lang}/home/bens`])
         }, 200);
     }
 }
