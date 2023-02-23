@@ -71,6 +71,10 @@
 
             div {
                 line-height: 1.3;
+                font-size: 0.8em;
+            }
+            .left{
+                font-weight: 500;
             }
         }
     }
@@ -100,4 +104,10 @@
         transform: scale(1.1);
 
     }
+}
+.Ongoing{
+    color: var(--color-danger);
+}
+.Completed{
+    color:var(--color-secondry)
 }

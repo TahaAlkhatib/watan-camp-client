@@ -26,6 +26,7 @@ export class AwarenessComponent{
 
     }
     back(){
-        this.router.navigate([''])
+        const lang= localStorage.getItem('language')
+        this.router.navigate([`${lang}/home`])
     }
 }

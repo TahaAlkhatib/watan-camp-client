@@ -10,7 +10,8 @@ export class HomeComponent {
     constructor(private router: Router) { }
     goTo(route: string) {
         setTimeout(() => {
-            this.router.navigate([route])
+            const lang = localStorage.getItem('language')
+            this.router.navigate([`${lang}/home/${route}`])
         }, 150);
     }
 }

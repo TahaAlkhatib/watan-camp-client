@@ -1,0 +1,18 @@
+:host{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(107deg,var(--color-primary), var(--color-secondry));
+
+color:white
+}
+
+.btn-accept{
+    min-width: 200px;
+    background-color: var(--color-primary);
+    &:hover{
+        background-color: var(--color-warning);
+        color: white;
+    }
+}

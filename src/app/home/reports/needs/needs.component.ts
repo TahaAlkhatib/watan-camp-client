@@ -15,6 +15,7 @@ export class NeedsComponent {
 
     ]
     back() {
-        this.router.navigate(['en/home/reports'])
+        const lang = localStorage.getItem('language')
+        this.router.navigate([`${lang}/home/reports`])
     }
 }

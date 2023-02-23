@@ -20,13 +20,16 @@ export class ReportsComponent {
             name: "Needs ", url: "needs", 
         },
     ]
+
+    lang = localStorage.getItem('language')
+
     constructor(private router: Router) {
 
     }
     navTo(url: string) {
-        this.router.navigate([`en/home/reports/${url}`])
+        this.router.navigate([`${this.lang}/home/reports/${url}`])
     }
     back() {
-        this.router.navigate([''])
+            this.router.navigate([`${this.lang}/home`])
     }
 }

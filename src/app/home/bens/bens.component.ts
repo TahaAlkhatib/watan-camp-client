@@ -14,6 +14,7 @@ export enum btnType {
     styleUrls: ['bens.component.scss']
 })
 export class BensComponent {
+    lang = localStorage.getItem('language')
     btns = [
         { type: btnType.HTML_CONTENT, name: "Contact Camp Management", context: `<h1>hello</h1>
         <p>this is paragraph</p>` },
@@ -33,7 +34,7 @@ export class BensComponent {
         setTimeout(()=>{
             switch (type) {
                 case btnType.URL:
-                    this.router.navigate([context])
+                    this.router.navigate([`${this.lang}/${context}`])
                     break;
                 case btnType.HTML_CONTENT:
                     this.dialog.open(DynamicDialogComponent,{data:{inputs:{type:'htmlContent',context}},panelClass:'dynamic-dialog-content'})
@@ -56,7 +57,7 @@ export class BensComponent {
     }
     back() {
         setTimeout(() => {
-            this.router.navigate([''])
+            this.router.navigate([`${this.lang}/home`])
         }, 200);
     }
 }

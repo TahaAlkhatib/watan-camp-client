@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { ChooseCampComponent } from './choose-camp/choose-camp.component';
+import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+
+const lang = localStorage.getItem('language')
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/en/home',
+        redirectTo: !lang?'choose-language':`${lang??'en'}/home`,
         pathMatch: 'full'
     },
     {
@@ -23,6 +27,10 @@ const routes: Routes = [
     {
         path: ':lang/home',
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+    },
+    {
+        path: 'choose-language',
+        component:ChooseLanuageComponent
     },
     {
         path: ':lang/account',

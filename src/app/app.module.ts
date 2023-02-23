@@ -25,17 +25,19 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { DynamicFormModule } from '@upupa/dynamic-form';
 import { DynamicFormMaterialThemeModule, materialThemeComponentMapper } from '@upupa/dynamic-form-material-theme';
+import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.component';
+import { ChooseCampComponent } from './choose-camp/choose-camp.component';
 
-
+const lang = localStorage.getItem('language')
 const x = { DEFAULT_SIGNIN };
 const signinProvider: Provider = {
     provide: DEFAULT_SIGNIN,
-    useFactory: (lang: LanguageService) => `/ar/account/signin`,
+    useFactory: (lang: LanguageService) => `/${lang?? 'en'}/account/signin`,
     deps: [LanguageService],
 };
 const verifyProvider: Provider = {
     provide: DEFAULT_VERIFY,
-    useFactory: (lang: LanguageService) => `/ar/account/verify`,
+    useFactory: (lang: LanguageService) => `/${lang?? 'en'}/account/verify`,
     deps: [LanguageService],
 };
 
@@ -54,7 +56,7 @@ const verifyProvider: Provider = {
     ConfirmModule,
     AuthModule.forRoot(`${environment.server_base_url}/auth`, null, signinProvider, null, verifyProvider),
     DataModule.forChild(`${environment.server_base_url}/api`),
-    LanguageModule.forRoot('en', {}, 'lang', '/assets/langs'),
+    LanguageModule.forRoot(lang?? 'en', {}, 'lang', '/assets/langs'),
     TranslationModule,
     UploadModule.forChild(`${environment.server_base_url}/storage`),
     BrowserAnimationsModule,
@@ -67,7 +69,9 @@ const verifyProvider: Provider = {
     DynamicDialogComponent,
     YoutubePipe,
     AdminLayoutComponent,
-    TabBarComponent
+    TabBarComponent,
+    ChooseLanuageComponent,
+    ChooseCampComponent
   ],
   providers: [InAppBrowser],
   bootstrap: [AppComponent]
