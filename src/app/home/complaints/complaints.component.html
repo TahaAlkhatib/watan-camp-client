@@ -1,0 +1,31 @@
+<div class="header">
+    <img src="/assets/icons/complaint.png" alt="">
+    <div class="title">Complaints</div>
+    <button class="back" (click)="back()">
+        <mat-icon>
+            keyboard_backspace
+        </mat-icon>
+    </button>
+</div>
+<div class="container">
+    <h1>Fill a complaint</h1>
+    <div class="btns">
+        <button class="normal-btn">
+            <img class="icon" src="/assets/icons/telephone.png" alt="">
+            <div class="text">Call</div>
+        </button>
+        <button class="normal-btn">
+            <img class="icon" src="/assets/icons/email.png" alt="">
+            <div class="text">Email</div>
+        </button>
+        <button class="normal-btn" (mousedown)="navTo('complaint-form')">
+            <img class="icon" src="/assets/icons/complaint.png" alt="">
+            <div class="text">Complaint form</div>
+        </button>
+        <button class="normal-btn">
+            <img class="icon" src="/assets/icons/whatsapp.png" alt="">
+            <div class="text">whatsapp</div>
+        </button>
+    </div>
+</div>
+<div class="white-space"></div>

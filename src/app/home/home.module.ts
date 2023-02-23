@@ -14,6 +14,9 @@ import { ProvideMultiSectoralComponent } from "./reports/provide-multi-sectoral/
 import { ReportsComponent } from "./reports/reports.component";
 import { ServicesActivityUpdatesComponent } from "./reports/service-activity-updates/service-activity-updates.component";
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ComplaintsComponent } from "./complaints/complaints.component";
+import { ComplaintFormComponent } from "./complaints/complaint-form/complaint-form.component";
+import { FormsModule } from "@angular/forms";
 
 const materials = [MatIconModule]
 @NgModule({
@@ -21,7 +24,8 @@ const materials = [MatIconModule]
         ...materials,
         HomeRoutingModule,
         PdfViewerModule,
-        CommonModule],
+        CommonModule,
+        FormsModule],
     declarations: [
         HomeComponent,
         AwarenessComponent,
@@ -33,7 +37,9 @@ const materials = [MatIconModule]
         NumberOfBensComponent,
         CentersComponent,
         ServicesActivityUpdatesComponent,
-        NeedsComponent
+        NeedsComponent,
+        ComplaintsComponent,
+        ComplaintFormComponent
     ]
 
 })
