@@ -46,7 +46,8 @@ export class BensComponent {
     
                     break;
                     case btnType.PDF:
-                    this.router.navigate([`home/pdf`,context])    
+                    // this.router.navigate([`home/pdf`,context])  
+                    this.dialog.open(DynamicDialogComponent,{data:{inputs:{type:'pdf',context}}})  
     
                     break;
                 default:

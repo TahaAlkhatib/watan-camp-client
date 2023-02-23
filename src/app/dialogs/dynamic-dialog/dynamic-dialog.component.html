@@ -3,7 +3,8 @@
 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <pdf-viewer
 [src]="context"
-[render-text]="true"
-style="display: block;"
+[original-size]="false"
 *ngIf="type == 'pdf'"
 ></pdf-viewer>
+
+{{context}}

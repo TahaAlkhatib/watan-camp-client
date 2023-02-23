@@ -13,11 +13,14 @@ import { NumberOfBensComponent } from "./reports/number-of-bens/number-of-bens.c
 import { ProvideMultiSectoralComponent } from "./reports/provide-multi-sectoral/provide-multi-sectoral.component";
 import { ReportsComponent } from "./reports/reports.component";
 import { ServicesActivityUpdatesComponent } from "./reports/service-activity-updates/service-activity-updates.component";
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 const materials = [MatIconModule]
 @NgModule({
     imports: [
         ...materials,
         HomeRoutingModule,
+        PdfViewerModule,
         CommonModule],
     declarations: [
         HomeComponent,

@@ -27,6 +27,7 @@ import { DynamicFormModule } from '@upupa/dynamic-form';
 import { DynamicFormMaterialThemeModule, materialThemeComponentMapper } from '@upupa/dynamic-form-material-theme';
 import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.component';
 import { ChooseCampComponent } from './choose-camp/choose-camp.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 const lang = localStorage.getItem('language')
 const x = { DEFAULT_SIGNIN };
@@ -60,6 +61,7 @@ const verifyProvider: Provider = {
     TranslationModule,
     UploadModule.forChild(`${environment.server_base_url}/storage`),
     BrowserAnimationsModule,
+    PdfViewerModule,
     DynamicFormModule.forRoot([],{'material':materialThemeComponentMapper},'material',{enableLogs:!environment.production}),DynamicFormMaterialThemeModule
   ],
   declarations: [
