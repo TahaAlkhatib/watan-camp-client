@@ -1,0 +1,25 @@
+<div class="header">
+    <img src="/assets/icons/complaint.png" alt="">
+    <div class="title">Complaints</div>
+    <button class="back" (click)="back()">
+        <mat-icon>
+            keyboard_backspace
+        </mat-icon>
+    </button>
+</div>
+<div class="container">
+    <h1>Complaint form</h1>
+    <form class="form" (ngSubmit)="onSubmit()"  #f="ngForm">
+      <label for="fullName">Full name:</label>
+      <input type="text" id="fullName" name="fullName" [(ngModel)]="complaint.fullName" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="complaint.email" required>
+      <label for="phone">Phone:</label>
+      <input type="phone" id="phone" name="phone" [(ngModel)]="complaint.phone" required>
+      <label for="complaintSubject">Complaint subject:</label>
+      <input type="text" id="complaintSubject" name="complaintSubject" [(ngModel)]="complaint.subject" required>
+      <textarea name="complaint" id="complaint" cols="30" rows="7" [(ngModel)]="complaint.complaint" required></textarea>
+      <button class="btn btn-accept" type="submit" [disabled]="!f.form.valid">Send complaint</button>
+    </form>
+</div>
+<div class="white-space"></div>
