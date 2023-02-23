@@ -10,19 +10,19 @@
  */
 
 /* Core CSS required for Ionic components to work properly */
-@import "~@ionic/angular/css/core.css";
+@import "@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
-@import "~@ionic/angular/css/normalize.css";
-@import "~@ionic/angular/css/structure.css";
-@import "~@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
 
 /* Optional CSS utils that can be commented out */
-@import "~@ionic/angular/css/padding.css";
-@import "~@ionic/angular/css/float-elements.css";
-@import "~@ionic/angular/css/text-alignment.css";
-@import "~@ionic/angular/css/text-transformation.css";
-@import "~@ionic/angular/css/flex-utils.css";
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
 
 
 /*
@@ -34,8 +34,8 @@
 
 @import "./app/app.scss";
 
-@import '~swiper/scss';
-@import '~@ionic/angular/css/ionic-swiper';
+@import 'swiper/scss';
+@import '@ionic/angular/css/ionic-swiper';
 
 
 // @font-face {
@@ -56,8 +56,13 @@
   --color-light-blue: #12b2ef;
   --color-dark-blue: #053061;
   --color-light:#d3fffe;
+  --ion-item-border-color:#0d3b6f;
 }
 
+
+admin-layout .mat-table {
+    background: #424242 !important;
+}
 
 
 

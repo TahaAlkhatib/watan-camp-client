@@ -8,6 +8,7 @@ import { StatusBar } from '@capacitor/status-bar';
 import { SplashScreen } from '@capacitor/splash-screen';
 
 import { Storage } from '@ionic/storage';
+import { AppService } from './providers/app.service';
 
 
 @Component({
@@ -49,6 +50,7 @@ export class AppComponent implements OnInit {
     private storage: Storage,
     private swUpdate: SwUpdate,
     private toastCtrl: ToastController,
+    private appService:AppService
   ) {
     this.initializeApp();
   }
@@ -75,6 +77,10 @@ export class AppComponent implements OnInit {
         .then(() => this.swUpdate.activateUpdate())
         .then(() => window.location.reload());
     });
+
+    await this.appService.getCamps()
+    this.appService.getCurrentCamp()
+    debugger
   }
 
   initializeApp() {

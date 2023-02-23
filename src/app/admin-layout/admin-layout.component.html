@@ -1,6 +1,6 @@
 <ion-app [class.dark-theme]="dark">
     <ion-split-pane contentId="main-content">
-  
+
         <ion-menu contentId="main-content">
             <ion-content>
                 <ion-list lines="none">
@@ -19,9 +19,8 @@
 
                         <ion-list [ngStyle]="{'padding-left':'1rem'}" *ngIf="p.open&&p.children?.length">
                             <ion-menu-toggle autoHide="false">
-                                <ion-item *ngFor="let sub of p.children"
-                                    [routerLink]="'en'+p.prefix+p.url+'/'+sub.url" routerLinkActive="selected"
-                                    routerDirection="root">
+                                <ion-item *ngFor="let sub of p.children" [routerLink]="p.url+'/'+sub.url"
+                                    routerLinkActive="selected" routerDirection="root">
                                     <ion-icon slot="start" [name]="sub.icon + '-outline'"></ion-icon>
                                     <ion-label>
                                         {{sub.title}}
@@ -121,10 +120,13 @@
                 </ion-list>
             </ion-content>
         </ion-menu>
-  
-      <ion-router-outlet id="main-content"></ion-router-outlet>
-  
+        <!-- <div class="router-container"> -->
+
+            <!-- <h2>{{title|text}}</h2> -->
+
+            <ion-router-outlet id="main-content"></ion-router-outlet>
+        <!-- </div> -->
     </ion-split-pane>
-  
-  </ion-app>
-  
+
+
+</ion-app>

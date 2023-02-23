@@ -23,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { YoutubePipe } from './pipes/youtube.pipe';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { TabBarComponent } from './tab-bar/tab-bar.component';
+import { DynamicFormModule } from '@upupa/dynamic-form';
+import { DynamicFormMaterialThemeModule, materialThemeComponentMapper } from '@upupa/dynamic-form-material-theme';
 
 
 const x = { DEFAULT_SIGNIN };
@@ -55,7 +57,8 @@ const verifyProvider: Provider = {
     LanguageModule.forRoot('en', {}, 'lang', '/assets/langs'),
     TranslationModule,
     UploadModule.forChild(`${environment.server_base_url}/storage`),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DynamicFormModule.forRoot([],{'material':materialThemeComponentMapper},'material',{enableLogs:!environment.production}),DynamicFormMaterialThemeModule
   ],
   declarations: [
     AppComponent,

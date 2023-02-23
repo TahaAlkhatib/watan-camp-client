@@ -3,4 +3,8 @@ export class Camp {
     name: string
     nameEnglish: string
     logo: any[]
+    address:string
+    location:string
+    lat:string
+    long:string
 }

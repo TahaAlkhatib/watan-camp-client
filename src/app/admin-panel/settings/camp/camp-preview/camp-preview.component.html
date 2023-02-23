@@ -1,0 +1,24 @@
+<p>camp details</p>
+<div>
+    {{camp?._id}}
+</div>
+<div>
+    {{camp?.name}}
+</div>
+<div>
+    {{camp?.address}}
+</div>
+<div>
+    {{camp?.location}}
+</div>
+<div>
+    {{camp?.lat}}
+</div>
+<div>
+    {{camp?.long}}
+</div>
+
+<div>
+    <img [src]="serverUrl+'/'+camp?.logo[0].path" alt="error">
+
+</div>

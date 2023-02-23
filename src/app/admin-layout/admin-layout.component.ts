@@ -85,23 +85,13 @@ export class AdminLayoutComponent implements OnInit {
         {
             title: 'Settings',
             url: 'settings',
-            prefix: '/app/tabs/',
+            prefix: '/admin/',
             icon: 'map',
             open: false,
             children: [
                 {
-                    title: 'Company',
-                    url: 'company/company-list',
-                    icon: 'document'
-                },
-                {
-                    title: 'Department',
-                    url: 'department/department-list',
-                    icon: 'document'
-                },
-                {
-                    title: 'Currency',
-                    url: 'currency/currency-list',
+                    title: 'Camp',
+                    url: 'camp/camp-list',
                     icon: 'document'
                 },
                 {
@@ -121,6 +111,8 @@ export class AdminLayoutComponent implements OnInit {
     ];
     dark = false;
     user;
+
+    title: string
 
     constructor(
         private menu: MenuController,
@@ -163,18 +155,20 @@ export class AdminLayoutComponent implements OnInit {
             this.user = u
             console.log('user :', this.user)
 
-            if (true){//this.appService.isDepartmentManger() || this.appService.isAccountant() || this.appService.isManagement()) {
+            if (true) {//this.appService.isDepartmentManger() || this.appService.isAccountant() || this.appService.isManagement()) {
                 let page = this.appPages.find(p => p.title == "Forms To Approve")
-                if(!page)
-                    this.appPages.splice(1,0,{
+                if (!page)
+                    this.appPages.splice(1, 0, {
                         title: 'Forms To Approve',
                         url: 'forms/forms-to-approve',
-                        prefix:'/app/tabs/',
+                        prefix: '/app/tabs/',
                         icon: 'information-circle',
                         open: false
                     })
             }
         })
+
+        this.appService.title.subscribe(res=>this.title = res)
     }
 
     initializeApp() {
