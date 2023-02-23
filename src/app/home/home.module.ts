@@ -17,6 +17,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ComplaintsComponent } from "./complaints/complaints.component";
 import { ComplaintFormComponent } from "./complaints/complaint-form/complaint-form.component";
 import { FormsModule } from "@angular/forms";
+import { AboutComponent } from "./about/about.component";
 
 const materials = [MatIconModule]
 @NgModule({
@@ -39,7 +40,8 @@ const materials = [MatIconModule]
         ServicesActivityUpdatesComponent,
         NeedsComponent,
         ComplaintsComponent,
-        ComplaintFormComponent
+        ComplaintFormComponent,
+        AboutComponent
     ]
 
 })

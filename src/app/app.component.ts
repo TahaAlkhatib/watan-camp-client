@@ -90,7 +90,6 @@ export class AppComponent implements OnInit {
     await this.appService.getCamps()
     await this.appService.getItems()
     this.appService.getCurrentCamp()
-    debugger
   }
 
   initializeApp() {

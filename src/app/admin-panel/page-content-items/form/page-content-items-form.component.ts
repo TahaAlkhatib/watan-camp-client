@@ -49,7 +49,6 @@ export class PageContentItemsFormComponent implements OnInit {
         }
     }
     async submit() {
-        debugger
         if (this.model._id) {
             const res = await this.ds.put(`contentitems/${this.model._id}`, this.model)
         }

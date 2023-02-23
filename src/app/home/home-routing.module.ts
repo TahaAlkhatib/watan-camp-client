@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './about/about.component';
 import { AwarenessComponent } from './awareness/awareness.component';
 import { BensComponent } from './bens/bens.component';
 import { HealthCareComponent } from './bens/health-care/health-care.component';
@@ -67,6 +68,10 @@ const routes: Routes = [
   {
     path:'complaints/complaint-form',
     component:ComplaintFormComponent
+  },
+  {
+    path:'about',
+    component:AboutComponent
   }
 
 ];
