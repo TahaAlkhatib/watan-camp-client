@@ -9,9 +9,9 @@ import { Router } from "@angular/router";
 export class NeedsComponent {
     constructor(private router: Router) { }
     data = [
-        { sector: 'CCCM', needs: 'Rain drainage, road maintenance, sewage maintenance, fuel supply for water pumping stations_insulators.' },
-        { sector: 'FSL', needs: 'Distributing food baskets _ distributing Cash_ Extending bread distribution service' },
-        { sector: 'Health', needs: `Providing More types of medicine _ Children's clinic _ Extending the center's services _ Providing malnutrition treatment services` },
+        { sector: 'CCCM', needs: ['Rain drainage', 'road maintenance', 'sewage maintenance', 'fuel supply for water pumping stations_insulators.'] },
+        { sector: 'FSL', needs: ['Distributing food baskets', 'distributing Cash', 'Extending bread distribution service' ]},
+        { sector: 'Health', needs: ['Providing More types of medicine', "Children's clinic" ,"Extending the center's services", "Providing malnutrition treatment services"] },
 
     ]
     back() {

@@ -6,7 +6,13 @@
     <div class="details" *ngFor="let item of data">
         <div class="line">
             <div class="sector">{{item.sector}}</div>
-            <div class="right"> {{item.needs}}</div>
+            <div class="right"> 
+                <ul>
+                    <li *ngFor="let n of item.needs">
+                        {{n}}
+                    </li>
+                </ul>
+            </div>
         </div>
       
 
