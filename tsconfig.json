@@ -34,6 +34,7 @@
         "@upupa/dynamic-form": ["src/libs/upupa/dynamic-form/src/index.ts"],
         "@upupa/dynamic-form-material-theme": ["src/libs/upupa/dynamic-form-material-theme/src/index.ts"],
         "@upupa/dynamic-form-native-theme": ["src/libs/upupa/dynamic-form-native-theme/src/index.ts"],
+        "@upupa/html-editor": ["src/libs/upupa/html-editor/src/index.ts"]
     }
   },
   "angularCompilerOptions": {

@@ -19,45 +19,114 @@ import { AuthService } from "@upupa/auth";
 export class AdminLayoutComponent implements OnInit {
     appPages = [
         {
-            title: 'Forms',
-            url: 'forms',
-            prefix: '/app/tabs/',
+            title: 'Awareness',
+            url: 'contentitems/contentitems-list',
+            prefix: '/admin/',
             icon: 'calendar',
             open: false,
             children: [
                 {
-                    title: 'Payment Orders',
-                    url: 'payment-order/payment-order-list',
+                    title: 'Human Rights Manual',
+                    url: 'awhum',
                     icon: 'document'
                 },
                 {
-                    title: 'Payment Request',
-                    url: 'payment-request/payment-request-list',
+                    title: 'Refugees Manual',
+                    url: 'awref',
                     icon: 'document'
                 },
                 {
-                    title: 'Purchase Request',
-                    url: 'purchase-request/purchase-request-list',
+                    title: 'Women Rights Manual',
+                    url: 'awwom',
                     icon: 'document'
                 },
                 {
-                    title: 'Advance',
-                    url: 'advance/advance-list',
+                    title: 'Childhood Manual',
+                    url: 'awchi',
                     icon: 'document'
                 },
                 {
-                    title: 'Daily-leave',
-                    url: 'daily-leave/daily-leave-list',
+                    title: 'Public Health Manual',
+                    url: 'awpub',
                     icon: 'document'
                 },
                 {
-                    title: 'Hourly-leave',
-                    url: 'hourly-leave/hourly-leave-list',
+                    title: 'Hygiene Manual',
+                    url: 'awhyg',
                     icon: 'document'
                 },
                 {
-                    title: 'Justify-absence',
-                    url: 'justify-absence/justify-absence-list',
+                    title: 'Workers Rights Manual',
+                    url: 'awwor',
+                    icon: 'document'
+                },
+                {
+                    title: 'Social Cohesion manual',
+                    url: 'awsoc',
+                    icon: 'document'
+                },
+                {
+                    title: 'Emergency contacts',
+                    url: 'aweme',
+                    icon: 'document'
+                },
+                {
+                    title: 'Reporting harassment, exploitation and abuse',
+                    url: 'awrep',
+                    icon: 'document'
+                }
+
+            ]
+        },{
+            title: 'BENs',
+            url: 'contentitems/contentitems-list',
+            prefix: '/admin/',
+            icon: 'people',
+            open: false,
+            children: [
+                {
+                    title: 'Contact Camp Management',
+                    url: 'becon',
+                    icon: 'document'
+                },
+                {
+                    title: 'Camp location',
+                    url: 'becam',
+                    icon: 'document'
+                },
+                {
+                    title: 'Emergency contacts',
+                    url: 'beeme',
+                    icon: 'document'
+                },
+                {
+                    title: 'Health care',
+                    url: 'behea',
+                    icon: 'document'
+                },
+                {
+                    title: 'Learning and training',
+                    url: 'belea',
+                    icon: 'document'
+                },
+                {
+                    title: 'WATAN services',
+                    url: 'bewat',
+                    icon: 'document'
+                },
+                {
+                    title: 'Local and International News',
+                    url: 'beloc',
+                    icon: 'document'
+                },
+                {
+                    title: 'File a complaint',
+                    url: 'befil',
+                    icon: 'document'
+                },
+                {
+                    title: 'Where am I',
+                    url: 'bewhe',
                     icon: 'document'
                 }
 
@@ -67,7 +136,7 @@ export class AdminLayoutComponent implements OnInit {
             title: 'Account',
             url: 'account',
             prefix: '/',
-            icon: 'people',
+            icon: 'person',
             open: false,
             children: [
                 {
@@ -154,18 +223,6 @@ export class AdminLayoutComponent implements OnInit {
             await this.appService.initEmployeeInfo()
             this.user = u
             console.log('user :', this.user)
-
-            if (true) {//this.appService.isDepartmentManger() || this.appService.isAccountant() || this.appService.isManagement()) {
-                let page = this.appPages.find(p => p.title == "Forms To Approve")
-                if (!page)
-                    this.appPages.splice(1, 0, {
-                        title: 'Forms To Approve',
-                        url: 'forms/forms-to-approve',
-                        prefix: '/app/tabs/',
-                        icon: 'information-circle',
-                        open: false
-                    })
-            }
         })
 
         this.appService.title.subscribe(res=>this.title = res)

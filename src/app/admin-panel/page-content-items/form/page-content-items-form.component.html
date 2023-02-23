@@ -1,0 +1,57 @@
+<form *ngIf="model">
+    <mat-form-field appearance="fill">
+        <mat-label>Favorite food</mat-label>
+        <mat-select name="campId" [(ngModel)]="model.campId">
+            <mat-option *ngFor="let c of camps" [value]="c._id">
+                {{c.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="actions">
+        <button (click)="addVideo()" color="warn" mat-raised-button>{{'Add Video'|text}}</button>
+        <button (click)="addPdf()" color="primary" mat-raised-button>{{'Add Pdf'|text}}</button>
+        <button (click)="addHtml()" color="accent" mat-raised-button>{{'Add Html'|text}}</button>
+    </div>
+
+    <div class="page-items">
+        <div class="page-item" *ngFor="let item of model?.items;let i = index;">
+            <p>
+                <button (click)="deleteItem(i)" color="warn" mat-button>{{'delete'|text}}</button>
+                <mat-form-field appearance="outline">
+                  <mat-label>{{'Name'|text}}</mat-label>
+                  <input name="name" matInput placeholder="{{'Name'|text}}" [(ngModel)]="item.name">
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  <mat-hint></mat-hint>
+                </mat-form-field>
+              </p>
+            <div *ngIf="item.type == 'video'" class="pdf">
+                <mat-form-field style="width: 100%;" appearance="outline">
+                    <mat-label>{{'Video Url'|text}}</mat-label>
+                    <input name="video" matInput placeholder="{{'Video Url'|text}}" [(ngModel)]="item.url">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint></mat-hint>
+                  </mat-form-field>
+            </div>
+            <div *ngIf="item.type == 'pdf'" class="pdf">
+                <mat-form-field appearance="outline">
+                    <mat-label>{{'Pdf Url'|text}}</mat-label>
+                    <input name="pdf" matInput placeholder="{{'Pdf Url'|text}}" [(ngModel)]="item.url">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint></mat-hint>
+                  </mat-form-field>
+            </div>
+            <div *ngIf="item.type == 'html'" class="pdf">
+                
+                <form-html [uploadPath]="'contentitems/'+sector" [label]="'Content'" [(value)]="item.content"></form-html>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</form>
+
+<button mat-raised-button [color]="'primary'" (click)="submit()">Save</button>
+<button mat-raised-button (click)="goBack()">Cancel</button>

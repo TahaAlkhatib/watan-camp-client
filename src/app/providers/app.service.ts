@@ -39,6 +39,11 @@ export class AppService {
         return this.camps
     }
 
+    async getItems() {
+        this.items = await firstValueFrom(this.ds.get<ContentItems[]>(`contentitems`))
+        return this.items
+    }
+
     getCurrentCamp() {
         this.currentCampId = localStorage.getItem('campId')
         return this.currentCampId
