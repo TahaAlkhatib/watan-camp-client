@@ -1,2 +1,3 @@
 <h1>Choose your camp</h1>
 <button class="btn btn-accept" *ngFor="let camp of camps" (mousedown)="setCamp(camp._id)">{{camp.name}}</button>
+<button class="btn btn-accept" *ngIf="!camps.length" (mousedown)="setCamp('default')">default camp</button>
