@@ -13,7 +13,7 @@ import { AppService } from '../../../../app/providers/app.service';
 @Component({
     selector: 'app-page-content-items-form',
     templateUrl: './page-content-items-form.component.html',
-    styleUrls: ['./page-content-items-form.component.css']
+    styleUrls: ['./page-content-items-form.component.scss']
 })
 export class PageContentItemsFormComponent implements OnInit {
     loading = new ReplaySubject<boolean>(1);

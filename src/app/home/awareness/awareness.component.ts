@@ -9,15 +9,15 @@ import { Router } from "@angular/router";
 export class AwarenessComponent{
     manuals = [
         {name:"Human Rights Manual",url:"awhum"},
-        {name:"Refugees Manual",url:"#"},
-        {name:"Women Rights Manual",url:"#"},
-        {name:"Childhood Manual",url:"#"},
-        {name:"Public Health Manual",url:"#"},
-        {name:"Hygiene Manual",url:"#"},
-        {name:"Workers Rights Manual",url:"#"},
-        {name:"Social Cohesion manual",url:"#"},
-        {name:"Emergency contacts",url:"#"},
-        {name:"Reporting harassment, exploitation and abuse",url:"#"},
+        {name:"Refugees Manual",url:"awref"},
+        {name:"Women Rights Manual",url:"awwom"},
+        {name:"Childhood Manual",url:"awchi"},
+        {name:"Public Health Manual",url:"awpub"},
+        {name:"Hygiene Manual",url:"awhyg"},
+        {name:"Workers Rights Manual",url:"awwor"},
+        {name:"Social Cohesion manual",url:"awsoc"},
+        {name:"Emergency contacts",url:"aweme"},
+        {name:"Reporting harassment, exploitation and abuse",url:"awrep"},
     ]
 
     lang = localStorage.getItem('language')

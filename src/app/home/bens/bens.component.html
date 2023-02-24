@@ -8,8 +8,13 @@
     </button>
 </div>
 <div class="btns">
-    <button class="normal-btn" *ngFor="let btn of btns" (click)="exec(btn.type,btn.context)">
-        {{btn.name}}
-    </button>
+    <ng-container *ngFor="let btn of btns">
+        <button class="normal-btn" *ngIf="btn.context" (click)="navTo(btn.context)">
+            {{btn.name}}
+        </button>
+        <button class="normal-btn" *ngIf="btn.url" (click)="navToUrl(btn.url)">
+            {{btn.name}}
+        </button>
+    </ng-container>
 </div>
 <div class="white-space"></div>

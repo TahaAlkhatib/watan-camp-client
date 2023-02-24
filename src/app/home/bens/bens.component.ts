@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { DialogService } from "@upupa/common";
 import { DynamicDialogComponent } from "src/app/dialogs/dynamic-dialog/dynamic-dialog.component";
+import { AppService } from "src/app/providers/app.service";
 export enum btnType {
     VIDEO ,
     HTML_CONTENT,
@@ -16,45 +17,24 @@ export enum btnType {
 export class BensComponent {
     lang = localStorage.getItem('language')
     btns = [
-        { type: btnType.HTML_CONTENT, name: "Contact Camp Management", context: `<h1>hello</h1>
-        <p>this is paragraph</p>` },
-        { type: btnType.VIDEO, name: "Camp location", context: "https://www.youtube.com/watch?v=dj4VoPO-2pE" },
-        { type: btnType.PDF, name: "Emergency contacts", context: "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf" },
-        { type: btnType.URL, name: "Health care", context: "home/bens/health-care" },
-        { type: '', name: "Learning and training", context: "learning-and-training" },
-        { type: '', name: "WATAN services ", context: "#" },
-        { type: '', name: "Local and International News ", context: "#" },
-        { type: '', name: "File a complaint ", context: "#" },
-        { type: '', name: "Where am I ", context: "#" },
+        {  name: "Contact Camp Management", url: 'becon' },
+        {  name: "Camp location", url: "becam" },
+        {  name: "Emergency contacts", url: "beeme" },
+        {  name: "Health care", context:'health-care'},
+        {  name: "Learning and training", context: "learning-and-training" },
+        {  name: "WATAN services ", url: "bewat" },
+        {  name: "Local and International News ", url: "beloc" },
     ]
-    constructor(private router: Router, private dialog: DialogService) {
+    constructor(private router: Router, private dialog: DialogService,private appService:AppService) {
 
     }
-    exec(type: btnType, context: string) {
-        setTimeout(()=>{
-            switch (type) {
-                case btnType.URL:
-                    this.router.navigate([`${this.lang}/${context}`])
-                    break;
-                case btnType.HTML_CONTENT:
-                    this.dialog.open(DynamicDialogComponent,{data:{inputs:{type:'htmlContent',context}},panelClass:'dynamic-dialog-content'})
-    
-                    break;
-                case btnType.VIDEO:
-                    this.dialog.open(DynamicDialogComponent,{autoFullScreen:false,data:{inputs:{type:'video',context}},panelClass:'dynamic-dialog-youtube'})
-    
-    
-                    break;
-                    case btnType.PDF:
-                    // this.router.navigate([`home/pdf`,context])  
-                    this.dialog.open(DynamicDialogComponent,{data:{inputs:{type:'pdf',context}}})  
-    
-                    break;
-                default:
-                    break;
-            }
-        },150)
-        
+
+    navTo(url:string){
+        this.router.navigate([this.lang,'home','bens',url])
+    }
+    navToUrl(url:string){
+        this.router.navigate([this.lang,'home','view-content',url])
+
     }
     back() {
         setTimeout(() => {

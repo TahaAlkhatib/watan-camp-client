@@ -1,6 +1,6 @@
 <form *ngIf="model">
     <mat-form-field appearance="fill">
-        <mat-label>Favorite food</mat-label>
+        <mat-label>Choose camp</mat-label>
         <mat-select name="campId" [(ngModel)]="model.campId">
             <mat-option *ngFor="let c of camps" [value]="c._id">
                 {{c.name}}
@@ -25,8 +25,8 @@
                   <mat-hint></mat-hint>
                 </mat-form-field>
               </p>
-            <div *ngIf="item.type == 'video'" class="pdf">
-                <mat-form-field style="width: 100%;" appearance="outline">
+            <div *ngIf="item.type == 'video'" class="video">
+                <mat-form-field  appearance="outline">
                     <mat-label>{{'Video Url'|text}}</mat-label>
                     <input name="video" matInput placeholder="{{'Video Url'|text}}" [(ngModel)]="item.url">
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
@@ -41,7 +41,7 @@
                     <mat-hint></mat-hint>
                   </mat-form-field>
             </div>
-            <div *ngIf="item.type == 'html'" class="pdf">
+            <div *ngIf="item.type == 'html'" class="html">
                 
                 <form-html [uploadPath]="'contentitems/'+sector" [label]="'Content'" [(value)]="item.content"></form-html>
             </div>

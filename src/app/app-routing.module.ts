@@ -32,6 +32,11 @@ const routes: Routes = [
         path: 'choose-language',
         component:ChooseLanuageComponent
     },
+    
+    {
+        path: ':lang/choose-camp',
+        component:ChooseCampComponent
+    },
     {
         path: ':lang/account',
         component: AdminLayoutComponent,

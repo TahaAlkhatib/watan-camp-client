@@ -119,17 +119,8 @@ export class AdminLayoutComponent implements OnInit {
                     title: 'Local and International News',
                     url: 'beloc',
                     icon: 'document'
-                },
-                {
-                    title: 'File a complaint',
-                    url: 'befil',
-                    icon: 'document'
-                },
-                {
-                    title: 'Where am I',
-                    url: 'bewhe',
-                    icon: 'document'
                 }
+            
 
             ]
         },
@@ -155,7 +146,7 @@ export class AdminLayoutComponent implements OnInit {
         {
             title: 'Settings',
             url: 'settings',
-            prefix: '/admin/',
+            prefix: 'admin',
             icon: 'map',
             open: false,
             children: [

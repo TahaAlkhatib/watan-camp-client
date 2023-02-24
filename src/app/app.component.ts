@@ -12,6 +12,7 @@ import { AppService } from './providers/app.service';
 import { DialogService } from '@upupa/common';
 import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.component';
 import { ChooseCampComponent } from './choose-camp/choose-camp.component';
+import { LanguageService } from '@upupa/language';
 
 
 @Component({
@@ -56,16 +57,16 @@ export class AppComponent implements OnInit {
     private swUpdate: SwUpdate,
     private toastCtrl: ToastController,
     private appService:AppService,
-    private dialog:DialogService
+    private dialog:DialogService,
+    private languageService:LanguageService
   ) {
     this.initializeApp();
   }
 
   async ngOnInit() {
     this.listenForLoginEvents();
-    const camp = localStorage.getItem('camp')
-    console.log(camp)
-    if(!camp) this.dialog.open(ChooseCampComponent,{panelClass:'custom-modalbox',autoFullScreen:false,width:'90svw',showCLoseButton:false})
+    const camp = localStorage.getItem('campId')
+    if(!camp) this.router.navigate([this.languageService.language??'en','choose-camp'])
 
     this.swUpdate.available.subscribe(async res => {
       const toast = await this.toastCtrl.create({

@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
     styleUrls:['learning-and-training.component.scss']
 })
 export class LearningAndTrainingComponent{
+    lang = localStorage.getItem('language')
     btns = [
         {name:"General Sports Exercises",url:"#"},
         {name:"General nutritional Program",url:"#"},
@@ -21,7 +22,7 @@ export class LearningAndTrainingComponent{
     
     back() {
         setTimeout(() => {
-        this.router.navigate(['home/bens'])
+        this.router.navigate([`${this.lang}/home/bens`])
         }, 200);
     }
 }
