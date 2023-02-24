@@ -14,6 +14,7 @@ import { NumberOfBensComponent } from './reports/number-of-bens/number-of-bens.c
 import { ProvideMultiSectoralComponent } from './reports/provide-multi-sectoral/provide-multi-sectoral.component';
 import { ReportsComponent } from './reports/reports.component';
 import { ServicesActivityUpdatesComponent } from './reports/service-activity-updates/service-activity-updates.component';
+import { ViewContentComponent } from './view-content/view-content.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,10 @@ const routes: Routes = [
   {
     path:'about',
     component:AboutComponent
+  },
+  {
+    path:'view-content/:section',
+    component:ViewContentComponent
   }
 
 ];

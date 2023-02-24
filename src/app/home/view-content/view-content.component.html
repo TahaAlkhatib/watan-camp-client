@@ -1,0 +1,26 @@
+<div class="header">
+    <img src="/assets/general/Watan-logo.png" alt="">
+    <div class="title"></div>
+    <button class="back" (click)="back()">
+        <mat-icon>
+            keyboard_backspace
+        </mat-icon>
+    </button>
+</div>
+<div class="btns">
+    <ng-container *ngIf="data">
+        <div *ngFor="let it of data.items" class="item">
+            <div *ngIf="it.type == 'video'" class="video">
+                <a (click)="openVideo(it.url)">{{it.name}}</a> // youtube icon
+            </div>
+            <div *ngIf="it.type == 'pdf'" class="pdf">
+                <a (click)="openPdf(it.url)">{{it.name}}</a> // pdf icon
+            </div>
+            <div *ngIf="it.type == 'html'" class="html">
+                <section class="content" [innerHTML]="it.content"></section>
+            </div>
+
+        </div>
+    </ng-container>
+</div>
+<div class="white-space"></div>

@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
 })
 export class AwarenessComponent{
     manuals = [
-        {name:"Human Rights Manual",url:"#"},
+        {name:"Human Rights Manual",url:"awhum"},
         {name:"Refugees Manual",url:"#"},
         {name:"Women Rights Manual",url:"#"},
         {name:"Childhood Manual",url:"#"},
@@ -19,14 +19,18 @@ export class AwarenessComponent{
         {name:"Emergency contacts",url:"#"},
         {name:"Reporting harassment, exploitation and abuse",url:"#"},
     ]
+
+    lang = localStorage.getItem('language')
+
     constructor(private router:Router){
 
     }
-    navTo(url:string){
 
+    
+    navTo(url:string){
+        this.router.navigate([this.lang,'home','view-content',url])
     }
     back(){
-        const lang= localStorage.getItem('language')
-        this.router.navigate([`${lang}/home`])
+        this.router.navigate([`${this.lang}/home`])
     }
 }

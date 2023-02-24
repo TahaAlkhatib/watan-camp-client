@@ -10,6 +10,7 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import { Storage } from '@ionic/storage';
 import { AppService } from "../providers/app.service";
 import { AuthService } from "@upupa/auth";
+import { LanguageService } from "@upupa/language";
 
 @Component({
     selector: "admin-layout",
@@ -21,7 +22,7 @@ export class AdminLayoutComponent implements OnInit {
         {
             title: 'Awareness',
             url: 'contentitems/contentitems-list',
-            prefix: '/admin/',
+            prefix: 'admin',
             icon: 'calendar',
             open: false,
             children: [
@@ -80,7 +81,7 @@ export class AdminLayoutComponent implements OnInit {
         },{
             title: 'BENs',
             url: 'contentitems/contentitems-list',
-            prefix: '/admin/',
+            prefix: 'admin',
             icon: 'people',
             open: false,
             children: [
@@ -191,7 +192,8 @@ export class AdminLayoutComponent implements OnInit {
         private swUpdate: SwUpdate,
         private toastCtrl: ToastController,
         private appService: AppService,
-        private auth: AuthService
+        private auth: AuthService,
+        private langService:LanguageService
     ) {
         this.initializeApp();
     }
@@ -236,6 +238,10 @@ export class AdminLayoutComponent implements OnInit {
                 SplashScreen.hide();
             }
         });
+    }
+
+    navigate(p,sub){
+        this.router.navigateByUrl(`en/${p.prefix}/${p.url}/${sub.url}`)
     }
 
 

@@ -13,7 +13,6 @@ export class AppService {
 
     employee: User
 
-    contentItems: ContentItems[] = []
 
     camps: Camp[]
 

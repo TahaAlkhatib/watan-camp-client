@@ -19,7 +19,7 @@
 
                         <ion-list [ngStyle]="{'padding-left':'1rem'}" *ngIf="p.open&&p.children?.length">
                             <ion-menu-toggle autoHide="false">
-                                <ion-item *ngFor="let sub of p.children" [routerLink]="p.url+'/'+sub.url"
+                                <ion-item *ngFor="let sub of p.children" (click)="navigate(p,sub)"
                                     routerLinkActive="selected" routerDirection="root">
                                     <ion-icon slot="start" [name]="sub.icon + '-outline'"></ion-icon>
                                     <ion-label>

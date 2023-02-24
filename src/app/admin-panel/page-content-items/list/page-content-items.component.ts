@@ -32,21 +32,25 @@ export class PageContentItemsComponent implements OnInit {
         { position: 'header', name: 'create', icon: 'add_circle_outline', text: 'Create', bulk: true }
     ]
 
-    constructor(public router: Router, public bus: EventBus,private confirmService: ConfirmService,private ds: DataService,private activatedRoute: ActivatedRoute, private appService: AppService) {
+    constructor(public router: Router, public bus: EventBus, private confirmService: ConfirmService, private ds: DataService, private activatedRoute: ActivatedRoute, private appService: AppService) {
     }
 
     async ngOnInit() {
-        let source = new ServerDataSource(this.ds, '/contentitems', ['_id', 'section','campId'])
-        this.adapter = new DataAdapter(source, '_id', 'section')
+
 
 
         this.activatedRoute.params.subscribe(async params => {
             this.section = params['section']
             this.appService.title.next(`Content Items/${this.section}`)
+
+            let source = new ServerDataSource(this.ds, '/contentitems', ['_id', 'section', 'campId'])
+            this.adapter = new DataAdapter(source, '_id', 'section')
+            this.adapter.filter = { 'section': this.section }
+            
             await this.refresh()
         })
 
-        
+
     }
 
     async refresh() {
@@ -62,7 +66,7 @@ export class PageContentItemsComponent implements OnInit {
                 this.router.navigateByUrl(`en/admin/contentitems/preview-contentitems/${this.section}/${x.data[0]._id}`)
                 break;
             case 'create':
-                this.router.navigateByUrl('en/admin/contentitems/add-contentitems/'+this.section)
+                this.router.navigateByUrl('en/admin/contentitems/add-contentitems/' + this.section)
                 break;
             case 'edit': this.router.navigateByUrl(`en/admin/contentitems/edit-contentitems/${this.section}/${x.data[0]._id}`); break;
             case 'delete':
@@ -70,7 +74,7 @@ export class PageContentItemsComponent implements OnInit {
                 if (await this.confirmService.openWarning(dialogData)) {
                     for (const item of x.data)
                         await this.ds.delete(`contentitems/${item._id}`)
-                        await this.refresh()
+                    await this.refresh()
                 }
                 break;
             default:
@@ -84,6 +88,6 @@ export class PageContentItemsComponent implements OnInit {
 
     }
 
-    
+
 
 }
