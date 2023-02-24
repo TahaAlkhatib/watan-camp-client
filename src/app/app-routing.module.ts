@@ -11,7 +11,7 @@ const lang = localStorage.getItem('language')
 const routes: Routes = [
     {
         path: '',
-        redirectTo: !lang?'choose-language':`${lang??'en'}/home`,
+        redirectTo: 'choose-language',
         pathMatch: 'full'
     },
     {

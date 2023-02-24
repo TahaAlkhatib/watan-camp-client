@@ -65,8 +65,7 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     this.listenForLoginEvents();
-    const camp = localStorage.getItem('campId')
-    if(!camp) this.router.navigate([this.languageService.language??'en','choose-camp'])
+    
 
     this.swUpdate.available.subscribe(async res => {
       const toast = await this.toastCtrl.create({
