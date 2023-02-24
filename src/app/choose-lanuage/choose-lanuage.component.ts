@@ -27,8 +27,14 @@ export class ChooseLanuageComponent implements OnInit {
   changeLang(lang: string) {
     localStorage.setItem("language", lang);
     this.language.language = lang;
-    setTimeout(() => {
-      this.router.navigate([`${lang}/home`]);
-    }, 200);
+      const camp = localStorage.getItem("campId");
+      if (!camp) {
+        this.router.navigate([`${lang}/choose-camp`]);
+      } else {
+        setTimeout(() => {
+            this.router.navigate([`${lang}/home`]);
+          }, 200);
+      }
+    
   }
 }
