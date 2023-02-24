@@ -154,11 +154,6 @@ export class AdminLayoutComponent implements OnInit {
                     title: 'Camp',
                     url: 'camp/camp-list',
                     icon: 'document'
-                },
-                {
-                    title: 'Forms Template',
-                    url: 'forms-template/forms-template-list',
-                    icon: 'document'
                 }
             ]
         },
