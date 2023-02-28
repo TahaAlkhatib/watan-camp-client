@@ -5,6 +5,7 @@ import { DataService } from "@upupa/data";
 import { BehaviorSubject, firstValueFrom } from "rxjs";
 import { User } from '@upupa/auth'
 import { Camp, ContentItems } from "../model";
+import { environment } from "src/environments/environment";
 
 
 @Injectable({ providedIn: 'root' })
@@ -30,7 +31,7 @@ export class AppService {
     }
 
     async addUserToRoles(roles: string[], user: User) {
-        return firstValueFrom(this.http.post(`http://localhost:3333/app/add-user-to-roles`, { roles, user }))
+        return firstValueFrom(this.http.post(`${environment.server_base_url}/app/add-user-to-roles`, { roles, user }))
     }
 
     async getCamps() {
