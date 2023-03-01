@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { MatDialogRef } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { Camp } from "../model";
 import { AppService } from "../providers/app.service";
