@@ -1,40 +1,44 @@
 :host {
-    background-image: linear-gradient(60deg, var(--color-primary), var(--color-secondry));
-    mix-blend-mode: normal;
-    display: grid;
-    place-content: center;
-    gap: 25px;
+  background-image: linear-gradient(
+    60deg,
+    var(--color-primary),
+    var(--color-secondry)
+  );
+  mix-blend-mode: normal;
+  display: grid;
+  place-content: center;
+  gap: 25px;
 }
 
 form {
+  display: grid;
+  gap: 10px;
+  place-content: center;
+  .input-holder {
+    background-color: white;
+  }
+  .btn {
+    font-weight: bold;
+    max-width: 60px;
+  }
+
+  .btns {
     display: grid;
+    width: 100%;
     gap: 10px;
-    place-content: center;
-
-    .btn {
-        font-weight: bold;
-        max-width: 60px;
-
-
+    justify-items: center;
+    button {
+      max-width: none;
+      width: 100%;
     }
-
-    .btns {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-
-        a {
-            color: var(--color-secondry)
-        }
+    a {
+      color: var(--color-secondry);
     }
+  }
 }
-.external-login{
-    display: grid;
-    gap: 10px;
-}
-p{
-    color: var(--color-secondry);
-    text-align: center;
-    margin: 0;
+
+p {
+  color: var(--color-secondry);
+  text-align: center;
+  margin: 0;
 }

@@ -1,31 +1,41 @@
 <img src="/assets/general/Watan-logo.png" alt="" width="200px">
-<form autocomplete="off" #f="ngForm">
-    <div class="input-holder block">
-        <input type="text" id="FirstName" name="FirstName" autocomplete="off" placeholder="First name" ngModel>
+<form autocomplete="off" #f="ngForm" (ngSubmit)="onSubmit()">
+    <div class="btns selection">
+        <button class="btn" type="button" [class.selected]="form.selection === 'doner'" (mousedown)="form.selection = 'doner'">Doner</button>
+        <button class="btn" type="button" [class.selected]="form.selection === 'ben'" (mousedown)="form.selection = 'ben'">Ben</button>
+        <button class="btn" type="button" [class.selected]="form.selection === 'employee'" (mousedown)="form.selection = 'employee'">Employee</button>
     </div>
     <div class="input-holder block">
-        <input type="text" id="LastName" name="LastName" autocomplete="off" placeholder="Last name" ngModel>
+        <input type="text" id="FirstName" name="FirstName" onfocus="this.removeAttribute('readonly');" readonly placeholder="First name" [(ngModel)]="form.fName">
     </div>
     <div class="input-holder block">
-        <input type="text" id="Phone" name="Phone" autocomplete="off" placeholder="Phone number" ngModel>
+        <input type="text" id="LastName" name="LastName" onfocus="this.removeAttribute('readonly');" readonly placeholder="Last name" [(ngModel)]="form.lName">
     </div>
     <div class="input-holder block">
-        <input type="email" id="email" name="email" autocomplete="off" placeholder="Email" ngModel>
+        <input type="text" id="Phone" name="Phone" onfocus="this.removeAttribute('readonly');" readonly placeholder="Phone number" [(ngModel)]="form.phone">
+    </div>
+    <div class="input-holder block" *ngIf="form.selection === 'employee'">
+        <input type="text" id="department" name="department" onfocus="this.removeAttribute('readonly');" readonly placeholder="department"  [(ngModel)]="form.department">
+    </div>
+    <div class="input-holder block" *ngIf="form.selection === 'employee' || form.selection === 'ben' " >
+        <input type="text" id="SerialNumber" name="SerialNumber" onfocus="this.removeAttribute('readonly');" readonly placeholder="Serial number"  [(ngModel)]="form.sn">
     </div>
     <div class="input-holder block">
-        <input type="password" id="password" name="password" autocomplete="off" placeholder="password" ngModel>
+        <input type="text" id="camp" name="camp" onfocus="this.removeAttribute('readonly');" readonly placeholder="Camp" [(ngModel)]="form.camp">
     </div>
     <div class="input-holder block">
-        <input type="password" id="ConfirmPassword" name="ConfirmPassword" autocomplete="off" placeholder="Consfirm password" ngModel>
+        <input type="email" id="email" name="email" onfocus="this.removeAttribute('readonly');" readonly placeholder="Email" [(ngModel)]="form.email">
+    </div>
+    <div class="input-holder block">
+        <input type="password" id="password" name="password" onfocus="this.removeAttribute('readonly');" readonly placeholder="password" [(ngModel)]="form.password">
+    </div>
+    <div class="input-holder block">
+        <input type="password" id="ConfirmPassword" name="ConfirmPassword" onfocus="this.removeAttribute('readonly');" readonly placeholder="Consfirm password" [(ngModel)]="form.confirmPassword">
     </div>
 <div class="btns">
-    <button class="btn" (click)="f.resetForm()">Reset</button>
-    <button class="btn" routerLink="/sign-in">back</button>
-    <button class="btn">Sign up</button>
+    <button class="btn" type="button" (mousedown)="f.resetForm()">Reset</button>
+    <button class="btn" type="button" (mousedown)="navTo('sign-in')">back</button>
+    <button class="btn" type="submit">Sign up</button>
 </div>
 </form>
-<p>OR</p>
-<div class="external-login">
-    <div class="btn"><img src="/assets/icons/google.png" width="20px" alt="">&nbsp; Continue with Google</div>
-    <div class="btn"><img src="/assets/icons/facebook.png" width="20px" alt="">&nbsp;Continue with Facbook</div>
-</div>
+
