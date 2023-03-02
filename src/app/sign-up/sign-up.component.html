@@ -14,15 +14,29 @@
     <div class="input-holder block">
         <input type="text" id="Phone" name="Phone" onfocus="this.removeAttribute('readonly');" readonly placeholder="Phone number" [(ngModel)]="form.phone">
     </div>
-    <div class="input-holder block" *ngIf="form.selection === 'employee'">
-        <input type="text" id="department" name="department" onfocus="this.removeAttribute('readonly');" readonly placeholder="department"  [(ngModel)]="form.department">
-    </div>
     <div class="input-holder block" *ngIf="form.selection === 'employee' || form.selection === 'ben' " >
         <input type="text" id="SerialNumber" name="SerialNumber" onfocus="this.removeAttribute('readonly');" readonly placeholder="Serial number"  [(ngModel)]="form.sn">
     </div>
-    <div class="input-holder block">
-        <input type="text" id="camp" name="camp" onfocus="this.removeAttribute('readonly');" readonly placeholder="Camp" [(ngModel)]="form.camp">
-    </div>
+
+    <mat-form-field appearance="fill" *ngIf="form.selection === 'employee'">
+        <mat-label>Choose department</mat-label>
+        <mat-select name="campId" [(ngModel)]="form.department">
+            <mat-option *ngFor="let d of departments" [value]="d._id">
+                {{d.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" >
+        <mat-label>Choose camp</mat-label>
+        <mat-select name="campId" [(ngModel)]="form.campId">
+            <mat-option *ngFor="let c of camps" [value]="c._id">
+                {{c.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
     <div class="input-holder block">
         <input type="email" id="email" name="email" onfocus="this.removeAttribute('readonly');" readonly placeholder="Email" [(ngModel)]="form.email">
     </div>

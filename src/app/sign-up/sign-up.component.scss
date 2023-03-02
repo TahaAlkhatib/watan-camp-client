@@ -4,6 +4,7 @@
     display: grid;
     place-content: center;
     gap: 25px;
+    height: 100%;
 }
 
 form {
@@ -24,6 +25,8 @@ transition: all 200ms;
 
 
     }
+
+
     .input-holder{
         background:white;
     }

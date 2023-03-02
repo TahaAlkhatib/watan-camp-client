@@ -1,12 +1,15 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { AppService } from "../providers/app.service";
 
 @Component({
   selector: "sign-up",
   templateUrl: "sign-up.component.html",
   styleUrls: ["sign-up.component.scss"],
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
+  departments = [];
+  camps = [];
   form: {
     selection: string;
     fName: string;
@@ -14,7 +17,7 @@ export class SignUpComponent {
     phone: string;
     department: string;
     sn: string;
-    camp: string;
+    campId: string;
     email: string;
     password: string;
     confirmPassword: string;
@@ -22,7 +25,7 @@ export class SignUpComponent {
     selection: "",
     fName: "",
     lName: "",
-    camp: "",
+    campId: "",
     confirmPassword: "",
     department: "",
     email: "",
@@ -31,7 +34,16 @@ export class SignUpComponent {
     sn: "",
   };
   lang = localStorage.getItem("language") ?? "en";
-  constructor(private router: Router) {}
+  constructor(private router: Router, private appService: AppService) {}
+
+   ngOnInit() {
+    this.departments =  this.appService.departments.slice() ?? [
+      { id: "default", name: "default" },
+    ];
+    this.camps =  this.appService.camps.slice() ?? [
+      { id: "default", name: "default" },
+    ];
+  }
 
   onSubmit() {
     console.log(this.form);
