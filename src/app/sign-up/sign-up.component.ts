@@ -37,10 +37,10 @@ export class SignUpComponent implements OnInit {
   constructor(private router: Router, private appService: AppService) {}
 
    ngOnInit() {
-    this.departments =  this.appService.departments.slice() ?? [
+    this.departments =  this.appService.departments?.slice() ?? [
       { id: "default", name: "default" },
     ];
-    this.camps =  this.appService.camps.slice() ?? [
+    this.camps =  this.appService.camps?.slice() ?? [
       { id: "default", name: "default" },
     ];
   }
