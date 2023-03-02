@@ -8,6 +8,7 @@ import { CollectStyle, DynamicFormCommands, DynamicFormEvents, FormDesign, hidde
 import { LanguageService } from '@upupa/language';
 import { MembershipOptions, PageNavigationLink } from '@upupa/membership';
 import { firstValueFrom, of, ReplaySubject } from 'rxjs';
+import { CampUser } from 'src/app/model';
 import { AppService } from '../../../providers/app.service';
 
 @Component({
@@ -27,76 +28,31 @@ export class UserFormComponent implements OnInit {
 
     }
 
-    s = of(NaN)
     loading = new ReplaySubject<boolean>(1);
 
-    @Input() model: { email: string, username: string, password: string } & any = {} as any;
-    form: any
-    signupBtn: ActionDescriptor = { variant: 'raised', name: 'submit', text: 'submit', color: 'primary' };
-    formStyle: CollectStyle = 'linear';
-    initialValueFactory: any;
-    nextBtn: ActionDescriptor = { variant: 'flat', name: 'next', text: 'next', color: '' };
-    prevBtn: ActionDescriptor = { variant: 'flat', name: 'prev', text: 'prev', color: '' };
-    design: FormDesign = {
-        verticalAlignment: 'center',
-        horizontalAlignment: 'center'
-    } as FormDesign;
-
-    depAdapter = (ds, company) => new DataAdapter(new ServerDataSource(ds, `department`, ['_id', 'name', 'company']), '_id', 'name', '_id', undefined, { filter: { company: company } })
+    model: CampUser
+    depAdapter = (ds, company) => new DataAdapter(new ServerDataSource(ds, `department`, ['_id', 'name', 'nameAr']), '_id', 'name', '_id', undefined)
 
 
-    conditions: Condition[] = [{
-        on: DynamicFormEvents.valueChanged,
-        when: e => e.payload.fields == "/company",
-        do: [
-            // e => new DynamicFormCommands.ChangeVisibility(["/approximateInGBP"], e.payload.value !== 'GBP'),
-            (e) => {
-                console.log(e);
-                let depAdapter = this.depAdapter(this.ds, e.payload.value)
-                return new DynamicFormCommands.ChangeInputs('/department', { adapter: depAdapter })
-            }
-        ]
-    },]
-    signupOptions = {
-        formDesign: { questionColor: '#fff', answerColor: '#eee' } as FormDesign,
-        formFields: {
-            '_id': hiddenField('_id'),
-            'name': textField('name', 'Name', undefined, undefined, undefined, [{ name: 'required' }]),
-            'email': { type: 'field', input: 'email', name: 'email', ui: { inputs: { label: 'Email', placeholder: 'Use a valid email' } }, validations: [{ name: 'required' }] },
-            'password': { type: 'field', input: 'text', name: 'password', ui: { inputs: { label: 'Password', type: 'password', placeholder: 'Password', passwordStrength: null } }, validations: [{ name: 'required' }] },
-            'company': selectField('company', 'Company', new DataAdapter(new ServerDataSource(this.ds, 'company', ['_id', 'name']), '_id', 'name', '_id'), null, null, null, 1, [{ name: 'required' }]),
-            'department': selectField('department', 'Department', this.depAdapter(this.ds, ""), null, null, null, 1, [{ name: 'required' }]),
-            'roles': selectField('roles', 'Roles', new DataAdapter(new ServerDataSource(this.ds, 'role', ['_id', 'name']), 'name', 'name', 'name'), null, null, null, 5, [{ name: 'required' }])
-        },
-        formStyle: 'linear',
-        successHandler: {
-            onSuccess: (auth, router) => {
-                return router.navigateByUrl('/')
-            }
-        },
-        links: (languageService: LanguageService, route: ActivatedRoute) => {
-            return [{ label: 'signin-label', text: 'signin-text', url: `/${languageService.language}/account/signin` } as PageNavigationLink]
-        }
+
+    formFields = {
+        '_id': hiddenField('_id'),
+        'name': textField('name', 'Name', undefined, undefined,'outline', [{ name: 'required' }]),
+        'email': { type: 'field', input: 'email', name: 'email', ui: { inputs: { label: 'Email', placeholder: 'Use a valid email' } }, validations: [{ name: 'required' }] },
+        'password': { type: 'field', input: 'text', name: 'password', ui: { inputs: { label: 'Password', type: 'password', placeholder: 'Password', passwordStrength: null } }, validations: [{ name: 'required' }] },
+        'department': selectField('department', 'Department', this.depAdapter(this.ds, ""), null, null, 'outline', 1, [{ name: 'required' }]),
+        'roles': selectField('roles', 'Roles', new DataAdapter(new ServerDataSource(this.ds, 'role', ['_id', 'name']), 'name', 'name', 'name'), null, null, 'outline', 5, [{ name: 'required' }])
     }
 
     async ngOnInit() {
         const userId = this.route.snapshot.paramMap.get('id')
         if (userId) {
-            const user = await firstValueFrom(this.ds.get('user', { _id: userId })) as any
-            const _user = user[0]
-            this.initialValueFactory = () => {
-                return { email: _user.email, department: _user.department, _id: _user._id, company: _user.company, name: _user.name, roles: _user.roles }
-            }
-            delete this.signupOptions.formFields.password
-
+            this.model = await firstValueFrom(this.ds.get<CampUser>(`user/${userId}`))          
         }
-        this.form = this.signupOptions.formFields;
     }
 
 
-    // async resetPassword(){
-    //     await this.auth.reset_password('','')
-    // }
+    
 
 
     formchange() {
@@ -105,7 +61,8 @@ export class UserFormComponent implements OnInit {
     }
 
 
-    async signup(model) {
+    async signup() {
+        const model = this.model
         const roles = model.roles?.slice()
         delete this.model.roles
         try {
@@ -137,10 +94,11 @@ export class UserFormComponent implements OnInit {
             this.router.navigateByUrl('en/account/user-list')
         }
         catch (error) {
-
+            console.error(error)
             if (error.status == 500) {
                 const e = error.json ? error.json() : error.body;
-                if (e.message && e.message.indexOf("duplicate key") > -1) {
+                
+                if (e?.message && e?.message.indexOf("duplicate key") > -1) {
                     if (e.message.indexOf("index: email") > -1) this.snack.openFailed('duplicate-email');
                     else if (e.message.indexOf("index: username") > -1) this.snack.openFailed('duplicate-username');
                     else if (e.message.indexOf("index: phone") > -1) this.snack.openFailed('duplicate-phone');
@@ -152,13 +110,15 @@ export class UserFormComponent implements OnInit {
         }
         finally {
             this.loading.next(false);
+            this.router.navigateByUrl('en/account/user-list')
+
         }
 
 
     }
 
-    save() {
-
+    goBack() {
+        window.history.back()
     }
 
 

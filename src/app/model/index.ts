@@ -22,4 +22,6 @@ export type CampUser = User & {
     departmentId: string
     serialNumber: string
     campId: string
+    password:string
+    confirmPassword:string
 }

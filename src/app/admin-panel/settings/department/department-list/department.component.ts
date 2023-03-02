@@ -20,7 +20,7 @@ export class DepartmentComponent implements OnInit {
     selection: Department[]
     adapter: DataAdapter
     columns: ColumnsDescriptor = {
-        name: 1, codePrefix: 1
+        name: 1, nameAr: 1
     }
     actions: ActionDescriptor[] = [
         { variant: 'icon', name: 'preview', icon: 'preview', menu: false },
@@ -30,8 +30,8 @@ export class DepartmentComponent implements OnInit {
         { position: 'header', name: 'create', icon: 'add_circle_outline', text: 'Create', bulk: true }
     ]
     ngOnInit(): void {
-        let source = new ServerDataSource(this.ds, '/department', ['_id', 'name', 'codePrefix'])
-        this.adapter = new DataAdapter(source, 'codePrefix', 'name')
+        let source = new ServerDataSource(this.ds, '/department', ['_id', 'name', 'nameAr'])
+        this.adapter = new DataAdapter(source, 'nameAr', 'name')
 
     }
 

@@ -10,70 +10,47 @@ import { firstValueFrom, ReplaySubject } from 'rxjs';
 import { Role } from '../../../model';
 
 @Component({
-  selector: 'role-form',
-  templateUrl: './role-form.component.html',
-  styleUrls: ['./role-form.component.css']
+    selector: 'role-form',
+    templateUrl: './role-form.component.html',
+    styleUrls: ['./role-form.component.css']
 })
 export class RoleFormComponent implements OnInit {
-  loading = new ReplaySubject<boolean>(1);
+    loading = new ReplaySubject<boolean>(1);
 
-  @Input() model: { email: string, username: string, password: string } & any = {} as any;
-  form: any
-  submitBtn: ActionDescriptor = { variant: 'raised', name: 'submit', text: 'submit', color: 'primary' };
-  formStyle: CollectStyle = 'linear';
-  initialValueFactory: any;
-  nextBtn: ActionDescriptor = { variant: 'flat', name: 'next', text: 'next', color: '' };
-  prevBtn: ActionDescriptor = { variant: 'flat', name: 'prev', text: 'prev', color: '' };
-  design: FormDesign = {
-    verticalAlignment: 'center',
-    horizontalAlignment: 'center'
-  } as FormDesign;
+    model: Role
+    formFields= {
+        '_id': { type: 'field', input: 'hidden', name: '_id', ui: { inputs: { label: 'Email', placeholder: 'Use a valid email' } } },
+        'name': { type: 'field', input: 'text', name: 'name', ui: { inputs: { label: 'name', placeholder: 'name' } }, validations: [{ name: 'required' }] }
+    }
+    constructor(
+        private ds: DataService,
+        public snack: SnackBarService,
+        private router: Router,
+        private route: ActivatedRoute,
+        private ls: LanguageService,
+        public auth: AuthService) {
+    }
 
-  formOptions = {
-    formDesign: { questionColor: '#fff', answerColor: '#eee' } as FormDesign,
-    formFields: [
-        hiddenField('_id'),
-        textField('name', 'Name', 'Name', null, null, [{ name: 'required' }])
-    ],
-    formStyle: 'linear',
-    successHandler: {
-      onSuccess: (auth, router) => {
-        return router.navigateByUrl('/')
-      }
-    },
-    links: (languageService: LanguageService, route: ActivatedRoute) => {
-      return [{ label: 'signin-label', text: 'signin-text', url: `/${languageService.language}/account/signin` } as PageNavigationLink]
+    async ngOnInit() {
+        const roleId = this.route.snapshot.paramMap.get('id')
+        if (roleId) {
+             this.model = await firstValueFrom(this.ds.get<Role>(`role/${roleId}`))
+        }
     }
-  }
-  constructor(
-    private ds: DataService,
-    public snack: SnackBarService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private ls: LanguageService,
-    public auth: AuthService) {
-    this.form = this.formOptions.formFields;
-  }
+    async submit() {
+        if (this.model._id) {
+            const res = await this.ds.put(`role/${this.model._id}`, this.model)
 
-  async ngOnInit() {
-    const roleId = this.route.snapshot.paramMap.get('id')
-    if (roleId) {
-      const role = await firstValueFrom(this.ds.get<Role>(`role/${roleId}`))
-      this.initialValueFactory = () => {
-        return { name: role.name, _id: role._id }
-      }
+        }
+        else {
+            const res = await this.ds.post('role', this.model)
+        }
+        this.snack.openSuccess()
+        this.router.navigateByUrl('en/account/role/role-list')
+    }
 
+    goBack(){
+        window.history.back()
     }
-  }
-  async submit(model) {
-    if (model._id) {
-      const res = await this.ds.put(`role/${model._id}`, model)
-      
-    }
-    else {
-      const res = await this.ds.post('role', model)
-    }
-    this.snack.openSuccess()
-    this.router.navigateByUrl('en/account/role/role-list')
-  }
+
 }

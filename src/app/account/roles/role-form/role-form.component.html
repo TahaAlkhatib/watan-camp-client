@@ -1,2 +1,5 @@
-<collector  #signupForm [initialValueFactory]="initialValueFactory" [submitBtn]="submitBtn" [nextBtn]="nextBtn" [prevBtn]="prevBtn" [fields]="form" (submit)="submit(model)" [design]="design" [(value)]="model" [collectStyle]="formStyle">
-</collector>
+<dynamic-form  [fields]="formFields"   [(value)]="model">
+</dynamic-form>
+
+<button mat-raised-button [color]="'primary'" (click)="submit()">Save</button>
+<button mat-raised-button (click)="goBack()">Cancel</button>
