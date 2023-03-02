@@ -22,7 +22,9 @@ import { LanguageService } from '@upupa/language';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-  camp = localStorage.getItem('camp')
+  camp = localStorage.getItem('campId')
+
+  loggedIn = true//localStorage.getItem('token')
   
   appPages = [
     {
@@ -46,7 +48,6 @@ export class AppComponent implements OnInit {
       icon: 'information-circle'
     }
   ];
-  loggedIn = false;
   dark = false;
 
   constructor(
@@ -64,7 +65,6 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.listenForLoginEvents();
     
 
     this.swUpdate.available.subscribe(async res => {
@@ -102,32 +102,4 @@ export class AppComponent implements OnInit {
   }
 
   
-
-  updateLoggedInStatus(loggedIn: boolean) {
-    setTimeout(() => {
-      this.loggedIn = loggedIn;
-    }, 300);
-  }
-
-  listenForLoginEvents() {
-    window.addEventListener('user:login', () => {
-      this.updateLoggedInStatus(true);
-    });
-
-    window.addEventListener('user:signup', () => {
-      this.updateLoggedInStatus(true);
-    });
-
-    window.addEventListener('user:logout', () => {
-      this.updateLoggedInStatus(false);
-    });
-  }
-
-  
-
-  openTutorial() {
-    this.menu.enable(false);
-    this.storage.set('ion_did_tutorial', false);
-    this.router.navigateByUrl('/tutorial');
-  }
 }

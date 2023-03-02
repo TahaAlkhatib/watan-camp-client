@@ -81,7 +81,7 @@ export class AdminLayoutComponent implements OnInit {
         },{
             title: 'BENs',
             url: 'contentitems/contentitems-list',
-            prefix: 'admin',
+            prefix: 'admin/',
             icon: 'people',
             open: false,
             children: [
@@ -127,7 +127,7 @@ export class AdminLayoutComponent implements OnInit {
         {
             title: 'Account',
             url: 'account',
-            prefix: '/',
+            prefix: '',
             icon: 'person',
             open: false,
             children: [
@@ -146,13 +146,18 @@ export class AdminLayoutComponent implements OnInit {
         {
             title: 'Settings',
             url: 'settings',
-            prefix: 'admin',
+            prefix: 'admin/',
             icon: 'map',
             open: false,
             children: [
                 {
                     title: 'Camp',
                     url: 'camp/camp-list',
+                    icon: 'document'
+                },
+                {
+                    title: 'Department',
+                    url: 'department/department-list',
                     icon: 'document'
                 }
             ]
@@ -227,7 +232,7 @@ export class AdminLayoutComponent implements OnInit {
     }
 
     navigate(p,sub){
-        this.router.navigateByUrl(`en/${p.prefix}/${p.url}/${sub.url}`)
+        this.router.navigateByUrl(`en/${p.prefix}${p.url}/${sub.url}`)
     }
 
 

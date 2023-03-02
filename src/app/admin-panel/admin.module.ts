@@ -22,6 +22,9 @@ import { environment } from 'src/environments/environment';
 import { PageContentItemsFormComponent } from './page-content-items/form/page-content-items-form.component';
 import { FormsModule } from '@angular/forms';
 import { HtmlEditorModule } from '@upupa/html-editor';
+import { DepartmentComponent } from './settings/department/department-list/department.component';
+import { DepartmentFormComponent } from './settings/department/department-form/department-form.component';
+import { DepartmentPreviewComponent } from './settings/department/department-preview/department-preview.component';
 
 
 @NgModule({
@@ -36,7 +39,7 @@ import { HtmlEditorModule } from '@upupa/html-editor';
 
     ],
     declarations: [DashboardPage, VideoComponent, HtmlComponent, PdfComponent, PageContentItemsComponent,PageContentItemsFormComponent,
-    CampComponent,CampFormComponent,CampPreviewComponent],
+    CampComponent,CampFormComponent,CampPreviewComponent,DepartmentComponent,DepartmentFormComponent,DepartmentPreviewComponent],
     exports: []
 })
 export class AdminModule { }

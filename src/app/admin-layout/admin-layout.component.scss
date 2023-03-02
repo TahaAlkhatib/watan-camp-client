@@ -8,7 +8,9 @@ ion-menu ion-content {
   /* Remove background transitions for switching themes */
   ion-menu ion-item {
     --transition: none;
+    cursor: pointer;
   }
+
   
   ion-item.selected {
     --color: var(--ion-color-primary);

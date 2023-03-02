@@ -111,10 +111,9 @@ const usersOptions = {
         CommonModule,
         MembershipModule.forRoot(membershipOptions),
         // UsersModule.forRoot(usersOptions as unknown as any),
-         DataTableModule, DynamicFormModule.forRoot(), AcountsRouterModule, MaterialModulesModule
+         DataTableModule, DynamicFormModule.forRoot([]), AcountsRouterModule, MaterialModulesModule
     ],
     providers: [
-       
       ],
     declarations: [UserFormComponent, UserListComponent,RoleListComponent,RoleFormComponent],
     exports: []

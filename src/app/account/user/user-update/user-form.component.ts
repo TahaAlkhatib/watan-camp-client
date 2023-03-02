@@ -134,7 +134,7 @@ export class UserFormComponent implements OnInit {
 
             let res = await this.appService.addUserToRoles(roles, this.model)
             this.model.roles = roles
-            this.router.navigateByUrl('app/tabs/account/user-list')
+            this.router.navigateByUrl('en/account/user-list')
         }
         catch (error) {
 

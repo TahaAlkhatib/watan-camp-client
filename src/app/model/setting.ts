@@ -1,8 +1,14 @@
 
 
-export class Setting  {
+export class Settings {
     _id: string
-    
 
-    aboutUsContent:string
+    campId: string
+
+    phone: string
+    whatsapp: string
+    email: string
+
+
+    aboutUsContent: string //html
 }

@@ -74,6 +74,6 @@ export class RoleFormComponent implements OnInit {
       const res = await this.ds.post('role', model)
     }
     this.snack.openSuccess()
-    this.router.navigateByUrl('app/tabs/account/role/role-list')
+    this.router.navigateByUrl('en/account/role/role-list')
   }
 }

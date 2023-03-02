@@ -7,6 +7,9 @@ import { PageContentItemsPreviewComponent } from "./page-content-items/preview/p
 import { CampFormComponent } from "./settings/camp/camp-form/camp-form.component";
 import { CampComponent } from "./settings/camp/camp-list/camp.component";
 import { CampPreviewComponent } from "./settings/camp/camp-preview/camp-preview.component";
+import { DepartmentFormComponent } from "./settings/department/department-form/department-form.component";
+import { DepartmentComponent } from "./settings/department/department-list/department.component";
+import { DepartmentPreviewComponent } from "./settings/department/department-preview/department-preview.component";
 
 
 const routes: Route[] = [
@@ -23,6 +26,10 @@ const routes: Route[] = [
             { path: 'camp/add-camp', component: CampFormComponent },
             { path: 'camp/edit-camp/:id', component: CampFormComponent },
             { path: 'camp/preview-camp/:id', component: CampPreviewComponent },
+            { path: 'department/department-list', component: DepartmentComponent },
+            { path: 'department/add-department', component: DepartmentFormComponent },
+            { path: 'department/edit-department/:id', component: DepartmentFormComponent },
+            { path: 'department/preview-department/:id', component: DepartmentPreviewComponent }
         ]
     }
 

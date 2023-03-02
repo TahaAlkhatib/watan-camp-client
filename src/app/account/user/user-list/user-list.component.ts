@@ -61,9 +61,9 @@ export class UserListComponent implements OnInit {
                 await firstValueFrom(this.http.post(`${environment.server_base_url}/auth/adminreset`,{email:x.data[0].email, new_password:'Master123'})) 
                 break
             case 'create':
-                this.router.navigateByUrl('app/tabs/account/add-user')
+                this.router.navigateByUrl('en/account/add-user')
                 break;
-            case 'edit': this.router.navigateByUrl(`app/tabs/account/edit-user/${x.data[0]._id}`); break;
+            case 'edit': this.router.navigateByUrl(`en/account/edit-user/${x.data[0]._id}`); break;
             case 'delete':
                 const dialogData = { maxWidth: '320px', title: 'Delete', confirmText: 'Permanently' } as ConfirmOptions
                 if (await this.confirmService.openWarning(dialogData)) {

@@ -3,8 +3,7 @@ import { Injectable } from "@angular/core";
 import { AuthService } from "@upupa/auth";
 import { DataService } from "@upupa/data";
 import { BehaviorSubject, firstValueFrom } from "rxjs";
-import { User } from '@upupa/auth'
-import { Camp, ContentItems } from "../model";
+import { Camp, CampUser, ContentItems, Department, Settings } from "../model";
 import { environment } from "src/environments/environment";
 
 
@@ -12,7 +11,7 @@ import { environment } from "src/environments/environment";
 export class AppService {
 
 
-    employee: User
+    user: CampUser
 
 
     camps: Camp[]
@@ -21,16 +20,20 @@ export class AppService {
 
     currentCampId: string
 
+    settings: Settings
+
+    departments: Department[] = []
+
     constructor(private ds: DataService, private auth: AuthService, private http: HttpClient) {
 
     }
 
     async initEmployeeInfo() {
         if (!this.auth?.user) return
-        this.employee = await firstValueFrom(this.ds.get<User>(`user/${this.auth.user.sub}`))
+        this.user = await firstValueFrom(this.ds.get<CampUser>(`user/${this.auth.user.sub}`))
     }
 
-    async addUserToRoles(roles: string[], user: User) {
+    async addUserToRoles(roles: string[], user: CampUser) {
         return firstValueFrom(this.http.post(`${environment.server_base_url}/app/add-user-to-roles`, { roles, user }))
     }
 
