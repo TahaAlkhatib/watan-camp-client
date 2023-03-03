@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { CampNameService } from "../camp-name.service";
 import { Camp } from "../model";
 import { AppService } from "../providers/app.service";
 
@@ -10,7 +11,10 @@ import { AppService } from "../providers/app.service";
 })
 export class ChooseCampComponent implements OnInit {
   camps:Camp[] = [];
-  constructor(private router: Router, private appService: AppService) {}
+  constructor(private router: Router,
+     private appService: AppService,
+    private campNameService: CampNameService
+    ) {}
 
   async ngOnInit() {
     this.camps = await this.appService.getCamps();
@@ -18,6 +22,7 @@ export class ChooseCampComponent implements OnInit {
 
   setCamp(camp: string) {
     localStorage.setItem("campId", camp);
+    this.campNameService.campName$.next(camp)
     const lang = localStorage.getItem("language");
     setTimeout(() => {
       this.router.navigate([`${lang}/home`]);
