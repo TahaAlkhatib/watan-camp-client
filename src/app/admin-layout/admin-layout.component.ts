@@ -22,7 +22,7 @@ export class AdminLayoutComponent implements OnInit {
         {
             title: 'Awareness',
             url: 'contentitems/contentitems-list',
-            prefix: 'admin',
+            prefix: 'admin/',
             icon: 'calendar',
             open: false,
             children: [
@@ -232,6 +232,7 @@ export class AdminLayoutComponent implements OnInit {
     }
 
     navigate(p,sub){
+        debugger
         this.router.navigateByUrl(`en/${p.prefix}${p.url}/${sub.url}`)
     }
 
