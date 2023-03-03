@@ -22,7 +22,7 @@ import { CampNameService } from "./camp-name.service";
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
-  camp = "";
+  camp = localStorage.getItem('campId')??'';
 
   loggedIn = true; //localStorage.getItem('token')
 
