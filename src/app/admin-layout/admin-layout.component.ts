@@ -232,7 +232,6 @@ export class AdminLayoutComponent implements OnInit {
     }
 
     navigate(p,sub){
-        debugger
         this.router.navigateByUrl(`en/${p.prefix}${p.url}/${sub.url}`)
     }
 
