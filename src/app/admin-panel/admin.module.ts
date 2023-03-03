@@ -25,6 +25,7 @@ import { HtmlEditorModule } from '@upupa/html-editor';
 import { DepartmentComponent } from './settings/department/department-list/department.component';
 import { DepartmentFormComponent } from './settings/department/department-form/department-form.component';
 import { DepartmentPreviewComponent } from './settings/department/department-preview/department-preview.component';
+import { UploadModule } from '@upupa/upload';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DepartmentPreviewComponent } from './settings/department/department-pre
         CommonModule,
         FormsModule,
         TranslationModule,
-        DataTableModule, AdminRouterModule, MaterialModulesModule,DynamicFormModule,HtmlEditorModule.register('htmleditor')
+        DataTableModule, AdminRouterModule, MaterialModulesModule,DynamicFormModule,HtmlEditorModule.register('htmleditor'),        
+        UploadModule.forChild(`${environment.server_base_url}/storage`),
     ],
     providers: [
 
