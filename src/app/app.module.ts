@@ -29,6 +29,7 @@ import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.componen
 import { ChooseCampComponent } from './choose-camp/choose-camp.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { CampNameService } from './camp-name.service';
+import { NotificationService } from './notification.service';
 
 const lang = localStorage.getItem('language')
 const signinProvider: Provider = {
@@ -75,7 +76,7 @@ const verifyProvider: Provider = {
     ChooseLanuageComponent,
     ChooseCampComponent
   ],
-  providers: [InAppBrowser,CampNameService],
+  providers: [InAppBrowser,CampNameService,NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

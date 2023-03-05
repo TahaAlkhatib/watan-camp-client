@@ -2,6 +2,8 @@ import { BehaviorSubject } from "rxjs";
 
 export class CampNameService {
 
-    campName$ : BehaviorSubject<string> = new BehaviorSubject('')
+    campId = localStorage.getItem('campId')??"default"
+
+    campName$ : BehaviorSubject<string> = new BehaviorSubject(this.campId)
 
 }
