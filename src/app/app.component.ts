@@ -14,6 +14,7 @@ import { ChooseLanuageComponent } from "./choose-lanuage/choose-lanuage.componen
 import { ChooseCampComponent } from "./choose-camp/choose-camp.component";
 import { LanguageService } from "@upupa/language";
 import { CampNameService } from "./camp-name.service";
+import { NotificationService } from "./notification.service";
 
 @Component({
   selector: "app-root",
@@ -22,7 +23,7 @@ import { CampNameService } from "./camp-name.service";
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
-  camp = localStorage.getItem('campId')??'';
+  camp :string
 
   loggedIn = true; //localStorage.getItem('token')
 
@@ -60,12 +61,14 @@ export class AppComponent implements OnInit {
     private appService: AppService,
     private dialog: DialogService,
     private languageService: LanguageService,
-    private campNameService: CampNameService
+    private campNameService: CampNameService,
+    private notificationService:NotificationService
   ) {
     this.initializeApp();
   }
 
   async ngOnInit() {
+    this.camp = localStorage.getItem('campId')??'';
     this.campNameService.campName$.subscribe((camp) => {
       this.camp = camp;
     });
@@ -102,6 +105,8 @@ export class AppComponent implements OnInit {
         SplashScreen.hide();
       }
     });
+    this.notificationService.initPush()
+
   }
   ngOnDestroy(){
     this.campNameService.campName$.unsubscribe()

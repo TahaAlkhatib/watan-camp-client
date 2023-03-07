@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'ionic.conference.app',
-  appName: 'ionic-conference-app',
+  appId: 'watan.camp.app',
+  appName: 'watan-camp-app',
   webDir: 'www',
   bundledWebRuntime: false,
   plugins: {
@@ -19,6 +19,9 @@ const config: CapacitorConfig = {
       splashFullScreen: true,
       splashImmersive: true,
     },
+    PushNotifications:{
+      presentationOptions:["badge","sound","alert"]
+    }
   },
 };
 
