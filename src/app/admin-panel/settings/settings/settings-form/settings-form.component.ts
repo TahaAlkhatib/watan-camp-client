@@ -21,6 +21,7 @@ export class SettingsFormComponent implements OnInit {
     model: Settings
     formFields = {
         '_id': hiddenField('_id'),
+        'campId': selectField('campId', 'Camp', new DataAdapter(new ServerDataSource(this.ds, 'camp', ['_id', 'name']), '_id', 'name', '_id'),null,null,'outline'),
         'phone': { type: 'field', input: 'text', name: 'phone', ui: { inputs: { label: 'phone', placeholder: 'phone' } }, validations: [{ name: 'required' }] },
         'whatsapp': { type: 'field', input: 'text', name: 'whatsapp', ui: { inputs: { label: 'whatsapp', placeholder: 'whatsapp' } }, validations: [{ name: 'required' }] },
         'email': { type: 'field', input: 'text', name: 'email', ui: { inputs: { label: 'email', placeholder: 'email' } }, validations: [{ name: 'required' }] },
@@ -42,6 +43,7 @@ export class SettingsFormComponent implements OnInit {
         }
     }
     async submit() {
+        debugger
         if (this.model._id) {
             const res = await this.ds.put(`settings/${this.model._id}`, this.model)
 

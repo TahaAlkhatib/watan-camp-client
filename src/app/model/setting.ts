@@ -9,6 +9,5 @@ export class Settings {
     whatsapp: string
     email: string
 
-
     aboutUsContent: string //html
 }

@@ -33,6 +33,7 @@ import { CampNameService } from './camp-name.service';
 import { NotificationService } from './notification.service';
 import { HtmlEditorComponent } from '@upupa/html-editor';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { ProfileComponent } from './profile/profile.component';
 
 const lang = localStorage.getItem('language')
 const signinProvider: Provider = {
@@ -83,7 +84,8 @@ const htmlMapper = {
     AdminLayoutComponent,
     TabBarComponent,
     ChooseLanuageComponent,
-    ChooseCampComponent
+    ChooseCampComponent,
+    ProfileComponent
   ],
   providers: [InAppBrowser,CampNameService,NotificationService],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { ChooseCampComponent } from './choose-camp/choose-camp.component';
 import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.component';
+import { ProfileComponent } from './profile/profile.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
@@ -22,6 +23,11 @@ const routes: Routes = [
     {
         path: ':lang/sign-up',
         component: SignUpComponent
+    }
+    ,
+    {
+        path: ':lang/profile',
+        component: ProfileComponent
     }
     ,
     {
