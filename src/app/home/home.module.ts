@@ -19,6 +19,8 @@ import { ComplaintFormComponent } from "./complaints/complaint-form/complaint-fo
 import { FormsModule } from "@angular/forms";
 import { AboutComponent } from "./about/about.component";
 import { ViewContentComponent } from "./view-content/view-content.component";
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapComponent } from "./map/map.component";
 
 const materials = [MatIconModule]
 @NgModule({
@@ -27,7 +29,9 @@ const materials = [MatIconModule]
         HomeRoutingModule,
         PdfViewerModule,
         CommonModule,
-        FormsModule],
+        FormsModule,
+        GoogleMapsModule
+    ],
     declarations: [
         HomeComponent,
         AwarenessComponent,
@@ -43,7 +47,8 @@ const materials = [MatIconModule]
         ComplaintsComponent,
         ComplaintFormComponent,
         AboutComponent,
-        ViewContentComponent
+        ViewContentComponent,
+        MapComponent
     ]
 
 })

@@ -25,11 +25,14 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { DynamicFormModule } from '@upupa/dynamic-form';
 import { DynamicFormMaterialThemeModule, materialThemeComponentMapper } from '@upupa/dynamic-form-material-theme';
+
 import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.component';
 import { ChooseCampComponent } from './choose-camp/choose-camp.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { CampNameService } from './camp-name.service';
 import { NotificationService } from './notification.service';
+import { HtmlEditorComponent } from '@upupa/html-editor';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 const lang = localStorage.getItem('language')
 const signinProvider: Provider = {
@@ -42,6 +45,11 @@ const verifyProvider: Provider = {
     useFactory: (lang: LanguageService) => `/${lang?? 'en'}/account/verify`,
     deps: [LanguageService],
 };
+
+const htmlMapper = {
+    ...materialThemeComponentMapper,
+    'html': { component: HtmlEditorComponent }
+}
 
 @NgModule({
   imports: [
@@ -63,7 +71,8 @@ const verifyProvider: Provider = {
     UploadModule.forChild(`${environment.server_base_url}/storage`),
     BrowserAnimationsModule,
     PdfViewerModule,
-    DynamicFormModule.forRoot([],{'material':materialThemeComponentMapper},'material',{enableLogs:!environment.production}),DynamicFormMaterialThemeModule
+    DynamicFormModule.forRoot([],{'material':htmlMapper},'material',{enableLogs:!environment.production}),DynamicFormMaterialThemeModule,
+    GoogleMapsModule
   ],
   declarations: [
     AppComponent,

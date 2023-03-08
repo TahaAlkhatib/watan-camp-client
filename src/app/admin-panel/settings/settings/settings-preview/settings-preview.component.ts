@@ -4,25 +4,25 @@ import { SnackBarService } from '@upupa/common';
 import { DataService } from '@upupa/data';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../../../../environments/environment';
-import { Department } from '../../../../model';
+import { Settings } from '../../../../model';
 
 @Component({
-  selector: 'app-department-preview',
-  templateUrl: './department-preview.component.html',
-  styleUrls: ['./department-preview.component.css']
+  selector: 'app-settings-preview',
+  templateUrl: './settings-preview.component.html',
+  styleUrls: ['./settings-preview.component.css']
 })
-export class DepartmentPreviewComponent implements OnInit {
+export class SettingsPreviewComponent implements OnInit {
   serverUrl = environment.server_base_url
-  department: Department
+  settings: Settings
   constructor(private ds: DataService,
       public snack: SnackBarService,
       private router: Router,
       private route: ActivatedRoute) {
   }
   async ngOnInit() {
-      const departmentId = this.route.snapshot.paramMap.get('id')
-      if (departmentId) {
-          this.department = await firstValueFrom(this.ds.get<Department>(`department/${departmentId}`)) 
+      const settingsId = this.route.snapshot.paramMap.get('id')
+      if (settingsId) {
+          this.settings = await firstValueFrom(this.ds.get<Settings>(`settings/${settingsId}`)) 
       }
   }
 

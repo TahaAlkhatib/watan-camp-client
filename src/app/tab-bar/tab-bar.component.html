@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="tab-btn" (mousedown)="navTo('')">
+    <div class="tab-btn" (mousedown)="navToHome()">
         <img src="/assets/tab-icons/home.png" alt="">
     </div>
     <div class="tab-btn">
@@ -7,7 +7,7 @@
     </div><div class="tab-btn">
         <img src="/assets/tab-icons/statistics.png" alt="" (mousedown)="navTo('reports')">
     </div><div class="tab-btn">
-        <img src="/assets/tab-icons/location.png" alt="">
+        <img src="/assets/tab-icons/location.png" alt="" (mousedown)="navToMap()">
     </div><div class="tab-btn">
         <img src="/assets/tab-icons/logout.png" alt="">
     </div>

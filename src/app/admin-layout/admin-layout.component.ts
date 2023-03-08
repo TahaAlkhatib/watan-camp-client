@@ -159,6 +159,11 @@ export class AdminLayoutComponent implements OnInit {
                     title: 'Department',
                     url: 'department/department-list',
                     icon: 'document'
+                },
+                {
+                    title: 'Settings',
+                    url: 'settings/settings-list',
+                    icon: 'document'
                 }
             ]
         },

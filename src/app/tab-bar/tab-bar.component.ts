@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { LanguageService } from "@upupa/language";
 
 @Component({
     selector:'tab-bar',
@@ -8,11 +9,18 @@ import { Router } from "@angular/router";
 })
 export class TabBarComponent{
     lang = localStorage.getItem('language')
-    constructor(private router:Router){
+    constructor(private router:Router,private langService:LanguageService){
 
 
     }
     navTo(route:string){
 this.router.navigate([this.lang,'home','reports'])
+    }
+
+    navToMap(){
+        this.router.navigateByUrl(`${this.langService.language}/home/about/map`)
+    }
+    navToHome(){
+        this.router.navigateByUrl(`${this.langService.language}/home`)
     }
 }

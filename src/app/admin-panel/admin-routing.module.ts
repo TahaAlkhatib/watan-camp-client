@@ -10,6 +10,9 @@ import { CampPreviewComponent } from "./settings/camp/camp-preview/camp-preview.
 import { DepartmentFormComponent } from "./settings/department/department-form/department-form.component";
 import { DepartmentComponent } from "./settings/department/department-list/department.component";
 import { DepartmentPreviewComponent } from "./settings/department/department-preview/department-preview.component";
+import { SettingsFormComponent } from "./settings/settings/settings-form/settings-form.component";
+import { SettingsComponent } from "./settings/settings/settings-list/settings.component";
+import { SettingsPreviewComponent } from "./settings/settings/settings-preview/settings-preview.component";
 
 
 const routes: Route[] = [
@@ -29,7 +32,11 @@ const routes: Route[] = [
             { path: 'department/department-list', component: DepartmentComponent },
             { path: 'department/add-department', component: DepartmentFormComponent },
             { path: 'department/edit-department/:id', component: DepartmentFormComponent },
-            { path: 'department/preview-department/:id', component: DepartmentPreviewComponent }
+            { path: 'department/preview-department/:id', component: DepartmentPreviewComponent },
+            { path: 'settings/settings-list', component: SettingsComponent },
+            { path: 'settings/add-settings', component: SettingsFormComponent },
+            { path: 'settings/edit-settings/:id', component: SettingsFormComponent },
+            { path: 'settings/preview-settings/:id', component: SettingsPreviewComponent }
         ]
     }
 

@@ -26,6 +26,9 @@ import { DepartmentComponent } from './settings/department/department-list/depar
 import { DepartmentFormComponent } from './settings/department/department-form/department-form.component';
 import { DepartmentPreviewComponent } from './settings/department/department-preview/department-preview.component';
 import { UploadModule } from '@upupa/upload';
+import { SettingsComponent } from './settings/settings/settings-list/settings.component';
+import { SettingsFormComponent } from './settings/settings/settings-form/settings-form.component';
+import { SettingsPreviewComponent } from './settings/settings/settings-preview/settings-preview.component';
 
 
 @NgModule({
@@ -41,7 +44,8 @@ import { UploadModule } from '@upupa/upload';
 
     ],
     declarations: [DashboardPage, VideoComponent, HtmlComponent, PdfComponent, PageContentItemsComponent,PageContentItemsFormComponent,
-    CampComponent,CampFormComponent,CampPreviewComponent,DepartmentComponent,DepartmentFormComponent,DepartmentPreviewComponent],
+    CampComponent,CampFormComponent,CampPreviewComponent,DepartmentComponent,DepartmentFormComponent,DepartmentPreviewComponent,
+SettingsComponent,SettingsFormComponent,SettingsPreviewComponent],
     exports: []
 })
 export class AdminModule { }

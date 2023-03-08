@@ -8,6 +8,7 @@ import { LearningAndTrainingComponent } from './bens/learning-and-training/learn
 import { ComplaintFormComponent } from './complaints/complaint-form/complaint-form.component';
 import { ComplaintsComponent } from './complaints/complaints.component';
 import { HomeComponent } from './home.component';
+import { MapComponent } from './map/map.component';
 import { CentersComponent } from './reports/centers/centers.component';
 import { NeedsComponent } from './reports/needs/needs.component';
 import { NumberOfBensComponent } from './reports/number-of-bens/number-of-bens.component';
@@ -73,6 +74,10 @@ const routes: Routes = [
   {
     path:'about',
     component:AboutComponent
+  },
+  {
+    path:'about/map',
+    component:MapComponent
   },
   {
     path:'view-content/:section',
