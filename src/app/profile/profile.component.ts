@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { AuthService } from "@upupa/auth";
 import { LanguageService } from "@upupa/language";
 
 @Component({
@@ -8,7 +9,7 @@ import { LanguageService } from "@upupa/language";
     styleUrls: ['profile.component.scss']
 })
 export class ProfileComponent {
-    isLoggedIn:boolean= false
+    isLoggedIn: boolean = false
     avatar: string
     userName: string = 'default user'
     email: string = 'default@default.com'
@@ -17,8 +18,8 @@ export class ProfileComponent {
     role: string = "employee, ben, doner"
     dateOfBirth: Date = new Date()
     camp: string = 'default camp'
-    department:string = 'default'
-    constructor(private router: Router,private lang:LanguageService) {
+    department: string = 'default'
+    constructor(private router: Router, private lang: LanguageService, private auth: AuthService) {
 
     }
 
@@ -26,9 +27,14 @@ export class ProfileComponent {
     async ngOnInit() {
         // const token = localStorage.getItem('token')
         // if(token) this.isLoggedIn = true 
+        this.auth.user$.subscribe(u => {
+            console.log(u);
+            
+            this.isLoggedIn = u ? true : false
+        })
 
     }
-    navToSginIn(){
+    navToSginIn() {
         this.router.navigateByUrl(`${this.lang.language}/sign-in`)
     }
 
