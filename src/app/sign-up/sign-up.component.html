@@ -1,5 +1,5 @@
 <img src="/assets/general/Watan-logo.png" alt="" width="180px">
-<form autocomplete="off" #f="ngForm" (ngSubmit)="onSubmit()">
+<form autocomplete="off" #f="ngForm" (ngSubmit)="onSubmit($event)">
     <div class="select"  >
         <label>Role:</label>
         <select name="role" [(ngModel)]="form.role">
