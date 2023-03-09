@@ -10,15 +10,17 @@ import { LanguageService } from "@upupa/language";
 })
 export class ProfileComponent {
     isLoggedIn: boolean = false
-    avatar: string
-    userName: string = 'default user'
-    email: string = 'default@default.com'
-    address: string = 'default address'
-    phone: string = '+90 xxx xxx xx xx'
-    role: string = "employee, ben, doner"
-    dateOfBirth: Date = new Date()
-    camp: string = 'default camp'
-    department: string = 'default'
+    user:any = {
+        avatar: null,
+        username: 'default user',
+        email: 'default@default.com',
+        address: 'default address',
+        phone: '+90 xxx xxx xx xx',
+        role: "employee, ben, doner",
+        dateOfBirth: new Date(),
+        camp: 'default camp',
+        department: 'default',
+    }
     constructor(private router: Router, private lang: LanguageService, private auth: AuthService) {
 
     }
@@ -29,8 +31,9 @@ export class ProfileComponent {
         // if(token) this.isLoggedIn = true 
         this.auth.user$.subscribe(u => {
             console.log(u);
-            
-            this.isLoggedIn = u ? true : false
+
+            this.isLoggedIn = u ? true : false;
+            if (u) this.user = u;
         })
 
     }

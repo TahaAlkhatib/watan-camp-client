@@ -1,46 +1,46 @@
 <div class="avatar">
     <img src="/assets/img/profile/user.png" alt="">
     <div class="user-name">
-        {{isLoggedIn? userName : 'Guest'}}
+        {{isLoggedIn? user?.username??user?.name : 'Guest'}}
     </div>
 </div>
 
 <div class="info" *ngIf="isLoggedIn">
     <div class="row">
         <div class="title">E-mail:</div>
-        <div class="details">{{email}}</div>
+        <div class="details">{{user?.email}}</div>
     </div>
     <div class="row">
         <div class="title">Phone:</div>
-        <div class="details">{{phone}}</div>
+        <div class="details">{{user?.phone}}</div>
     </div>
     <div class="row">
         <div class="title">Address:</div>
-        <div class="details">{{address}}</div>
+        <div class="details">{{user?.address}}</div>
     </div>
     <div class="row">
         <div class="title">Date of birth:</div>
-        <div class="details">{{dateOfBirth}}</div>
+        <div class="details">{{user?.dateOfBirth}}</div>
     </div>
     <div class="row">
         <div class="title">Camp:</div>
-        <div class="details">{{camp}}</div>
+        <div class="details">{{user?.camp}}</div>
     </div>
     <div class="row">
         <div class="title">Role:</div>
-        <div class="details">{{role}}</div>
+        <div class="details">{{user?.role}}</div>
     </div>
     <div class="row">
         <div class="title">Department:</div>
-        <div class="details">{{department}}</div>
+        <div class="details">{{user?.department}}</div>
     </div>
 </div>
 <div class="btn-holder" *ngIf="!isLoggedIn">
-<div class="text">
-    Welcome to Watan camp  <br>
-    to see the content of this page<br>
-    <b>Please sign in!</b>
-</div>
-    <button class="btn normal-btn" (mousedown)="navToSginIn()" >Sign in</button>
+    <div class="text">
+        Welcome to Watan camp <br>
+        to see the content of this page<br>
+        <b>Please sign in!</b>
+    </div>
+    <button class="btn normal-btn" (mousedown)="navToSginIn()">Sign in</button>
 </div>
 <div class="white-space"></div>
