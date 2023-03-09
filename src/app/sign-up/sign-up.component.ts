@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { AuthService } from "@upupa/auth";
 import { SnackBarService } from "@upupa/common";
 import { DataService } from "@upupa/data";
+import { LanguageService } from "@upupa/language";
 import { AppService } from "../providers/app.service";
 
 @Component({
@@ -76,7 +77,7 @@ export class SignUpComponent implements OnInit {
           let res2: any = await this.auth.signin({ email: user.email.toLowerCase(), password: this.form.password });
           this.snack.openSuccess('signed up!!');
           await this.ds.put(`profile/${res2.sub}`, { username: this.form.email, email: this.form.email })
-          const redirectTo = '/en/home';
+          const redirectTo = `/${this.lang}/home`;
           if (redirectTo.startsWith('http://') || redirectTo.startsWith('https://')) document.location.href = redirectTo;
           else this.router.navigateByUrl(redirectTo)
       }
