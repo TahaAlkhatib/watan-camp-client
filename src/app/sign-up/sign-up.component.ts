@@ -8,10 +8,10 @@ import { AppService } from "../providers/app.service";
   styleUrls: ["sign-up.component.scss"],
 })
 export class SignUpComponent implements OnInit {
-  departments = [];
-  camps = [];
+  departments = [{ id: "default", name: "default" },{ id: "default", name: "default" }];
+  camps = [{ id: "default", name: "default" },{ id: "default", name: "default" }];
   form: {
-    selection: string;
+    role: string;
     fName: string;
     lName: string;
     phone: string;
@@ -22,7 +22,7 @@ export class SignUpComponent implements OnInit {
     password: string;
     confirmPassword: string;
   } = {
-    selection: "",
+    role: "",
     fName: "",
     lName: "",
     campId: "",
@@ -37,14 +37,15 @@ export class SignUpComponent implements OnInit {
   constructor(private router: Router, private appService: AppService) {}
 
    ngOnInit() {
-    this.departments =  this.appService.departments?.slice() ?? [
-      { id: "default", name: "default" },
-    ];
-    this.camps =  this.appService.camps?.slice() ?? [
-      { id: "default", name: "default" },
-    ];
+    // this.departments =  this.appService.departments?.slice() ?? [
+    //   { id: "default", name: "default" },
+    // ];
+    // this.camps =  this.appService.camps?.slice() ?? [
+    //   { id: "default", name: "default" },
+    // ];
   }
 
+  
   onSubmit() {
     console.log(this.form);
   }

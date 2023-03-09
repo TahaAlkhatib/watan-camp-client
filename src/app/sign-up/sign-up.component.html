@@ -1,9 +1,18 @@
-<img src="/assets/general/Watan-logo.png" alt="" width="200px">
+<img src="/assets/general/Watan-logo.png" alt="" width="180px">
 <form autocomplete="off" #f="ngForm" (ngSubmit)="onSubmit()">
-    <div class="btns selection">
-        <button class="btn" type="button" [class.selected]="form.selection === 'doner'" (mousedown)="form.selection = 'doner'">Doner</button>
-        <button class="btn" type="button" [class.selected]="form.selection === 'ben'" (mousedown)="form.selection = 'ben'">Ben</button>
-        <button class="btn" type="button" [class.selected]="form.selection === 'employee'" (mousedown)="form.selection = 'employee'">Employee</button>
+    <div class="select"  >
+        <label>Role:</label>
+        <select name="role" [(ngModel)]="form.role">
+            <option  [value]="'employee'" selection="'employee'">
+                Employee
+            </option>
+            <option  [value]="'ben'" selection="'ben'">
+                ben
+            </option>
+            <option  [value]="'doner'" selection="'doner'">
+                doner
+            </option>
+        </select>
     </div>
     <div class="input-holder block">
         <input type="text" id="FirstName" name="FirstName" onfocus="this.removeAttribute('readonly');" readonly placeholder="First name" [(ngModel)]="form.fName">
@@ -14,27 +23,27 @@
     <div class="input-holder block">
         <input type="text" id="Phone" name="Phone" onfocus="this.removeAttribute('readonly');" readonly placeholder="Phone number" [(ngModel)]="form.phone">
     </div>
-    <div class="input-holder block" *ngIf="form.selection === 'employee' || form.selection === 'ben' " >
+    <div class="input-holder block" *ngIf="form.role === 'employee' || form.role === 'ben' " >
         <input type="text" id="SerialNumber" name="SerialNumber" onfocus="this.removeAttribute('readonly');" readonly placeholder="Serial number"  [(ngModel)]="form.sn">
     </div>
 
-    <mat-form-field appearance="fill" *ngIf="form.selection === 'employee'">
-        <mat-label>Choose department</mat-label>
-        <mat-select name="campId" [(ngModel)]="form.department">
-            <mat-option *ngFor="let d of departments" [value]="d._id">
+    <div class="select" *ngIf="form.role === 'employee'">
+        <label>department:</label>
+        <select name="department" [(ngModel)]="form.department">
+            <option *ngFor="let d of departments" [value]="d._id">
                 {{d.name}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+            </option>
+        </select>
+    </div>
 
-    <mat-form-field appearance="fill" >
-        <mat-label>Choose camp</mat-label>
-        <mat-select name="campId" [(ngModel)]="form.campId">
-            <mat-option *ngFor="let c of camps" [value]="c._id" [selection]="c.name">
+    <div class="select"  >
+        <label>camp:</label>
+        <select name="campId" [(ngModel)]="form.campId">
+            <option *ngFor="let c of camps" [value]="c._id" [selection]="c.name">
                 {{c.name}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+            </option>
+        </select>
+    </div>
 
 
     <div class="input-holder block">

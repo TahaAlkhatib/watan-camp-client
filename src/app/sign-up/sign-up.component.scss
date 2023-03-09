@@ -1,26 +1,41 @@
 :host {
-  background-image: linear-gradient(
-    60deg,
-    var(--color-primary),
-    var(--color-secondry)
-  );
+  background-image: linear-gradient(60deg,
+      var(--color-primary),
+      var(--color-secondry));
   mix-blend-mode: normal;
   display: grid;
   place-content: center;
   gap: 25px;
   height: 100%;
+  justify-items: center;
 }
 
 form {
   transition: all 200ms;
+
   .selected {
     background-color: var(--color-warning);
   }
+
   .selection {
     min-width: 200px;
   }
+
+  .select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+color: white;
+    select {
+      min-width: 130px;
+      min-height: 30px;
+      border-radius: 5px;
+      color: var(--color-primary);
+    }
+  }
+
   display: grid;
-  gap: 10px;
+  gap: 8px;
   place-content: center;
 
   .btn {
@@ -30,6 +45,9 @@ form {
 
   .input-holder {
     background: white;
+    input{
+      min-width: 250px;
+    }
   }
 
   .btns {
@@ -39,26 +57,32 @@ form {
     align-items: center;
   }
 }
+
 .external-login {
   display: grid;
   gap: 10px;
 }
+
 p {
   color: var(--color-secondry);
   text-align: center;
   margin: 0;
 }
+
 ::ng-deep mat-form-field {
   .mat-mdc-text-field-wrapper {
     border-radius: 15px !important;
     max-height: 40px;
+
     .mat-mdc-form-field-flex {
       max-height: 40px;
+
       .mat-mdc-form-field-infix {
         padding-top: 20px;
         padding-bottom: 0px;
         max-height: 40px;
         min-height: 40px;
+
         .mat-mdc-floating-label {
           top: auto;
           max-height: 40px;
@@ -66,7 +90,12 @@ p {
       }
     }
   }
+
   .mat-mdc-form-field-subscript-wrapper {
     display: none;
   }
+}
+select:focus-visible{
+  outline: 0;
+  border: 0;
 }
