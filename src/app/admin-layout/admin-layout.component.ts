@@ -245,6 +245,7 @@ export class AdminLayoutComponent implements OnInit {
 
     logout() {
         this.auth.signout();
+        window.location.reload()
     }
 
 
