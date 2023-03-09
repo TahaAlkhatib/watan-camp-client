@@ -23,4 +23,8 @@ this.router.navigate([this.lang,'home','reports'])
     navToHome(){
         this.router.navigateByUrl(`${this.langService.language}/home`)
     }
+    navToProfile(){
+        this.router.navigateByUrl(`${this.langService.language}/profile`)
+
+    }
 }
