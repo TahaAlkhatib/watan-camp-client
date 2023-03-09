@@ -5,6 +5,7 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { ChooseCampComponent } from './choose-camp/choose-camp.component';
 import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RegisterAdminComponent } from './register-admin/register-admin.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
@@ -44,6 +45,7 @@ const routes: Routes = [
         path: ':lang/choose-camp',
         component:ChooseCampComponent
     },
+    { path: ':lang/account/register-admin', component: RegisterAdminComponent },
     {
         path: ':lang/account',
         component: AdminLayoutComponent,
