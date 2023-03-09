@@ -20,10 +20,10 @@ export class MapComponent {
     //     );
   }
 
-  center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
-  zoom = 4;
+  center: google.maps.LatLngLiteral = {lat: 41, lng: 29};
+  zoom = 10;
   markerOptions: google.maps.MarkerOptions = {draggable: false};
-  markerPositions: google.maps.LatLngLiteral[] = [{lat:24,lng:12}];
+  markerPositions: google.maps.LatLngLiteral[] = [{lat:41,lng:29}];
 
   addMarker(event: google.maps.MapMouseEvent) {
     // this.markerPositions.push(event.latLng.toJSON());
