@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '@upupa/auth';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { ChooseCampComponent } from './choose-camp/choose-camp.component';
 import { ChooseLanuageComponent } from './choose-lanuage/choose-lanuage.component';
@@ -46,6 +47,7 @@ const routes: Routes = [
     {
         path: ':lang/account',
         component: AdminLayoutComponent,
+        canActivate: [AuthGuard],
         loadChildren: () => import('./account/account.module').then(m => m.AccountsModule)
     },
     {
@@ -56,6 +58,7 @@ const routes: Routes = [
     {
         path: ':lang/admin',
         component: AdminLayoutComponent,
+        canActivate: [AuthGuard],
         loadChildren: () => import('./admin-panel/admin.module').then(m => m.AdminModule)
     },
 ];

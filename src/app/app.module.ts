@@ -38,12 +38,12 @@ import { ProfileComponent } from './profile/profile.component';
 const lang = localStorage.getItem('language')
 const signinProvider: Provider = {
     provide: DEFAULT_LOGIN,
-    useFactory: (lang: LanguageService) => `/${lang?? 'en'}/account/signin`,
+    useFactory: (lang: LanguageService) => `/${lang.language?? 'en'}/sign-in`,
     deps: [LanguageService],
 };
 const verifyProvider: Provider = {
     provide: DEFAULT_VERIFY,
-    useFactory: (lang: LanguageService) => `/${lang?? 'en'}/account/verify`,
+    useFactory: (lang: LanguageService) => `/${lang.language?? 'en'}/verify`,
     deps: [LanguageService],
 };
 

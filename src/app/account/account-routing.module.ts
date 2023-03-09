@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
 import { LoginComponent, SignUpComponent } from "@upupa/membership";
+import { RegisterAdminComponent } from "./register-admin/register-admin.component";
 import { RoleFormComponent } from "./roles/role-form/role-form.component";
 import { RoleListComponent } from "./roles/role-list/role-list.component";
 import { UserListComponent } from "./user/user-list/user-list.component";
@@ -17,6 +18,7 @@ const routes: Route[] = [
     { path: 'role/edit-role/:id', component: RoleFormComponent },
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignUpComponent },
+    { path: 'register-admin', component: RegisterAdminComponent }
 ]
 
 

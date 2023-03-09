@@ -13,6 +13,7 @@ import { RoleListComponent } from './roles/role-list/role-list.component';
 import { RoleFormComponent } from './roles/role-form/role-form.component';
 import { IonicModule } from '@ionic/angular';
 import { AcountsRouterModule } from './account-routing.module';
+import { RegisterAdminComponent } from './register-admin/register-admin.component';
 
 
 const loginOptions = {
@@ -115,7 +116,7 @@ const usersOptions = {
     ],
     providers: [
       ],
-    declarations: [UserFormComponent, UserListComponent,RoleListComponent,RoleFormComponent],
+    declarations: [UserFormComponent, UserListComponent,RoleListComponent,RoleFormComponent,RegisterAdminComponent],
     exports: []
 })
 export class AccountsModule { }
