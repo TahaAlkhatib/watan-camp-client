@@ -37,7 +37,7 @@ export class UserFormComponent implements OnInit {
 
     formFields = {
         '_id': hiddenField('_id'),
-        'name': textField('name', 'Name', undefined, undefined,'outline', [{ name: 'required' }]),
+        'name': textField('name', 'Name', undefined, undefined, 'outline', [{ name: 'required' }]),
         'email': { type: 'field', input: 'email', name: 'email', ui: { inputs: { label: 'Email', placeholder: 'Use a valid email' } }, validations: [{ name: 'required' }] },
         'password': { type: 'field', input: 'text', name: 'password', ui: { inputs: { label: 'Password', type: 'password', placeholder: 'Password', passwordStrength: null } }, validations: [{ name: 'required' }] },
         'department': selectField('department', 'Department', this.depAdapter(this.ds, ""), null, null, 'outline', 1, [{ name: 'required' }]),
@@ -47,12 +47,12 @@ export class UserFormComponent implements OnInit {
     async ngOnInit() {
         const userId = this.route.snapshot.paramMap.get('id')
         if (userId) {
-            this.model = await firstValueFrom(this.ds.get<CampUser>(`user/${userId}`))          
+            this.model = await firstValueFrom(this.ds.get<CampUser>(`user/${userId}`))
         }
     }
 
 
-    
+
 
 
     formchange() {
@@ -84,7 +84,7 @@ export class UserFormComponent implements OnInit {
                 let res = await this.auth.signup(value, this.model.password);
                 // let res2 = await this.auth.signin({ email: user.email, password: this.model.password });
 
-
+                this.model._id = res._id
 
 
             }
@@ -97,7 +97,7 @@ export class UserFormComponent implements OnInit {
             console.error(error)
             if (error.status == 500) {
                 const e = error.json ? error.json() : error.body;
-                
+
                 if (e?.message && e?.message.indexOf("duplicate key") > -1) {
                     if (e.message.indexOf("index: email") > -1) this.snack.openFailed('duplicate-email');
                     else if (e.message.indexOf("index: username") > -1) this.snack.openFailed('duplicate-username');
@@ -120,6 +120,4 @@ export class UserFormComponent implements OnInit {
     goBack() {
         window.history.back()
     }
-
-
 }

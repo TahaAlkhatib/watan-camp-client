@@ -21,6 +21,7 @@ import { AboutComponent } from "./about/about.component";
 import { ViewContentComponent } from "./view-content/view-content.component";
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapComponent } from "./map/map.component";
+import { LanguageModule, TranslationModule } from "@upupa/language";
 
 const materials = [MatIconModule]
 @NgModule({
@@ -30,7 +31,9 @@ const materials = [MatIconModule]
         PdfViewerModule,
         CommonModule,
         FormsModule,
-        GoogleMapsModule
+        GoogleMapsModule,
+        LanguageModule,
+        TranslationModule
     ],
     declarations: [
         HomeComponent,
