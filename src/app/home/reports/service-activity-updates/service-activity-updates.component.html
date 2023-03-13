@@ -1,10 +1,10 @@
 <div class="header">
-    <h1>Services/Activities updates</h1>
+    <h1>{{'Services/Activities updates'|text}}</h1>
 
 </div>
 <div class="wrappar">
     <div class="card" *ngFor="let item of data">
-        <div class="title">sector: {{item.sector}}</div>
+        <div class="title">{{'sector' | text}}: {{item.sector}}</div>
         <div class="details" *ngFor="let activity of item.activities">
             <!-- <div class="line">
                 <div class="left">Service/activity:</div>
@@ -15,8 +15,8 @@
                 <div class="right"> &nbsp;{{activity.update}}</div>
             </div> -->
             <div class="line">
-                <div class="left">{{activity.name}}:</div>
-                <div class="right {{activity.update}}"> &nbsp;{{activity.update}}</div>
+                <div class="left">{{activity.name | text}}:</div>
+                <div class="right {{activity.update}}"> &nbsp;{{activity.update | text}}</div>
             </div>
         </div>
     </div>

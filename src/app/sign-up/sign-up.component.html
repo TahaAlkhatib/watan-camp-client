@@ -1,64 +1,64 @@
 <img src="/assets/general/Watan-logo.png" alt="" width="180px">
 <form autocomplete="off" #f="ngForm" (ngSubmit)="onSubmit($event)">
     <div class="select"  >
-        <label>Role:</label>
+        <label>{{'Role'|text}}:</label>
         <select name="role" [(ngModel)]="form.role">
             <option  [value]="'employee'" selection="'employee'">
-                Employee
+                {{'Employee'|text}}
             </option>
             <option  [value]="'ben'" selection="'ben'">
-                ben
+                {{'ben'|text}}
             </option>
             <option  [value]="'doner'" selection="'doner'">
-                doner
+                {{'doner'|text}}
             </option>
         </select>
     </div>
     <div class="input-holder block">
-        <input type="text" id="FirstName" name="FirstName" onfocus="this.removeAttribute('readonly');" readonly placeholder="First name" [(ngModel)]="form.fName">
+        <input type="text" id="FirstName" name="FirstName" onfocus="this.removeAttribute('readonly');" readonly placeholder="{{'First name'|text}}" [(ngModel)]="form.fName">
     </div>
     <div class="input-holder block">
-        <input type="text" id="LastName" name="LastName" onfocus="this.removeAttribute('readonly');" readonly placeholder="Last name" [(ngModel)]="form.lName">
+        <input type="text" id="LastName" name="LastName" onfocus="this.removeAttribute('readonly');" readonly placeholder="{{'Last name'| text}}" [(ngModel)]="form.lName">
     </div>
     <div class="input-holder block">
-        <input type="text" id="Phone" name="Phone" onfocus="this.removeAttribute('readonly');" readonly placeholder="Phone number" [(ngModel)]="form.phone">
+        <input type="text" id="Phone" name="Phone" onfocus="this.removeAttribute('readonly');" readonly placeholder="{{'Phone number'|text}}" [(ngModel)]="form.phone">
     </div>
     <div class="input-holder block" *ngIf="form.role === 'employee' || form.role === 'ben' " >
-        <input type="text" id="SerialNumber" name="SerialNumber" onfocus="this.removeAttribute('readonly');" readonly placeholder="Serial number"  [(ngModel)]="form.sn">
+        <input type="text" id="SerialNumber" name="SerialNumber" onfocus="this.removeAttribute('readonly');" readonly placeholder="{{'Serial number'|text}}"  [(ngModel)]="form.sn">
     </div>
 
     <div class="select" *ngIf="form.role === 'employee'">
-        <label>department:</label>
+        <label>{{'department'|text}}:</label>
         <select name="department" [(ngModel)]="form.department">
             <option *ngFor="let d of departments" [value]="d._id">
-                {{d.name}}
+                {{d.name | text}}
             </option>
         </select>
     </div>
 
     <div class="select"  >
-        <label>camp:</label>
+        <label>{{'camp'|text}}:</label>
         <select name="campId" [(ngModel)]="form.campId">
             <option *ngFor="let c of camps" [value]="c._id" [selection]="c.name">
-                {{c.name}}
+                {{c.name | text}}
             </option>
         </select>
     </div>
 
 
     <div class="input-holder block">
-        <input type="email" id="email" name="email" onfocus="this.removeAttribute('readonly');" readonly placeholder="Email" [(ngModel)]="form.email">
+        <input type="email" id="email" name="email" onfocus="this.removeAttribute('readonly');" readonly placeholder="{{'Email'|text}}" [(ngModel)]="form.email">
     </div>
     <div class="input-holder block">
-        <input type="password" id="password" name="password" onfocus="this.removeAttribute('readonly');" readonly placeholder="password" [(ngModel)]="form.password">
+        <input type="password" id="password" name="password" onfocus="this.removeAttribute('readonly');" readonly placeholder="{{'password'|text}}" [(ngModel)]="form.password">
     </div>
     <div class="input-holder block">
-        <input type="password" id="ConfirmPassword" name="ConfirmPassword" onfocus="this.removeAttribute('readonly');" readonly placeholder="Consfirm password" [(ngModel)]="form.confirmPassword">
+        <input type="password" id="ConfirmPassword" name="ConfirmPassword" onfocus="this.removeAttribute('readonly');" readonly placeholder="{{'Consfirm password'|text}}" [(ngModel)]="form.confirmPassword">
     </div>
 <div class="btns">
-    <button class="btn" type="button" (mousedown)="f.resetForm()">Reset</button>
-    <button class="btn" type="button" (mousedown)="navTo('sign-in')">back</button>
-    <button class="btn" type="submit">Sign up</button>
+    <button class="btn" type="button" (mousedown)="f.resetForm()">{{'Reset'|text}}</button>
+    <button class="btn" type="button" (mousedown)="navTo('sign-in')">{{'back'|text}}</button>
+    <button class="btn" type="submit">{{'Sign up'|text}}</button>
 </div>
 </form>
 

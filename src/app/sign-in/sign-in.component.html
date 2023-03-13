@@ -1,15 +1,15 @@
 <img src="/assets/general/Watan-logo.png" alt="" width="200px">
 <form autocomplete="off" (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="input-holder block">
-        <input type="text" id="userName" name="userName" onfocus="this.removeAttribute('readonly');" readonly   placeholder="User name" [(ngModel)]="userName">
+        <input type="text" id="userName" name="userName" onfocus="this.removeAttribute('readonly');" readonly   placeholder="{{'User name'| text}}" [(ngModel)]="userName">
     </div>
     <div class="input-holder block">
-        <input type="password" id="password" name="password" onfocus="this.removeAttribute('readonly');" readonly  placeholder="password" [(ngModel)]="password">
+        <input type="password" id="password" name="password" onfocus="this.removeAttribute('readonly');" readonly  placeholder="{{'password'|text}}" [(ngModel)]="password">
     </div>
 <div class="btns">
-    <a href="#">forgetpassword</a>
-    <button class="btn" type="submit">Sign in</button>
+    <a href="#">{{'forget password'|text}}</a>
+    <button class="btn" type="submit">{{'Sign in'|text}}</button>
 </div>
 </form>
-<p>You don't have an account?</p>
-<button class="btn" (mousedown)="navTo('sign-up')">Sign up now!</button>
+<p>{{"You don't have an account?"| text}}</p>
+<button class="btn" (mousedown)="navTo('sign-up')">{{'Sign up now'|text}}!</button>

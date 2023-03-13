@@ -1,6 +1,6 @@
 <div class="header">
     <img src="/assets/icons/complaint.png" alt="">
-    <div class="title">Complaints</div>
+    <div class="title">{{'Complaints'|text}}</div>
     <button class="back" (click)="back()">
         <mat-icon>
             keyboard_backspace
@@ -8,23 +8,23 @@
     </button>
 </div>
 <div class="container">
-    <h1>Fill a complaint</h1>
+    <h1>{{'Fill a complaint' | text}}</h1>
     <div class="btns">
         <a href="tel:+90-531-738-1053" class="normal-btn">
             <img class="icon" src="/assets/icons/telephone.png" alt="">
-            <div class="text">Call</div>
+            <div class="text">{{'Call'|text}}</div>
         </a>
         <a href="mailto:test@test.com" class="normal-btn">
             <img class="icon" src="/assets/icons/email.png" alt="">
-            <div class="text">Email</div>
+            <div class="text">{{'Email'|text}}</div>
         </a>
         <button class="normal-btn" (mousedown)="navTo('complaint-form')">
             <img class="icon" src="/assets/icons/complaint.png" alt="">
-            <div class="text">Complaint form</div>
+            <div class="text">{{'Complaint form'text}}</div>
         </button>
         <a href="whatsapp://send?phone=+905317381053" class="normal-btn">
             <img class="icon" src="/assets/icons/whatsapp.png" alt="">
-            <div class="text">whatsapp</div>
+            <div class="text">{{'whatsapp'|text}}</div>
             
         </a>
     </div>

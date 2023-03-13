@@ -1,6 +1,6 @@
 <div class="header">
     <img src="/assets/icons/complaint.png" alt="">
-    <div class="title">Complaints</div>
+    <div class="title">{{'Complaints'|text}}</div>
     <button class="back" (click)="back()">
         <mat-icon>
             keyboard_backspace
@@ -8,18 +8,18 @@
     </button>
 </div>
 <div class="container">
-    <h1>Complaint form</h1>
+    <h1>{{'Complaint form'|text}}</h1>
     <form class="form" (ngSubmit)="onSubmit()"  #f="ngForm">
-      <label for="fullName">Full name:</label>
+      <label for="fullName">{{'Full name'|text}}:</label>
       <input type="text" id="fullName" name="fullName" [(ngModel)]="complaint.fullName" required>
-      <label for="email">Email:</label>
+      <label for="email">{{'Email'|text}}:</label>
       <input type="email" id="email" name="email" [(ngModel)]="complaint.email" required>
-      <label for="phone">Phone:</label>
+      <label for="phone">{{'Phone'|text}}:</label>
       <input type="phone" id="phone" name="phone" [(ngModel)]="complaint.phone" required>
-      <label for="complaintSubject">Complaint subject:</label>
+      <label for="complaintSubject">{{'Complaint subject'|text}}:</label>
       <input type="text" id="complaintSubject" name="complaintSubject" [(ngModel)]="complaint.subject" required>
       <textarea name="complaint" id="complaint" cols="30" rows="7" [(ngModel)]="complaint.complaint" required></textarea>
-      <button class="btn btn-accept" type="submit" [disabled]="!f.form.valid">Send complaint</button>
+      <button class="btn btn-accept" type="submit" [disabled]="!f.form.valid">{{'Send complaint'|text}}</button>
     </form>
 </div>
 <div class="white-space"></div>
