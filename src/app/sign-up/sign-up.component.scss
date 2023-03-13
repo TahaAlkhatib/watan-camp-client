@@ -1,7 +1,5 @@
 :host {
-  background-image: linear-gradient(60deg,
-      var(--color-primary),
-      var(--color-secondry));
+  background: linear-gradient(115deg,#00375F, #00569D);
   mix-blend-mode: normal;
   display: grid;
   place-content: center;
@@ -27,7 +25,7 @@ form {
     align-items: center;
 color: white;
     select {
-      min-width: 130px;
+      min-width: 168px;
       min-height: 30px;
       border-radius: 5px;
       color: var(--color-primary);
@@ -41,6 +39,8 @@ color: white;
   .btn {
     font-weight: bold;
     max-width: 65px;
+    background-color: #FFFFFF;
+    color: var(--color-primary);
   }
 
   .input-holder {
@@ -99,3 +99,5 @@ select:focus-visible{
   outline: 0;
   border: 0;
 }
+
+

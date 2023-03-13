@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 export class ReportsComponent {
     manuals = [
         { name: "Provide multi-sectoral assistance project", url: "provide-multi-sectoral-assistant-project" },
-        { name: "Number of benenficires ", url: "number-of-bens" },
+        { name: "Number of benenficires", url: "number-of-bens" },
         {
             name: 'Centers of services', url: "centers"
         },
@@ -17,7 +17,7 @@ export class ReportsComponent {
             name: "Services/activities update", url: "service-activity-updates",
         },
         {
-            name: "Needs ", url: "needs", 
+            name: "Needs", url: "needs", 
         },
     ]
 

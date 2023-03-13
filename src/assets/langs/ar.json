@@ -1,5 +1,8 @@
 {
     "centers of Services": "مراكز الخدمة",
+    "Centers of Services": "مراكز الخدمة",
+    "Centers of services": "مراكز الخدمة",
+
     "sector": "القطاع",
     "Center": "المركز",
     "Governorate": "المحافظة",
@@ -18,14 +21,21 @@
     "pwd": "",
     "individual": "المجموع",
     "Provide multi sectoral assistance project": "تقديم مشروع مساعدة متعدد القطاعات",
+    "Provide multi-sectoral assistance project": "تقديم مشروع مساعدة متعدد القطاعات",
     "governorate": "المحافظة",
     "district": "المقاطعة",
     "subsdistrict": "المقاطعة الفرعية",
     "community": "المجتمع",
     "site": "الموقع",
     "Services/Activities updates": "تحديثات الخدمات/النشاطات", 
+    "Services/activities updates": "تحديثات الخدمات/النشاطات", 
+    "Services/activities update": "تحديثات الخدمات/النشاطات", 
+
+
     "Awareness": "التوعية",
     "Bens": "المستفيدون",
+    "BENs": "المستفيدون",
+
     "Reports": "التقارير",
     "Complaints": "الشكاوي",
     "About Watan": "حول وطن",
@@ -78,6 +88,7 @@
 
     "back":"للخلف",
 
-    "Sign up":"تسجيل"
+    "Sign up":"تسجيل",
+    "camp":"المخيم"
 
 }
