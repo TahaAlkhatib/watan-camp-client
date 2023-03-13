@@ -1,9 +1,10 @@
 :host {
-    background: linear-gradient(107deg,var(--color-primary), var(--color-secondry));
+    background: linear-gradient(280deg,#00375F, #00569D);
     mix-blend-mode: normal;
     display: grid;
     gap: 25px;
     width: 100vw;
+    padding-top: 20px;
     justify-items: center;
     animation: background-rotation 2s infinite;
     transition: all 0.2;
@@ -24,11 +25,30 @@
     100% {
     }
 }
+.back{
+    height: 50px;
+    width: 50px;
+    background-color: #F0F1F1;
+    border-radius: 50%;
+    position: absolute;
+    border: 1px solid gray;
+    top: 185px;
+    left: 15px;
+    font-size: 0.6em !important;
+    color: var(--color-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 7px rgb(46, 46, 46);
+    transition: all 0.2s;
+    &:hover{
+        transform: scale(1.1);
 
+    }
+}
 .main-content {
     width: 100vw;
     overflow: auto;
-    height: calc(100vh - 200px);
     padding: 20px;
     display: flex;
     gap: 20px;

@@ -4,8 +4,8 @@
     justify-content: flex-start;
     align-items: center;
     font-size: 2em;
-    background: linear-gradient(107deg,var(--color-primary), var(--color-secondry));
-color: var(--color-light);
+    background: #DEDEE4;
+color: var(--color-primary);
 }
 
 .header {
@@ -27,7 +27,7 @@ color: var(--color-light);
     background-color: var(--color-secondry);
     border-radius: 50%;
     position: absolute;
-    top: 145px;
+    top: 136px;
     left: 5px;
     font-size: 0.6em !important;
     color: var(--color-light);
@@ -45,7 +45,7 @@ color: var(--color-light);
     }
 }
 .btns {
-    box-shadow: 0 -1px 5px var(--color-primary);
+box-shadow: 0 -1px 5px #a1a1a1;
     width: 100%;
     display: flex;
     height: calc(100vh  - 150px);

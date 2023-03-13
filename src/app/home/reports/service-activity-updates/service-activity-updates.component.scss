@@ -4,8 +4,8 @@
     justify-content: flex-start;
     align-items: center;
     font-size: 2em;
-    color: var(--color-light);
-    background: linear-gradient(107deg, var(--color-primary), var(--color-secondry));
+    color: var(--color-primary);
+    background: #DEDEE4;
 
 }
 
@@ -36,6 +36,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    box-shadow: 0 -1px 5px #a1a1a1;
 
     .card {
         width: 100%;
