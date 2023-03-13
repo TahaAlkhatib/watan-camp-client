@@ -1,15 +1,15 @@
 <div class="header">
-<h1>Needs</h1>
+<h1>{{'Needs' | text}}</h1>
     
 </div>
 <div class="wrappar">
     <div class="details" *ngFor="let item of data">
         <div class="line">
-            <div class="sector">{{item.sector}}</div>
+            <div class="sector">{{item.sector | text}}</div>
             <div class="right"> 
                 <ul>
                     <li *ngFor="let n of item.needs">
-                        {{n}}
+                        {{n | text}}
                     </li>
                 </ul>
             </div>

@@ -1,33 +1,33 @@
 <div class="header">
-    <h1>centers of Services</h1>
+    <h1>{{'centers of Services'| text}}</h1>
 
 </div>
 <div class="wrappar">
     <div class="card" *ngFor="let item of data">
-        <div class="title">sector: {{item.sector}}</div>
+        <div class="title">{{'sector'| text}}: {{item.sector | text}}</div>
         <div class="details" *ngFor="let center of item.centers">
             <div class="line">
-                <div class="left">Center:</div>
-                <div class="right"> &nbsp;{{center.name}}</div>
+                <div class="left">{{'Center' | text}}:</div>
+                <div class="right"> &nbsp;{{center.name | text}}</div>
             </div>
             <div class="line">
-                <div class="left">Governorate:</div>
-                <div class="right"> &nbsp;{{center.governorate}}</div>
+                <div class="left">{{'Governorate' |text}}:</div>
+                <div class="right"> &nbsp;{{center.governorate | text}}</div>
             </div>
             <div class="line">
-                <div class="left">District:</div>
-                <div class="right"> &nbsp;{{center.district}}</div>
+                <div class="left">{{'District' | text}}:</div>
+                <div class="right"> &nbsp;{{center.district | text}}</div>
             </div>
             <div class="line">
-                <div class="left">SubsDistrict:</div>
-                <div class="right"> &nbsp;{{center.subsDistrict}}</div>
+                <div class="left">{{'SubsDistrict' | text}}:</div>
+                <div class="right"> &nbsp;{{center.subsDistrict | text}}</div>
             </div>
             <div class="line">
-                <div class="left">Community:</div>
-                <div class="right"> &nbsp;{{center.community}}</div>
+                <div class="left">{{'Community' |text}}:</div>
+                <div class="right"> &nbsp;{{center.community | text}}</div>
             </div><div class="line">
-                <div class="left">Bakery:</div>
-                <div class="right"> &nbsp;{{center.bakery}}</div>
+                <div class="left">{{'Bakery'| text}}:</div>
+                <div class="right"> &nbsp;{{center.bakery | text}}</div>
             </div>
         </div>
     </div>

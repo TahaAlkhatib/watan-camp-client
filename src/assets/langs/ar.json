@@ -1,4 +1,32 @@
 {
+    "centers of Services":"مراكز الخدمة",
+    "sector":"القطاع",
+    "Center":"المركز",
+    "Governorate":"المحافظة",
+    "District":"المنطقة",
+    "SubsDistrict":"المنطقة الفرعية",
+    "Community":"المجتمع",
+    "Bakery":"المخبز",
+
+    "Needs":"الاحتياجات",
+
+"Number of benenficires":"عدد المستفيدون",
+
+"ofTent":"",
+"HHs":"",
+"men":"الرجال",
+"women":"النساء",
+"boys":"الاولاد",
+"girls":"البنات",
+"pwd":"",
+"individual":"المجموع",
+
+
+
     "Awareness":"التوعية",
-    "Reports":"التقارير"
+    "Bens":"المستفيدون",
+    "Reports":"التقارير",
+    "Complaints":"الشكاوي",
+    "About Watan":"حول وطن"
+
 }
