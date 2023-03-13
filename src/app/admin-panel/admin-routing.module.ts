@@ -1,5 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
+import { ComplaintListComponent } from "./complaint/complaint-list/complaint.component";
+import { ComplaintPreviewComponent } from "./complaint/complaint-preview/complaint-preview.component";
 import { DashboardPage } from "./dashboard/dashboard-page";
 import { PageContentItemsFormComponent } from "./page-content-items/form/page-content-items-form.component";
 import { PageContentItemsComponent } from "./page-content-items/list/page-content-items.component";
@@ -22,6 +24,9 @@ const routes: Route[] = [
     { path: 'contentitems/add-contentitems/:section', component: PageContentItemsFormComponent },
     { path: 'contentitems/edit-contentitems/:section/:id', component: PageContentItemsFormComponent },
     { path: 'contentitems/preview-contentitems/:section/:id', component: PageContentItemsPreviewComponent },
+    
+    { path: 'complaint/complaint-list', component: ComplaintListComponent },
+    { path: 'complaint/preview-complaint/:id', component: ComplaintPreviewComponent },
     {
         path: 'settings', children: [
             { path: '', redirectTo: 'general', pathMatch: 'full' },

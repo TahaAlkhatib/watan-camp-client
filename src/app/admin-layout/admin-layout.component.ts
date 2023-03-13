@@ -240,6 +240,10 @@ export class AdminLayoutComponent implements OnInit {
         this.router.navigateByUrl(`en/${p.prefix}${p.url}/${sub.url}`)
     }
 
+    goToComplaints(){
+        this.router.navigateByUrl(`en/admin/complaint/complaint-list`)
+    }
+
 
 
 

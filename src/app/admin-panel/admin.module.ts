@@ -29,6 +29,8 @@ import { UploadModule } from '@upupa/upload';
 import { SettingsComponent } from './settings/settings/settings-list/settings.component';
 import { SettingsFormComponent } from './settings/settings/settings-form/settings-form.component';
 import { SettingsPreviewComponent } from './settings/settings/settings-preview/settings-preview.component';
+import { ComplaintListComponent } from './complaint/complaint-list/complaint.component';
+import { ComplaintPreviewComponent } from './complaint/complaint-preview/complaint-preview.component';
 
 
 @NgModule({
@@ -45,7 +47,7 @@ import { SettingsPreviewComponent } from './settings/settings/settings-preview/s
     ],
     declarations: [DashboardPage, VideoComponent, HtmlComponent, PdfComponent, PageContentItemsComponent,PageContentItemsFormComponent,
     CampComponent,CampFormComponent,CampPreviewComponent,DepartmentComponent,DepartmentFormComponent,DepartmentPreviewComponent,
-SettingsComponent,SettingsFormComponent,SettingsPreviewComponent],
+SettingsComponent,SettingsFormComponent,SettingsPreviewComponent,ComplaintListComponent,ComplaintPreviewComponent],
     exports: []
 })
 export class AdminModule { }

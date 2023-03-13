@@ -7,6 +7,7 @@ export * from './content-items'
 export * from './camp'
 export * from './department'
 export * from './setting'
+export * from './complaint'
 
 export const DepartmentManagerRole = 'dep-manager'
 export const ManagementRole = 'manager'
