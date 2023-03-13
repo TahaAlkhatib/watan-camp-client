@@ -1,13 +1,14 @@
 :host {
-  background: linear-gradient(115deg,#00375F, #00569D);
+  background: linear-gradient(115deg, #00375F, #00569D);
   mix-blend-mode: normal;
-  display: grid;
-  place-content: center;
+  display: flex;
+  /* place-content: center; */
   gap: 25px;
   height: 100%;
-  justify-items: center;
+  /* justify-items: center; */
+  align-items: center;
+  justify-content: center;
 }
-
 form {
   transition: all 200ms;
 
@@ -37,8 +38,8 @@ color: white;
   place-content: center;
 
   .btn {
+    margin-top: 10px;
     font-weight: bold;
-    max-width: 65px;
     background-color: #FFFFFF;
     color: var(--color-primary);
   }
@@ -52,15 +53,19 @@ color: white;
 
   .btns {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    justify-content: space-between;
     align-items: center;
+    button{
+      width: 100%;
+    }
   }
 }
 
 .external-login {
   display: grid;
   gap: 10px;
+
 }
 
 p {

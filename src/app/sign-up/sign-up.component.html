@@ -2,7 +2,7 @@
 <form autocomplete="off" #f="ngForm" (ngSubmit)="onSubmit($event)">
     
     <div class="select"  >
-        <label>{{'Role'|text}}:</label>
+        <label>{{'Account type'|text}}:</label>
         <select name="role" [(ngModel)]="form.role">
             <option  [value]="'employee'" selection="'employee'">
                 {{'Employee'|text}}
@@ -56,10 +56,7 @@
     <div class="input-holder block">
         <input type="password" id="ConfirmPassword" name="ConfirmPassword" onfocus="this.removeAttribute('readonly');" readonly placeholder="{{'Consfirm password'|text}}" [(ngModel)]="form.confirmPassword">
     </div>
-<div class="btns">
-    <button class="btn" type="button" (mousedown)="f.resetForm()">{{'Reset'|text}}</button>
-    <button class="btn" type="button" (mousedown)="navTo('sign-in')">{{'back'|text}}</button>
     <button class="btn" type="submit">{{'Sign up'|text}}</button>
-</div>
+    <button class="btn" type="button" (mousedown)="navTo('sign-in')">{{'back'|text}}</button>
 </form>
 

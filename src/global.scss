@@ -250,3 +250,30 @@ display: grid;
     font-weight: bolder;
   }
 }
+
+
+.html {
+  
+  width: 100%;
+  color: var(--color-primary);
+  padding: 10px;
+  .content {
+    
+   
+      
+      strong {
+        color: var(--color-secondry);
+      }
+    
+    p {
+      color: var(--color-primary);
+      strong {
+        color: var(--color-primary);
+      }
+    }
+    h1{
+      font-size: 2em;
+      color: var(--color-secondry);
+    }
+  }
+}

@@ -70,13 +70,14 @@
       width: 95%;
       font-size: 0.8em;
       align-items: center;
-      background-color: #dedee4;
+      background-color: #f9f9f9;
       border-radius: 20px;
+      border: 1px solid gray;
       a {
         text-decoration: none;
       }
       img{
-        max-width: 30px;
+        max-width: 60px;
       }
     }
 

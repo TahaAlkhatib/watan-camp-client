@@ -13,6 +13,9 @@ form {
   place-content: center;
   .input-holder {
     background-color: white;
+    input{
+      min-width: 260px;
+    }
   }
  
   .btns {
