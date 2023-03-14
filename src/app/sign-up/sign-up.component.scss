@@ -3,12 +3,13 @@
   mix-blend-mode: normal;
   display: flex;
   /* place-content: center; */
-  gap: 25px;
+  gap: 20px;
   height: 100%;
   /* justify-items: center; */
   align-items: center;
   justify-content: center;
 }
+
 form {
   transition: all 200ms;
 
@@ -21,12 +22,17 @@ form {
   }
 
   .select {
+    .label {
+      display: none;
+    }
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-color: white;
+    color: white;
+
     select {
-      min-width: 168px;
+      min-width: 250px;
       min-height: 30px;
       border-radius: 5px;
       color: var(--color-primary);
@@ -34,19 +40,33 @@ color: white;
   }
 
   display: grid;
-  gap: 8px;
+  gap: 12px;
   place-content: center;
 
-  .btn {
-    margin-top: 10px;
-    font-weight: bold;
-    background-color: #FFFFFF;
-    color: var(--color-primary);
+
+  .formBtns {
+    display: flex;
+    gap: 5px;
+
+    .btn {
+      margin-top: 10px;
+      font-weight: bold;
+      width: 100%;
+      background-color: #FFFFFF;
+      color: var(--color-primary);
+    }
+    .sign-in{
+      border-radius: 10px 0 0 10px;
+    }
+    .back{
+      border-radius: 0 10px 10px 0;
+    }
   }
 
   .input-holder {
     background: white;
-    input{
+
+    input {
       min-width: 250px;
     }
   }
@@ -56,7 +76,8 @@ color: white;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    button{
+
+    button {
       width: 100%;
     }
   }
@@ -100,9 +121,12 @@ p {
     display: none;
   }
 }
-select:focus-visible{
+
+select:focus-visible {
   outline: 0;
   border: 0;
 }
 
 
+
+// Start | for demo

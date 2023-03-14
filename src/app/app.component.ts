@@ -108,6 +108,10 @@ export class AppComponent implements OnInit {
     this.notificationService.initPush()
 
   }
+
+  goToCampSelection(){
+    this.router.navigate([this.languageService.language,'choose-camp'])
+  }
   ngOnDestroy(){
     this.campNameService.campName$.unsubscribe()
   }

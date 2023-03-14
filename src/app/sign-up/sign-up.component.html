@@ -1,9 +1,11 @@
 <img src="/assets/img/appicon.png" alt="" width="180px">
 <form autocomplete="off" #f="ngForm" (ngSubmit)="onSubmit($event)">
     
+ 
+	
     <div class="select"  >
-        <label>{{'Account type'|text}}:</label>
         <select name="role" [(ngModel)]="form.role">
+            <option value="" disabled selected class="label">{{'Account type'|text}}...</option>
             <option  [value]="'employee'" selection="'employee'">
                 {{'Employee'|text}}
             </option>
@@ -29,8 +31,9 @@
     </div>
 
     <div class="select" *ngIf="form.role === 'employee'">
-        <label>{{'department'|text}}:</label>
         <select name="department" [(ngModel)]="form.department">
+            <option value="" disabled selected class="label">{{'Choose department'|text}}...</option>
+
             <option *ngFor="let d of departments" [value]="d._id">
                 {{d.name | text}}
             </option>
@@ -38,8 +41,9 @@
     </div>
 
     <div class="select"  >
-        <label>{{'camp'|text}}:</label>
         <select name="campId" [(ngModel)]="form.campId">
+            <option value="" disabled selected class="label">{{'Choose camp'|text}}...</option>
+
             <option *ngFor="let c of camps" [value]="c._id" [selection]="c.name">
                 {{c.name | text}}
             </option>
@@ -56,7 +60,13 @@
     <div class="input-holder block">
         <input type="password" id="ConfirmPassword" name="ConfirmPassword" onfocus="this.removeAttribute('readonly');" readonly placeholder="{{'Consfirm password'|text}}" [(ngModel)]="form.confirmPassword">
     </div>
-    <button class="btn" type="submit">{{'Sign up'|text}}</button>
-    <button class="btn" type="button" (mousedown)="navTo('sign-in')">{{'back'|text}}</button>
+    <div class="formBtns">
+
+        <button class="btn sign-in" type="submit">{{'Sign up'|text}}</button>
+        <button class="btn back" type="button" (mousedown)="navTo('sign-in')">{{'back'|text}}</button>
+    </div>
+
+
+
 </form>
 
