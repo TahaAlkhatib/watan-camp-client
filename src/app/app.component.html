@@ -1,6 +1,6 @@
 <ion-app [class.dark-theme]="dark">
 
     <ion-router-outlet id="main-content"></ion-router-outlet>
-
+<div class="camp" *ngIf="camp" (mousedown)="goToCampSelection()"><img src="assets/img/appicon.png" alt=""> {{camp}}</div>
 <tab-bar class="tab-bar" *ngIf="camp && loggedIn"></tab-bar>
 </ion-app>
