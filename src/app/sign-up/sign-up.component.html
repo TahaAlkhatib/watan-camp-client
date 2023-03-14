@@ -60,8 +60,11 @@
     <div class="input-holder block">
         <input type="password" id="ConfirmPassword" name="ConfirmPassword" onfocus="this.removeAttribute('readonly');" readonly placeholder="{{'Consfirm password'|text}}" [(ngModel)]="form.confirmPassword">
     </div>
-    <button class="btn" type="submit">{{'Sign up'|text}}</button>
-    <button class="btn" type="button" (mousedown)="navTo('sign-in')">{{'back'|text}}</button>
+    <div class="formBtns">
+
+        <button class="btn sign-in" type="submit">{{'Sign up'|text}}</button>
+        <button class="btn back" type="button" (mousedown)="navTo('sign-in')">{{'back'|text}}</button>
+    </div>
 
 
 
