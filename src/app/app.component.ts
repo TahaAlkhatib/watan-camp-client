@@ -23,7 +23,7 @@ import { NotificationService } from "./notification.service";
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
-  camp :string
+  campId: string
 
   loggedIn = true; //localStorage.getItem('token')
 
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     },
   ];
   dark = false;
-
+  camp: string
   constructor(
     private menu: MenuController,
     private platform: Platform,
@@ -62,15 +62,17 @@ export class AppComponent implements OnInit {
     private dialog: DialogService,
     private languageService: LanguageService,
     private campNameService: CampNameService,
-    private notificationService:NotificationService
+    private notificationService: NotificationService
   ) {
     this.initializeApp();
   }
 
   async ngOnInit() {
-    this.camp = localStorage.getItem('campId')??'';
+    this.campId = localStorage.getItem('campId') ?? '';
+    await this.appService.getCamps()
+    this.camp = this.appService.camps.find(c => c._id == this.campId).name
     this.campNameService.campName$.subscribe((camp) => {
-      this.camp = camp;
+      this.campId = camp;
     });
 
     this.swUpdate.available.subscribe(async (res) => {
@@ -109,10 +111,10 @@ export class AppComponent implements OnInit {
 
   }
 
-  goToCampSelection(){
-    this.router.navigate([this.languageService.language,'choose-camp'])
+  goToCampSelection() {
+    this.router.navigate([this.languageService.language, 'choose-camp'])
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.campNameService.campName$.unsubscribe()
   }
 }
