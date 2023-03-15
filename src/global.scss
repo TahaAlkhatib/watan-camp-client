@@ -37,7 +37,46 @@
 @import 'swiper/scss';
 @import '@ionic/angular/css/ionic-swiper';
 
+@font-face {
+  font-family: '29ltbukralight';
+  src: url('assets/fonts/29ltbukralight.otf')format("opentype");
+  font-weight: 200;
+}
 
+@font-face {
+  font-family: '29ltbukraregular';
+  src: url('assets/fonts/29ltbukraregular.otf')format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: '29ltbukrabolditalic';
+  src: url('assets/fonts/29ltbukrabolditalic.otf')format("opentype");
+  font-weight: 800;
+}
+
+
+@font-face {
+  font-family: 'AvenirNextLTPro-Demi';
+  src: url('assets/fonts/AvenirNextLTPro-Demi.otf')format("opentype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'AvenirNextLTPro-Regular';
+  src: url('assets/fonts/AvenirNextLTPro-Regular.otf')format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'AvenirNextLTPro-Bold';
+  src: url('assets/fonts/AvenirNextLTPro-Bold.otf')format("opentype");
+  font-weight: bolder;
+}
+
+*{
+  font-family: '29ltbukrabolditalic';
+}
 // @font-face {
 //   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 //   src: url();

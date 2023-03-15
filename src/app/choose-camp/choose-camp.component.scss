@@ -3,9 +3,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(107deg,var(--color-primary), var(--color-secondry));
+    background: linear-gradient(280deg,#00375F, #00569D);
+    color: white;
 
 }
 .btn{
     min-width: 200px;
+    background-color: #f1f1f1;
+    color: var(--color-primary);
+
 }

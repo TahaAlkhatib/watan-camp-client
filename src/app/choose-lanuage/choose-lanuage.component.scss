@@ -3,16 +3,18 @@
     gap: 10px;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(107deg,var(--color-primary), var(--color-secondry));
+    background: linear-gradient(280deg,#00375F, #00569D);
+
 
 color:white
 }
 
 .btn-accept{
     min-width: 200px;
-    background-color: var(--color-primary);
+    background-color: #f1f1f1;
+    color: var(--color-primary);
     &:hover{
-        background-color: var(--color-warning);
+        background-color: var(--color-secondry);
         color: white;
     }
 }
