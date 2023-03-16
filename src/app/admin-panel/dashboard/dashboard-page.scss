@@ -6,22 +6,52 @@ header {
 }
 header h1 {
     font-family: "Calibri";
-    margin-left: 2%;
+    margin:   0 0 0 2%;
 }
 .section {
+padding: 2px;
     display: flex;
-    justify-content: space-between;
-    // align-items: center;
+    align-items: center;
     width: 100%;
+    .img{
+
+        border-radius: 50%;
+        padding: 5px;
+        border: 1px solid var(--color-primary);
+    }
+}
+.text{
+    margin-right: 2%;
+    background-color: #0d3b6f;
+    border-radius: 0 25px 25px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    border: 1px solid var(--color-secondry);
+}
+.over-view{
+    padding: 20px;
+    h1{
+        font-weight: bolder;
+        color: var(--color-secondry);
+        font-size: 1.5em;
+    }
+    p{
+        color: var(--color-primary);
+        font-size: 1.2em;
+        font-weight: 300;
+    }
 }
 .cont {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
 .section img {
-    width: 80px;
+    width: 140px;
+    margin-left: 20px;
     border-radius: 100%;
-    margin-right: 10%;
+    box-shadow: inset 0px 0px 5px var(--color-primary);
+
 }
 span {
     color: #5dade2;

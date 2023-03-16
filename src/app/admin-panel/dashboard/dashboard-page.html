@@ -6,59 +6,96 @@
     <header>
         <div class="section">
 
-            <h1 style="font-size: 3vw;">welcome <span> {{ user?.name }} </span> </h1>
-            <img class="img" class="img" src="/assets/img/emplyment.png" alt="image">
+            <img class="img" class="img" src="/assets/general/Watan-logo.png" alt="image">
+            <h1>Welcome <span> {{ user?.name ?? 'Administrator' }} </span> </h1>
 
 
         </div>
 
         <div class="container">
-            <div class="box">
-                <!-- <a [routerLink]="['/app/tabs/forms/payment-order/add-payment-order']">Payment Order</a> -->
+
+
+            <div class="text">
+
+                <h1>In this panel you can manage your application accounts, camps, departments and the content of your
+                    app</h1>
+
+
+            </div>
+            <!-- <div class="box">
+                <a [routerLink]="['/app/tabs/forms/payment-order/add-payment-order']">Payment Order</a>
             </div>
 
             <div class="box">
-                <!-- <a [routerLink]="['/app/tabs/forms/payment-request/add-payment-request']">Payment Request</a> -->
+                <a [routerLink]="['/app/tabs/forms/payment-request/add-payment-request']">Payment Request</a>
             </div>
 
             <div class="box">
-                <!-- <a [routerLink]="['/app/tabs/forms/purchase-request/add-purchase-request']">Purchase Request</a> -->
+                <a [routerLink]="['/app/tabs/forms/purchase-request/add-purchase-request']">Purchase Request</a>
             </div>
 
             <div class="box">
-                <!-- <a [routerLink]="['/app/tabs/forms/advance/add-advance']">Advance</a> -->
+                <a [routerLink]="['/app/tabs/forms/advance/add-advance']">Advance</a>
             </div>
 
             <div class="box">
-                <!-- <a [routerLink]="['/app/tabs/forms/daily-leave/add-daily-leave']">Daily-Leave</a> -->
+                <a [routerLink]="['/app/tabs/forms/daily-leave/add-daily-leave']">Daily-Leave</a>
             </div>
 
             <div class="box">
-                <!-- <a [routerLink]="['/app/tabs/forms/hourly-leave/add-hourly-leave']">Hourly-Leave</a> -->
+                <a [routerLink]="['/app/tabs/forms/hourly-leave/add-hourly-leave']">Hourly-Leave</a>
             </div>
 
             <div class="box">
-                <!-- <a [routerLink]="['/app/tabs/forms/justify-absence/add-justify-absence']">Justify-absence</a> -->
-            </div>
+                <a [routerLink]="['/app/tabs/forms/justify-absence/add-justify-absence']">Justify-absence</a>
+            </div> -->
         </div>
     </header>
     <main>
-        <div class="flex-container">
+
+        <div class="over-view">
+            <h1>
+                Awareness & BENs
+            </h1>
+            <p>
+                In these section you can add or delete the content for each entry in these sections<br>
+                we provide the mechanism to add, modify or remove the content which can be Youtube video, PDF or even HTML content
+            <br>
+            In addition, these data can be shown according to each camp differently which mean you can specify the target camp who will be able to see these data
+            </p>
+
+
+            <h1>
+                Account
+            </h1>
+            <p>
+                In this section you can manage existing users and change the roles or add new one manually
+            <br>
+            there is also the possibility to add new roles for users
+            </p>
+
+            <h1>
+                settings
+            </h1>
+            <p>
+               You can add new camps or mange existing one in settings, also create new departments for employees  </p>
+        </div>
+        <!-- <div class="flex-container">
             <div class="item">
-                <!-- <div class="item">
+                <div class="item">
                 <dc-collector  #dataForm [initialValueFactory]="initialValueFactory" [submitBtn]="submitBtn" [nextBtn]="nextBtn" [prevBtn]="prevBtn" [fields]="form" (submit)="submit(model)" [design]="design" [(value)]="model" [collectStyle]="formStyle">
                 </dc-collector>
-            </div> -->
+            </div>
             </div>
             <div class="item">
 
                 <div class="card">
-                    <!-- <div echarts [options]="option" class="demo-chart"></div> -->
+                    <div echarts [options]="option" class="demo-chart"></div>
                     <div class="item">
-                        <!-- <data-table  [ngClass]="{'created': isCreated, 'rejected': isRejected, 'approuved': isApprouved, 'awaitManag': isManag, 'awaitAccount': isAccountant}"  [(value)]="selection" [maxAllowed]="100000" [(focusedItem)]="item" [adapter]="adapter" [columns]="columns" [actions]="actions" (action)="onAction($event)">
-                </data-table>  -->
+                        <data-table  [ngClass]="{'created': isCreated, 'rejected': isRejected, 'approuved': isApprouved, 'awaitManag': isManag, 'awaitAccount': isAccountant}"  [(value)]="selection" [maxAllowed]="100000" [(focusedItem)]="item" [adapter]="adapter" [columns]="columns" [actions]="actions" (action)="onAction($event)">
+                </data-table> 
 
-                        <!-- <div class="kontainer" *ngFor="let req of arrayReq">
+                        <div class="kontainer" *ngFor="let req of arrayReq">
                       <div class="cont-item">
                         <p class="status" data-status="{{req.formName}}">{{req.formName}}</p>
 
@@ -68,7 +105,7 @@
 
                       </div>
 
-                  </div> -->
+                  </div>
 
                         <table>
                             <thead>
@@ -84,7 +121,7 @@
                                     <td>{{req.formName}}</td>
                                     <td>{{req.date | date:'short'}}</td>
                                     <td class="status" [attr.data-status]="req.status"></td>
-                                    <!-- <td><a [routerLink]="['app/tabs/forms/payment-order/preview-payment-order', req._id]"><i class="fa fa-forward"></i></a></td> -->
+                                    <td><a [routerLink]="['app/tabs/forms/payment-order/preview-payment-order', req._id]"><i class="fa fa-forward"></i></a></td>
                                     <td><a [routerLink]="[req.formName,'preview-'+req.formName, req._id]">
 
                                             <mat-icon disabled=""
@@ -123,7 +160,7 @@
 
 
 
-                        <!-- <table>
+                        <table>
                     <thead>
                         <th>FormName</th>
                         <th>Status</th>
@@ -135,19 +172,19 @@
                         </tr>
                         
                     </tbody>
-                   </table>  -->
+                   </table> 
 
 
                     </div>
 
-                    <!-- <div echarts [options]="chartOption" class="demo-chart"></div> -->
+                    <div echarts [options]="chartOption" class="demo-chart"></div>
 
                 </div>
-                <!-- <div id="pipe" style="height: 400px;" ></div> -->
-                <!-- <button (click)="OnElem1Click()" (mouseover)="OnElem1Mouseover()" (mouseout)="OnElem1Mouseout()">elem1</button>
-              <button (mouseenter)="OnElem2Mouseover()" (mouseleave)="OnElem2Mouseout()">elem2</button> -->
+                <div id="pipe" style="height: 400px;" ></div>
+                <button (click)="OnElem1Click()" (mouseover)="OnElem1Mouseover()" (mouseout)="OnElem1Mouseout()">elem1</button>
+              <button (mouseenter)="OnElem2Mouseover()" (mouseleave)="OnElem2Mouseout()">elem2</button>
             </div>
-        </div>
+        </div> -->
     </main>
 
 </ion-content>
