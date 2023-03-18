@@ -1,6 +1,9 @@
 :root{
     --ion-item-border-color:#000000;
 }
+:host{
+    padding:20px
+}
 .html{
    
 
@@ -17,5 +20,56 @@
     mat-form-field{
         width:100%;
         
+    }
+}
+
+.page-items{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .actions{
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        button{
+            min-width:180px;
+            min-height: 60px;
+            display: flex;
+            padding: 5px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            gap: 10px;
+            color: white;
+            background-color: var(--color-secondry);
+            span{
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    max-height: 50px;
+                    filter: brightness(0) invert(1);
+                }
+            }
+            img{
+                max-height: 50px;
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+}
+.submition{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding: 5px;
+    button{
+        min-width: 200px;
     }
 }
