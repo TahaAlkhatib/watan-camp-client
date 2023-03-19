@@ -10,7 +10,7 @@ import { LanguageService } from "@upupa/language";
 export class ChooseLanuageComponent implements OnInit {
   constructor(private language: LanguageService, private router: Router) {
 
-    
+
   }
   ngOnInit(): void {
     const lang = localStorage.getItem("language");
@@ -26,14 +26,14 @@ export class ChooseLanuageComponent implements OnInit {
   changeLang(lang: string) {
     localStorage.setItem("language", lang);
     this.language.language = lang;
-      const camp = localStorage.getItem("campId");
-      if (!camp) {
-        this.router.navigate([`${lang}/choose-camp`]);
-      } else {
-        setTimeout(() => {
-            this.router.navigate([`${lang}/home`]);
-          }, 200);
-      }
-    
+    const camp = localStorage.getItem("campId");
+    if (!camp) {
+      this.router.navigate([`${lang}/choose-camp`]);
+    } else {
+      setTimeout(() => {
+        this.router.navigate([`${lang}/home`]);
+      }, 200);
+    }
+    window.location.reload()
   }
 }

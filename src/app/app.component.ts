@@ -51,6 +51,7 @@ export class AppComponent implements OnInit {
   ];
   dark = false;
   camp: string
+  lang:string = localStorage.getItem('language')
   constructor(
     private menu: MenuController,
     private platform: Platform,
@@ -68,6 +69,7 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit() {
+    if(!this.lang) this.lang = this.languageService.language
     this.campId = localStorage.getItem('campId') ?? '';
     await this.appService.getCamps()
     this.camp = this.appService.camps.find(c => c._id == this.campId).name
@@ -113,6 +115,11 @@ export class AppComponent implements OnInit {
 
   goToCampSelection() {
     this.router.navigate([this.languageService.language, 'choose-camp'])
+  }
+  goTolanguageSelection(){
+    localStorage.removeItem('language')
+    this.router.navigate([ 'choose-language'])
+
   }
   ngOnDestroy() {
     this.campNameService.campName$.unsubscribe()
