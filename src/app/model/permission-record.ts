@@ -3,4 +3,11 @@ export type PermissionRecord = {
     section: string
     action: 'read' | 'write'
     roles: string[]
+    app: 'client' | 'admin'
+}
+
+export type AppPage = {
+    section: string
+    text: string
+    children?: AppPage[]
 }
