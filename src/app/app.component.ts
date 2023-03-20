@@ -23,102 +23,105 @@ import { NotificationService } from "./notification.service";
     encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
-    campId: string
+  campId: string
 
-    loggedIn = true; //localStorage.getItem('token')
+  loggedIn = true; //localStorage.getItem('token')
 
-    appPages = [
-        {
-            title: "Schedule",
-            url: "/app/tabs/schedule",
-            icon: "calendar",
-        },
-        {
-            title: "Speakers",
-            url: "/app/tabs/speakers",
-            icon: "people",
-        },
-        {
-            title: "Map",
-            url: "/app/tabs/map",
-            icon: "map",
-        },
-        {
-            title: "About",
-            url: "/app/tabs/about",
-            icon: "information-circle",
-        },
-    ];
-    dark = false;
-    camp: string
-    constructor(
-        private menu: MenuController,
-        private platform: Platform,
-        private router: Router,
-        private storage: Storage,
-        private swUpdate: SwUpdate,
-        private toastCtrl: ToastController,
-        private appService: AppService,
-        private dialog: DialogService,
-        private languageService: LanguageService,
-        private campNameService: CampNameService,
-        private notificationService: NotificationService
-    ) {
-        this.initializeApp();
-    }
+  appPages = [
+    {
+      title: "Schedule",
+      url: "/app/tabs/schedule",
+      icon: "calendar",
+    },
+    {
+      title: "Speakers",
+      url: "/app/tabs/speakers",
+      icon: "people",
+    },
+    {
+      title: "Map",
+      url: "/app/tabs/map",
+      icon: "map",
+    },
+    {
+      title: "About",
+      url: "/app/tabs/about",
+      icon: "information-circle",
+    },
+  ];
+  dark = false;
+  camp: string
+  lang:string = localStorage.getItem('language')
+  constructor(
+    private menu: MenuController,
+    private platform: Platform,
+    private router: Router,
+    private storage: Storage,
+    private swUpdate: SwUpdate,
+    private toastCtrl: ToastController,
+    private appService: AppService,
+    private dialog: DialogService,
+    private languageService: LanguageService,
+    private campNameService: CampNameService,
+    private notificationService: NotificationService
+  ) {
+    this.initializeApp();
+  }
 
-    async ngOnInit() {
-        await this.appService.getCamps();
-        await this.appService.getItems();
-        this.appService.getCurrentCamp();
+  async ngOnInit() {
+    if(!this.lang) this.lang = this.languageService.language
+    this.campId = localStorage.getItem('campId') ?? '';
+    await this.appService.getCamps()
+    this.camp = this.appService.camps?.find(c => c._id == this.campId)?.name ?? this.campId
+    this.campNameService.campName$.subscribe((camp) => {
+      this.campId = camp;
+    });
 
+    this.swUpdate.available.subscribe(async (res) => {
+      const toast = await this.toastCtrl.create({
+        message: "Update available!",
+        position: "bottom",
+        buttons: [
+          {
+            role: "cancel",
+            text: "Reload",
+          },
+        ],
+      });
 
-        this.campId = localStorage.getItem('campId') ?? '';
-        await this.appService.getCamps()
-        this.camp = this.appService.camps?.find(c => c._id == this.campId)?.name ?? this.campId
-        debugger
-        this.campNameService.campName$.subscribe((camp) => {
-            this.campId = camp;
-        });
+      await toast.present();
 
-        this.swUpdate.available.subscribe(async (res) => {
-            const toast = await this.toastCtrl.create({
-                message: "Update available!",
-                position: "bottom",
-                buttons: [
-                    {
-                        role: "cancel",
-                        text: "Reload",
-                    },
-                ],
-            });
+      toast
+        .onDidDismiss()
+        .then(() => this.swUpdate.activateUpdate())
+        .then(() => window.location.reload());
+    });
 
-            await toast.present();
+    await this.appService.getCamps();
+    await this.appService.getItems();
+    this.appService.getCurrentCamp();
+  }
 
-            toast
-                .onDidDismiss()
-                .then(() => this.swUpdate.activateUpdate())
-                .then(() => window.location.reload());
-        });
+  initializeApp() {
+    this.platform.ready().then(() => {
+      if (this.platform.is("hybrid")) {
+        StatusBar.hide();
+        SplashScreen.hide();
+      }
+    });
+    this.notificationService.initPush()
 
+  }
 
-    }
+  goToCampSelection() {
+    this.router.navigate([this.languageService.language, 'choose-camp'])
+  }
+  goTolanguageSelection(){
+    localStorage.removeItem('language')
+    this.router.navigate([ 'choose-language'])
 
-    initializeApp() {
-        this.platform.ready().then(() => {
-            if (this.platform.is("hybrid")) {
-                StatusBar.hide();
-                SplashScreen.hide();
-            }
-        });
-        this.notificationService.initPush()
-
-    }
-
-    goToCampSelection() {
-        this.router.navigate([this.languageService.language, 'choose-camp'])
-    }
-    ngOnDestroy() {
-        this.campNameService.campName$.unsubscribe()
-    }
+  }
+  ngOnDestroy() {
+    this.campNameService.campName$.unsubscribe()
+  }
 }
