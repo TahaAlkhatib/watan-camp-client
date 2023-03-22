@@ -164,6 +164,11 @@ export class AdminLayoutComponent implements OnInit {
                     title: 'Settings',
                     url: 'settings/settings-list',
                     icon: 'document'
+                },
+                {
+                    title: 'Permissions',
+                    url: 'settings/permissions',
+                    icon: 'document'
                 }
             ]
         },

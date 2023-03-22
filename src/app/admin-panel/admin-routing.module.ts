@@ -6,6 +6,7 @@ import { DashboardPage } from "./dashboard/dashboard-page";
 import { PageContentItemsFormComponent } from "./page-content-items/form/page-content-items-form.component";
 import { PageContentItemsComponent } from "./page-content-items/list/page-content-items.component";
 import { PageContentItemsPreviewComponent } from "./page-content-items/preview/page-content-items-preview.component";
+import { AdminPermissionsComponent } from "./permissions/admin-permissions/admin-permissions.component";
 import { CampFormComponent } from "./settings/camp/camp-form/camp-form.component";
 import { CampComponent } from "./settings/camp/camp-list/camp.component";
 import { CampPreviewComponent } from "./settings/camp/camp-preview/camp-preview.component";
@@ -41,7 +42,8 @@ const routes: Route[] = [
             { path: 'settings/settings-list', component: SettingsComponent },
             { path: 'settings/add-settings', component: SettingsFormComponent },
             { path: 'settings/edit-settings/:id', component: SettingsFormComponent },
-            { path: 'settings/preview-settings/:id', component: SettingsPreviewComponent }
+            { path: 'settings/preview-settings/:id', component: SettingsPreviewComponent },
+            { path: 'settings/permissions', component: AdminPermissionsComponent }
         ]
     }
 

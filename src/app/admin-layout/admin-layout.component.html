@@ -30,6 +30,15 @@
                         </ion-list>
 
                     </ion-menu-toggle>
+
+                    <ion-menu-toggle *ngIf="user"  (click)="goToComplaints()" autoHide="false">
+                        <ion-item  detail="false">
+                            <ion-icon slot="start" name="person"></ion-icon>
+                            <ion-label>
+                                Complaints
+                            </ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
                 </ion-list>
 
                 <ion-list *ngIf="user" lines="none">
@@ -107,14 +116,7 @@
                     </ion-item> -->
                 </ion-list>
 
-                <ion-list *ngIf="user" (click)="goToComplaints()" lines="none">
-                    <ion-list-header>
-                        Complaints
-                    </ion-list-header>
-
-                    
-
-                </ion-list>
+               
 
             
             </ion-content>

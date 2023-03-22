@@ -1,8 +1,9 @@
 <ion-app [class.dark-theme]="dark">
 
     <ion-router-outlet id="main-content"></ion-router-outlet>
-<div class="camp" *ngIf="camp" (mousedown)="goToCampSelection()"><img src="assets/img/appicon.png" alt=""> {{camp}}</div>
-<div class="lang" *ngIf="lang" (mousedown)="goTolanguageSelection()">
-     {{lang}}</div>
-<tab-bar class="tab-bar" *ngIf="camp && loggedIn"></tab-bar>
+    <div class="camp" *ngIf="camp&&!adminPanel" (mousedown)="goToCampSelection()"><img src="assets/img/appicon.png"
+            alt=""> {{camp}}</div>
+    <div class="lang" *ngIf="lang&&!adminPanel" (mousedown)="goTolanguageSelection()">
+        {{lang}}</div>
+    <tab-bar class="tab-bar" *ngIf="camp && loggedIn&&!adminPanel"></tab-bar>
 </ion-app>

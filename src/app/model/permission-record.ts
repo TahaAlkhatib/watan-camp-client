@@ -9,5 +9,6 @@ export type PermissionRecord = {
 export type AppPage = {
     section: string
     text: string
+    record?: PermissionRecord
     children?: AppPage[]
 }

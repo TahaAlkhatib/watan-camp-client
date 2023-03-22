@@ -31,6 +31,7 @@ import { SettingsFormComponent } from './settings/settings/settings-form/setting
 import { SettingsPreviewComponent } from './settings/settings/settings-preview/settings-preview.component';
 import { ComplaintListComponent } from './complaint/complaint-list/complaint.component';
 import { ComplaintPreviewComponent } from './complaint/complaint-preview/complaint-preview.component';
+import { AdminPermissionsComponent } from './permissions/admin-permissions/admin-permissions.component';
 
 
 @NgModule({
@@ -39,15 +40,15 @@ import { ComplaintPreviewComponent } from './complaint/complaint-preview/complai
         CommonModule,
         FormsModule,
         TranslationModule,
-        DataTableModule, AdminRouterModule, MaterialModulesModule,DynamicFormModule,HtmlEditorModule.register('htmleditor'),        
+        DataTableModule, AdminRouterModule, MaterialModulesModule, DynamicFormModule, HtmlEditorModule.register('htmleditor'),
         UploadModule.forChild(`${environment.server_base_url}/storage`),
     ],
     providers: [
 
     ],
-    declarations: [DashboardPage, VideoComponent, HtmlComponent, PdfComponent, PageContentItemsComponent,PageContentItemsFormComponent,
-    CampComponent,CampFormComponent,CampPreviewComponent,DepartmentComponent,DepartmentFormComponent,DepartmentPreviewComponent,
-SettingsComponent,SettingsFormComponent,SettingsPreviewComponent,ComplaintListComponent,ComplaintPreviewComponent],
+    declarations: [DashboardPage, VideoComponent, HtmlComponent, PdfComponent, PageContentItemsComponent, PageContentItemsFormComponent,
+        CampComponent, CampFormComponent, CampPreviewComponent, DepartmentComponent, DepartmentFormComponent, DepartmentPreviewComponent,
+        SettingsComponent, SettingsFormComponent, SettingsPreviewComponent, ComplaintListComponent, ComplaintPreviewComponent,AdminPermissionsComponent],
     exports: []
 })
 export class AdminModule { }

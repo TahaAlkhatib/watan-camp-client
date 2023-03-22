@@ -1,0 +1,21 @@
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 8px;
+  }
+
+  .children{
+    padding: 10px;
+  }
+
+  mat-form-field{
+    width: 100%;
+  }
+
+  .permissions-container{
+    overflow-y: auto;
+    padding: 5px;
+  }

@@ -15,6 +15,8 @@ import { ChooseCampComponent } from "./choose-camp/choose-camp.component";
 import { LanguageService } from "@upupa/language";
 import { CampNameService } from "./camp-name.service";
 import { NotificationService } from "./notification.service";
+import { PermissionsService } from "./providers/permissions.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: "app-root",
@@ -23,105 +25,123 @@ import { NotificationService } from "./notification.service";
     encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
-  campId: string
+    campId: string
 
-  loggedIn = true; //localStorage.getItem('token')
+    loggedIn = true; //localStorage.getItem('token')
 
-  appPages = [
-    {
-      title: "Schedule",
-      url: "/app/tabs/schedule",
-      icon: "calendar",
-    },
-    {
-      title: "Speakers",
-      url: "/app/tabs/speakers",
-      icon: "people",
-    },
-    {
-      title: "Map",
-      url: "/app/tabs/map",
-      icon: "map",
-    },
-    {
-      title: "About",
-      url: "/app/tabs/about",
-      icon: "information-circle",
-    },
-  ];
-  dark = false;
-  camp: string
-  lang:string = localStorage.getItem('language')
-  constructor(
-    private menu: MenuController,
-    private platform: Platform,
-    private router: Router,
-    private storage: Storage,
-    private swUpdate: SwUpdate,
-    private toastCtrl: ToastController,
-    private appService: AppService,
-    private dialog: DialogService,
-    private languageService: LanguageService,
-    private campNameService: CampNameService,
-    private notificationService: NotificationService
-  ) {
-    this.initializeApp();
-  }
+    appPages = [
+        {
+            title: "Schedule",
+            url: "/app/tabs/schedule",
+            icon: "calendar",
+        },
+        {
+            title: "Speakers",
+            url: "/app/tabs/speakers",
+            icon: "people",
+        },
+        {
+            title: "Map",
+            url: "/app/tabs/map",
+            icon: "map",
+        },
+        {
+            title: "About",
+            url: "/app/tabs/about",
+            icon: "information-circle",
+        },
+    ];
+    dark = false;
+    camp: string
+    lang: string = localStorage.getItem('language')
 
-  async ngOnInit() {
-    if(!this.lang) this.lang = this.languageService.language
-    this.campId = localStorage.getItem('campId') ?? '';
-    await this.appService.getCamps()
-    this.camp = this.appService.camps?.find(c => c._id == this.campId)?.name ?? this.campId
-    this.campNameService.campName$.subscribe((camp) => {
-      this.campId = camp;
-    });
+    adminPanel: boolean = false
+    constructor(
+        private menu: MenuController,
+        private platform: Platform,
+        private router: Router,
+        private storage: Storage,
+        private swUpdate: SwUpdate,
+        private toastCtrl: ToastController,
+        private appService: AppService,
+        private dialog: DialogService,
+        private languageService: LanguageService,
+        private campNameService: CampNameService,
+        private notificationService: NotificationService,
+        private permissionService: PermissionsService,
+        private activatedRoute: ActivatedRoute
+    ) {
+        this.initializeApp();
+    }
 
-    this.swUpdate.available.subscribe(async (res) => {
-      const toast = await this.toastCtrl.create({
-        message: "Update available!",
-        position: "bottom",
-        buttons: [
-          {
-            role: "cancel",
-            text: "Reload",
-          },
-        ],
-      });
+    async ngOnInit() {
+        await this.permissionService.getPermissionRecords()
 
-      await toast.present();
+        if (!this.lang) this.lang = this.languageService.language
+        this.campId = localStorage.getItem('campId') ?? '';
+        await this.appService.getCamps()
+        this.camp = this.appService.camps?.find(c => c._id == this.campId)?.name ?? this.campId
+        this.campNameService.campName$.subscribe((camp) => {
+            this.campId = camp;
+        });
 
-      toast
-        .onDidDismiss()
-        .then(() => this.swUpdate.activateUpdate())
-        .then(() => window.location.reload());
-    });
+        if (window.location.pathname.indexOf('admin') >= 0)
+            this.adminPanel = true
+        else
+            this.adminPanel = false
+        this.router.events.subscribe(r => {
+            if (window.location.pathname.indexOf('admin') >= 0)
+                this.adminPanel = true
+            else
+                this.adminPanel = false
+        })
 
-    await this.appService.getCamps();
-    await this.appService.getItems();
-    this.appService.getCurrentCamp();
-  }
+        this.swUpdate.available.subscribe(async (res) => {
+            const toast = await this.toastCtrl.create({
+                message: "Update available!",
+                position: "bottom",
+                buttons: [
+                    {
+                        role: "cancel",
+                        text: "Reload",
+                    },
+                ],
+            });
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      if (this.platform.is("hybrid")) {
-        StatusBar.hide();
-        SplashScreen.hide();
-      }
-    });
-    this.notificationService.initPush()
+            await toast.present();
 
-  }
+            toast
+                .onDidDismiss()
+                .then(() => this.swUpdate.activateUpdate())
+                .then(() => window.location.reload());
+        });
 
-  goToCampSelection() {
-    this.router.navigate([this.languageService.language, 'choose-camp'])
-  }
-  goTolanguageSelection(){
-    localStorage.removeItem('language')
-    this.router.navigate([ 'choose-language'])
+        await this.appService.getCamps();
+        await this.appService.getItems();
+        await this.appService.getRoles();
+        this.appService.getCurrentCamp();
+    }
 
-  }
-  ngOnDestroy() {
-    this.campNameService.campName$.unsubscribe()
-  }
+    initializeApp() {
+        this.platform.ready().then(() => {
+            if (this.platform.is("hybrid")) {
+                StatusBar.hide();
+                SplashScreen.hide();
+            }
+        });
+        this.notificationService.initPush()
+
+    }
+
+    goToCampSelection() {
+        this.router.navigate([this.languageService.language, 'choose-camp'])
+    }
+    goTolanguageSelection() {
+        localStorage.removeItem('language')
+        this.router.navigate(['choose-language'])
+
+    }
+    ngOnDestroy() {
+        this.campNameService.campName$.unsubscribe()
+    }
 }

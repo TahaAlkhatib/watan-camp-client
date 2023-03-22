@@ -119,6 +119,10 @@ export class PermissionsService {
                 {
                     text: 'Settings',
                     section: 'settings-list'
+                },
+                {
+                    text: 'Permissions',
+                    section: 'permissions'
                 }
             ]
         }
@@ -158,13 +162,22 @@ export class PermissionsService {
     }
 
 
-    getAdminRecords() {
+    getAdminPagesRecords() {
         let records: PermissionRecord[] = []
         this.adminPages.forEach(p => {
             let record = this.adminPermissions?.find(x => x.section == p.section)
             if (!record) record = { action: 'read', app: 'admin', roles: [], section: p.section, _id: undefined }
 
             records.push(record)
+
+            if (p.children?.length) {
+                p.children.forEach(c => {
+                    let r = this.adminPermissions?.find(x => x.section == c.section)
+                    if (!r) r = { action: 'read', app: 'admin', roles: [], section: c.section, _id: undefined }
+
+                    records.push(r)
+                })
+            }
         });
         return records
     }

@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { AuthService } from "@upupa/auth";
 import { DataService } from "@upupa/data";
 import { BehaviorSubject, firstValueFrom } from "rxjs";
-import { Camp, CampUser, ContentItems, Department, Settings } from "../model";
+import { Camp, CampUser, ContentItems, Department, Role, Settings } from "../model";
 import { environment } from "src/environments/environment";
 
 
@@ -24,6 +24,8 @@ export class AppService {
 
     departments: Department[] = []
 
+    roles: Role[] = []
+
     constructor(private ds: DataService, private auth: AuthService, private http: HttpClient) {
 
     }
@@ -40,6 +42,11 @@ export class AppService {
     async getCamps() {
         this.camps = await firstValueFrom(this.ds.get<Camp[]>(`camp`))
         return this.camps
+    }
+
+    async getRoles() {
+        this.roles = await firstValueFrom(this.ds.get<Role[]>(`role`))
+        return this.roles
     }
 
     async getItems() {
