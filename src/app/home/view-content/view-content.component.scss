@@ -50,7 +50,7 @@
   overflow: auto;
   gap: 30px;
   background-color: white;
-  padding: 35px 0 0 0;
+  padding: 35px 10px 0 10px;
 
   .item {
     display: flex;
@@ -71,6 +71,7 @@
       border: 1px solid gray;
       a {
         text-decoration: none;
+        color: var(--color-primary);
       }
       img{
         max-width: 60px;

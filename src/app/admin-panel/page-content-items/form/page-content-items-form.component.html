@@ -29,6 +29,12 @@
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-hint></mat-hint>
                 </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{item.type | text}}{{' arabic name'|text}}</mat-label>
+                    <input name="arName" matInput placeholder="{{'Arabic name'|text}}" [(ngModel)]="item.arName">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
                 <button (click)="deleteItem(i)" color="warn" mat-button>{{'delete'|text}}</button>
               </p>
             <div *ngIf="item.type == 'video'" class="video">
@@ -48,8 +54,11 @@
                   </mat-form-field>
             </div>
             <div *ngIf="item.type == 'html'" class="html">
-                
+                <p>English content</p>
                 <form-html [uploadPath]="'contentitems/'+sector" [label]="'Content'" [(value)]="item.content"></form-html>
+
+                <p>Arabic content</p>
+                <form-html [uploadPath]="'contentitems/'+sector" [label]="'Content'" [(value)]="item.arContent"></form-html>
             </div>
         </div>
     </div>
