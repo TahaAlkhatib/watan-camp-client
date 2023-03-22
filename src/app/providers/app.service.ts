@@ -43,6 +43,10 @@ export class AppService {
         this.camps = await firstValueFrom(this.ds.get<Camp[]>(`camp`))
         return this.camps
     }
+    async getDepartments() {
+        this.departments = await firstValueFrom(this.ds.get<Department[]>(`department`))
+        return this.departments
+    }
 
     async getRoles() {
         this.roles = await firstValueFrom(this.ds.get<Role[]>(`role`))

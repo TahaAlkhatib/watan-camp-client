@@ -5,11 +5,7 @@
   align-items: center;
   font-size: 2em;
   color: var(--color-light);
-  background: linear-gradient(
-    107deg,
-    var(--color-primary),
-    var(--color-secondry)
-  );
+  background: linear-gradient(280deg,#00375F, #00569D);
 }
 
 .header {
@@ -30,7 +26,7 @@
   background-color: var(--color-secondry);
   border-radius: 50%;
   position: absolute;
-  top: 168px;
+  top: 120px;
   left: 5px;
   font-size: 0.6em !important;
   color: var(--color-light);

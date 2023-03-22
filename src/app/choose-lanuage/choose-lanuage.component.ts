@@ -34,6 +34,5 @@ export class ChooseLanuageComponent implements OnInit {
         this.router.navigate([`${lang}/home`]);
       }, 200);
     }
-    window.location.reload()
   }
 }

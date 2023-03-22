@@ -4,6 +4,7 @@ import { AuthService } from "@upupa/auth";
 import { SnackBarService } from "@upupa/common";
 import { DataService } from "@upupa/data";
 import { LanguageService } from "@upupa/language";
+import { Camp, Department } from "../model";
 import { AppService } from "../providers/app.service";
 
 @Component({
@@ -12,8 +13,8 @@ import { AppService } from "../providers/app.service";
   styleUrls: ["sign-up.component.scss"],
 })
 export class SignUpComponent implements OnInit {
-  departments = [{ id: "default", name: "default" },{ id: "default", name: "default" }];
-  camps = [{ id: "default", name: "default" },{ id: "default", name: "default" }];
+  departments:Department[] = [];
+  camps:Camp[] = [];
   form: {
     role: string;
     fName: string;
@@ -45,13 +46,11 @@ export class SignUpComponent implements OnInit {
     public snack: SnackBarService,
     ) {}
 
-   ngOnInit() {
-    // this.departments =  this.appService.departments?.slice() ?? [
-    //   { id: "default", name: "default" },
-    // ];
-    // this.camps =  this.appService.camps?.slice() ?? [
-    //   { id: "default", name: "default" },
-    // ];
+   async ngOnInit() {
+    this.camps = await this.appService.getCamps()
+    this.departments = await this.appService.getDepartments()
+    
+    
   }
 
   

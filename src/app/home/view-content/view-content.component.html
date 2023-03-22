@@ -1,5 +1,5 @@
 <div class="header">
-    <img src="/assets/general/Watan-logo.png" alt="">
+    <img src="/assets/general/logo.png" alt="">
     <button class="back" (click)="back()">
         <mat-icon>
             keyboard_backspace
@@ -10,13 +10,13 @@
     <ng-container *ngIf="data">
         <div *ngFor="let it of data.items" class="item">
             <div *ngIf="it.type == 'video'" class="video">
-               <img src="/assets/icons/youtube.png" alt=""> <a (click)="openVideo(it.url)">{{it.name}}</a>
+               <img src="/assets/icons/youtube.png" alt=""> <a (click)="openVideo(it.url)">{{lang=='en'?it.name:it.arName}}</a>
             </div>
             <div *ngIf="it.type == 'pdf'" class="pdf">
-                <img src="/assets/icons/pdf.png" alt=""><a (click)="openPdf(it.url)">{{it.name}}</a> 
+                <img src="/assets/icons/pdf.png" alt=""><a (click)="openPdf(it.url)">{{lang=='en'?it.name:it.arName}}</a> 
             </div>
             <div *ngIf="it.type == 'html'" class="html">
-                <section class="content" [innerHTML]="it.content"></section>
+                <section class="content" [innerHTML]="lang=='en'?it.content:it.arContent"></section>
             </div>
 
         </div>

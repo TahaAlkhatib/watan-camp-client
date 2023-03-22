@@ -83,6 +83,8 @@ export class AppComponent implements OnInit {
         this.camp = this.appService.camps?.find(c => c._id == this.campId)?.name ?? this.campId
         this.campNameService.campName$.subscribe((camp) => {
             this.campId = camp;
+            this.camp = this.appService.camps?.find(c => c._id == this.campId)?.name ?? this.campId
+
         });
 
         if (window.location.pathname.indexOf('admin') >= 0)

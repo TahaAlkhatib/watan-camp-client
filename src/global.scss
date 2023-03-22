@@ -298,13 +298,8 @@ display: grid;
   padding: 10px;
   .content {
     
-   
-      
-      strong {
-        color: var(--color-secondry);
-      }
-    
     p {
+      font-size: 1em;
       color: var(--color-primary);
       strong {
         color: var(--color-primary);
@@ -312,6 +307,26 @@ display: grid;
     }
     h1{
       font-size: 2em;
+      color: var(--color-secondry);
+    }
+    h2{
+      font-size: 1.8em;
+      color: var(--color-secondry);
+    }
+    h3{
+      font-size: 1.7em;
+      color: var(--color-secondry);
+    }
+    h4{
+      font-size: 1.5em;
+      color: var(--color-secondry);
+    }
+    h5{
+      font-size: 1.2em;
+      color: var(--color-secondry);
+    }
+    h1{
+      font-size: 1.1em;
       color: var(--color-secondry);
     }
   }
