@@ -62,7 +62,7 @@ export class SignUpComponent implements OnInit {
       
 
       try {
-          const user: any = { ...this.form };
+          const user: any = { ...this.form,username:this.form.email};
           delete user.password;
           delete user.confirmPassword;
 
