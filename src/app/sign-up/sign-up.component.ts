@@ -69,8 +69,17 @@ export class SignUpComponent implements OnInit {
 
       let value = user;
 
-      if (value.phone.startsWith('0')) value.phone = "+9" + value.phone
+      if (value.phone.startsWith('0')){
 
+
+        value.phone = "+9" + value.phone
+      } 
+      else if (!value.phone.startsWith('+')) 
+      {
+
+        value.phone = "+90" + value.phone
+      }
+      
       let res = await this.auth.signup(value, this.form.password);
       console.log(res)
       let res2: any = await this.auth.signin({ email: user.email.toLowerCase(), password: this.form.password });
