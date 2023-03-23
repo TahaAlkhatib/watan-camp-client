@@ -43,7 +43,6 @@ export class SettingsFormComponent implements OnInit {
         }
     }
     async submit() {
-        debugger
         if (this.model._id) {
             const res = await this.ds.put(`settings/${this.model._id}`, this.model)
 

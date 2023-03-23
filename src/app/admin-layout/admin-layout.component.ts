@@ -243,7 +243,6 @@ export class AdminLayoutComponent implements OnInit {
         });
 
         this.auth.user$.subscribe(async u => {
-            debugger
             this.user = u
             console.log('user :', this.user)
             await this.appService.initEmployeeInfo()
