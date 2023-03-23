@@ -21,7 +21,7 @@ export class BensComponent {
         {  name: "Camp location", url: "becam" },
         {  name: "Emergency contacts", url: "beeme" },
         {  name: "Health care", context:'health-care'},
-        {  name: "Learning and training", context: "learning-and-training" },
+        {  name: "Learning and training", url: "learning-and-training" },
         {  name: "WATAN services", url: "bewat" },
         {  name: "Local and International News", url: "beloc" },
     ]
