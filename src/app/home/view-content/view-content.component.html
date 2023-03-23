@@ -10,10 +10,10 @@
     <ng-container *ngIf="data">
         <div *ngFor="let it of data.items" class="item">
             <div *ngIf="it.type == 'video'" class="video">
-               <img src="/assets/icons/youtube.png" alt=""> <a (click)="openVideo(it.url)">{{lang=='en'?it.name:it.arName}}</a>
+               <img src="/assets/icons/Youtube-icon.png" alt=""> <a (click)="openVideo(it.url)">{{lang=='en'?it.name:it.arName}}</a>
             </div>
             <div *ngIf="it.type == 'pdf'" class="pdf">
-                <img src="/assets/icons/pdf.png" alt=""><a (click)="openPdf(it.url)">{{lang=='en'?it.name:it.arName}}</a> 
+                <img src="/assets/icons/Pdf-icon.png" alt=""><a (click)="openPdf(it.url)">{{lang=='en'?it.name:it.arName}}</a> 
             </div>
             <div *ngIf="it.type == 'html'" class="html">
                 <section class="content" [innerHTML]="lang=='en'?it.content:it.arContent"></section>
