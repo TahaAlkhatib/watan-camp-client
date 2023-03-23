@@ -78,6 +78,10 @@ export class AppComponent implements OnInit {
         await this.permissionService.getPermissionRecords()
 
         if (!this.lang) this.lang = this.languageService.language
+        this.languageService.language$.subscribe(l => {
+            if (l?.length)
+                this.lang = l
+        })
         this.campId = localStorage.getItem('campId') ?? '';
         await this.appService.getCamps()
         this.camp = this.appService.camps?.find(c => c._id == this.campId)?.name ?? this.campId
