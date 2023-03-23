@@ -27,6 +27,8 @@ export class CampFormComponent implements OnInit {
        'location': { type: 'field', input: 'text', name: 'location', ui: { inputs: { label: 'location', placeholder: 'location' } } },
        'lat': { type: 'field', input: 'text', name: 'lat', ui: { inputs: { label: 'lat', placeholder: 'lat' } } },
        'long': { type: 'field', input: 'text', name: 'long', ui: { inputs: { label: 'long', placeholder: 'long' } } },
+       'phone': { type: 'field', input: 'text', name: 'phone', ui: { inputs: { label: 'phone', placeholder: 'phone' } } },
+       'email': { type: 'field', input: 'text', name: 'email', ui: { inputs: { label: 'email', placeholder: 'email' } } },
        'logo':  fileField('logo', 'Image', '/assets/camp/logo', undefined, undefined, 1, 1, false) 
     }
 
