@@ -10,11 +10,11 @@
 <div class="container">
     <h1>{{'Fill a complaint' | text}}</h1>
     <div class="btns">
-        <a href="tel:{{camp.phone}}" class="normal-btn">
+        <a href="tel:{{campSettings.phone}}" class="normal-btn">
             <img class="icon" src="/assets/icons/telephone.png" alt="">
             <div class="text">{{'Call'|text}}</div>
         </a>
-        <a href="mailto:{{camp.email}}" class="normal-btn">
+        <a href="mailto:{{campSettings.email}}" class="normal-btn">
             <img class="icon" src="/assets/icons/email.png" alt="">
             <div class="text">{{'Email'|text}}</div>
         </a>
@@ -22,7 +22,7 @@
             <img class="icon" src="/assets/icons/complaint.png" alt="">
             <div class="text">{{'Complaint form'|text}}</div>
         </button>
-        <a href="whatsapp://send?phone={{camp.phone}}" class="normal-btn">
+        <a href="whatsapp://send?phone={{campSettings.phone}}" class="normal-btn">
             <img class="icon" src="/assets/icons/whatsapp.png" alt="">
             <div class="text">{{'whatsapp'|text}}</div>
             

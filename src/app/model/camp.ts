@@ -7,6 +7,5 @@ export class Camp {
     location?:string
     lat:string
     long:string
-    phone:string
-    email:string
+    
 }

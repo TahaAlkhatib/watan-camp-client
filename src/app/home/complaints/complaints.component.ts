@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { Camp } from "src/app/model";
+import { Camp, Settings } from "src/app/model";
 import { AppService } from "src/app/providers/app.service";
 
 @Component({
@@ -10,13 +10,13 @@ import { AppService } from "src/app/providers/app.service";
 })
 export class ComplaintsComponent {
     lang = localStorage.getItem('language')
-    camp: Camp
+    campSettings: Settings
     constructor(private router: Router, private appSrvs: AppService) {
     }
      ngOnInit() {
 
         const currentCampId =  this.appSrvs.currentCampId
-        this.camp = {...this.appSrvs.camps.find(c=>c._id == currentCampId)}
+        this.campSettings = {...this.appSrvs.settings}
     }
     navTo(url: string) {
         setTimeout(() => {
