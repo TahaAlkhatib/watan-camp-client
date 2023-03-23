@@ -13,7 +13,6 @@ export class ChooseLanuageComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    debugger
     const lang = localStorage.getItem("language");
     if (lang) {
       const camp = localStorage.getItem("campId");

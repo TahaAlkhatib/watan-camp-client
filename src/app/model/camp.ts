@@ -4,7 +4,7 @@ export class Camp {
     nameEnglish: string
     logo: any[]
     address:string
-    location:string
+    location?:string
     lat:string
     long:string
 }
