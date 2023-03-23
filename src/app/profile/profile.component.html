@@ -7,39 +7,39 @@
 
 <div class="info" *ngIf="isLoggedIn">
     <div class="row">
-        <div class="title">E-mail:</div>
+        <div class="title">{{'E-mail'|text}}:</div>
         <div class="details">{{user?.email}}</div>
     </div>
     <div class="row">
-        <div class="title">Phone:</div>
+        <div class="title">{{'Phone' | text}}:</div>
         <div class="details">{{user?.phone}}</div>
     </div>
     <div class="row">
-        <div class="title">Address:</div>
+        <div class="title">{{'Address'| text}}:</div>
         <div class="details">{{user?.address}}</div>
     </div>
     <div class="row">
-        <div class="title">Date of birth:</div>
+        <div class="title">{{'Date of birth'| text}}:</div>
         <div class="details">{{user?.dateOfBirth}}</div>
     </div>
     <div class="row">
-        <div class="title">Camp:</div>
+        <div class="title">{{'Camp' |text}}:</div>
         <div class="details">{{user?.camp}}</div>
     </div>
     <div class="row">
-        <div class="title">Role:</div>
+        <div class="title">{{'Role'|text}}:</div>
         <div class="details">{{user?.role}}</div>
     </div>
-    <div class="row">
-        <div class="title">Department:</div>
+    <div class="row" *ngIf="user?.role === 'employee'">
+        <div class="title">{{'Department'|text}}:</div>
         <div class="details">{{user?.department}}</div>
     </div>
 </div>
 <div class="btn-holder" *ngIf="!isLoggedIn">
     <div class="text">
-        Welcome to Watan camp <br>
-        to see the content of this page<br>
-        <b>Please sign in!</b>
+        {{'Welcome to Watan camp'| text}} <br>
+        {{'to see the content of this page'|text}}<br>
+        <b>{{'Please sign in!'|text}}</b>
     </div>
     <button class="btn normal-btn" (mousedown)="navToSginIn()">Sign in</button>
 </div>
