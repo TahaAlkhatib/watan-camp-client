@@ -126,6 +126,7 @@ export class AppComponent implements OnInit {
         await this.appService.getItems();
         await this.appService.getRoles();
         this.appService.getCurrentCamp();
+        await this.appService.getSettings();
     }
 
     initializeApp() {

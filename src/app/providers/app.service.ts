@@ -20,6 +20,7 @@ export class AppService {
 
     currentCampId: string
 
+    allSettings: Settings[] = []
     settings: Settings
 
     departments: Department[] = []
@@ -42,6 +43,12 @@ export class AppService {
     async getCamps() {
         this.camps = await firstValueFrom(this.ds.get<Camp[]>(`camp`))
         return this.camps
+    }
+    async getSettings() {
+        this.allSettings = await firstValueFrom(this.ds.get<Settings[]>(`settings`))
+        if (this.currentCampId)
+            this.settings = this.allSettings.find(x => x.campId == this.currentCampId)
+        return this.allSettings
     }
     async getDepartments() {
         this.departments = await firstValueFrom(this.ds.get<Department[]>(`department`))
