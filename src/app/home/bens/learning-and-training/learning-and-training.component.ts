@@ -9,9 +9,9 @@ import { Router } from "@angular/router";
 export class LearningAndTrainingComponent{
     lang = localStorage.getItem('language')
     btns = [
-        {name:"General Sports Exercises",url:"#"},
-        {name:"General nutritional Program",url:"#"},
-        {name:"specialist contact info",url:"#"}
+        // {name:"General Sports Exercises",url:"#"},
+        // {name:"General nutritional Program",url:"#"},
+        // {name:"specialist contact info",url:"#"}
          ]
     constructor(private router:Router){
 

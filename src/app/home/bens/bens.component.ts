@@ -22,8 +22,8 @@ export class BensComponent {
         {  name: "Emergency contacts", url: "beeme" },
         {  name: "Health care", context:'health-care'},
         {  name: "Learning and training", context: "learning-and-training" },
-        {  name: "WATAN services ", url: "bewat" },
-        {  name: "Local and International News ", url: "beloc" },
+        {  name: "WATAN services", url: "bewat" },
+        {  name: "Local and International News", url: "beloc" },
     ]
     constructor(private router: Router, private dialog: DialogService,private appService:AppService) {
 

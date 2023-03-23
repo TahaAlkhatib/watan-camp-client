@@ -33,16 +33,13 @@ export class HealthCareComponent {
         { name: "General Sports Exercises", url: "#" },
         { name: "General nutritional Program", url: "#" },
         { name: "specialist contact info", url: "#" },
-        { name: "specialist contact info", url: "#" }
 
     ]
     physics = [
         { name: "health Sports Exercises", url: "#" },
         { name: "health nutritional Program", url: "#" },
         { name: "health contact info", url: "#" },
-        { name: "health Sports Exercises", url: "#" },
-        { name: "health nutritional Program", url: "#" },
-        { name: "health contact info", url: "#" }
+        
     ]
     constructor(private router: Router) {
 
