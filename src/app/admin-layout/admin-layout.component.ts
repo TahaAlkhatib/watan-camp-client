@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage';
 import { AppService } from "../providers/app.service";
 import { AuthService } from "@upupa/auth";
 import { LanguageService } from "@upupa/language";
+import { PermissionsService } from "../providers/permissions.service";
 
 @Component({
     selector: "admin-layout",
@@ -18,7 +19,14 @@ import { LanguageService } from "@upupa/language";
     styleUrls: ["./admin-layout.component.scss"]
 })
 export class AdminLayoutComponent implements OnInit {
-    appPages = [
+    appPages: any[] = [
+        {
+            title: 'Dashboard',
+            url: 'dashboard',
+            prefix: 'admin/',
+            icon: 'grid',
+            open: false
+        },
         {
             title: 'Awareness',
             url: 'contentitems/contentitems-list',
@@ -78,7 +86,7 @@ export class AdminLayoutComponent implements OnInit {
                 }
 
             ]
-        },{
+        }, {
             title: 'BENs',
             url: 'contentitems/contentitems-list',
             prefix: 'admin/',
@@ -120,7 +128,7 @@ export class AdminLayoutComponent implements OnInit {
                     url: 'beloc',
                     icon: 'document'
                 }
-            
+
 
             ]
         },
@@ -194,13 +202,25 @@ export class AdminLayoutComponent implements OnInit {
         private toastCtrl: ToastController,
         private appService: AppService,
         private auth: AuthService,
-        private langService:LanguageService
+        private langService: LanguageService,
+        private permissionService: PermissionsService
     ) {
         this.initializeApp();
     }
 
     async ngOnInit() {
 
+        await this.permissionService.getPermissionRecords()
+
+        this.appPages.forEach(p => {
+            p.show = true
+            let rec = this.permissionService.adminPermissions?.find(r => p.url?.indexOf(r.section) >= 0)
+            if (rec?.roles?.length) {
+                let roles = this.auth.user?.roles
+                if (roles?.length)
+                    p.show = roles.some(r => rec.roles.some(rc => rc == r))
+            }
+        })
 
         this.swUpdate.available.subscribe(async res => {
             const toast = await this.toastCtrl.create({
@@ -223,12 +243,13 @@ export class AdminLayoutComponent implements OnInit {
         });
 
         this.auth.user$.subscribe(async u => {
-            await this.appService.initEmployeeInfo()
+            debugger
             this.user = u
             console.log('user :', this.user)
+            await this.appService.initEmployeeInfo()
         })
 
-        this.appService.title.subscribe(res=>this.title = res)
+        this.appService.title.subscribe(res => this.title = res)
     }
 
     initializeApp() {
@@ -241,12 +262,18 @@ export class AdminLayoutComponent implements OnInit {
         });
     }
 
-    navigate(p,sub){
-        this.router.navigateByUrl(`en/${p.prefix}${p.url}/${sub.url}`)
+    navigate(p, sub) {
+        if (sub)
+            this.router.navigateByUrl(`en/${p.prefix}${p.url}/${sub.url}`)
+        else
+            this.router.navigateByUrl(`en/${p.prefix}${p.url}`)
     }
 
-    goToComplaints(){
+    goToComplaints() {
         this.router.navigateByUrl(`en/admin/complaint/complaint-list`)
+    }
+    goToNotifications() {
+        this.router.navigateByUrl(`en/admin/notifications`)
     }
 
 

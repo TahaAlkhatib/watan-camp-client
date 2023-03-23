@@ -87,12 +87,12 @@ export class AppComponent implements OnInit {
 
         });
 
-        if (window.location.pathname.indexOf('admin') >= 0)
+        if (window.location.pathname.indexOf('admin') >= 0 || window.location.pathname.indexOf('account') >= 0)
             this.adminPanel = true
         else
             this.adminPanel = false
         this.router.events.subscribe(r => {
-            if (window.location.pathname.indexOf('admin') >= 0)
+            if (window.location.pathname.indexOf('admin') >= 0 || window.location.pathname.indexOf('account') >= 0)
                 this.adminPanel = true
             else
                 this.adminPanel = false

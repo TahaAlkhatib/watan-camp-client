@@ -3,6 +3,7 @@ import { Route, RouterModule } from "@angular/router";
 import { ComplaintListComponent } from "./complaint/complaint-list/complaint.component";
 import { ComplaintPreviewComponent } from "./complaint/complaint-preview/complaint-preview.component";
 import { DashboardPage } from "./dashboard/dashboard-page";
+import { NotificationsFormComponent } from "./notifications/notifications-form.component";
 import { PageContentItemsFormComponent } from "./page-content-items/form/page-content-items-form.component";
 import { PageContentItemsComponent } from "./page-content-items/list/page-content-items.component";
 import { PageContentItemsPreviewComponent } from "./page-content-items/preview/page-content-items-preview.component";
@@ -28,6 +29,7 @@ const routes: Route[] = [
     
     { path: 'complaint/complaint-list', component: ComplaintListComponent },
     { path: 'complaint/preview-complaint/:id', component: ComplaintPreviewComponent },
+    { path: 'notifications', component: NotificationsFormComponent },
     {
         path: 'settings', children: [
             { path: '', redirectTo: 'general', pathMatch: 'full' },

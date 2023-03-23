@@ -32,6 +32,7 @@ import { SettingsPreviewComponent } from './settings/settings/settings-preview/s
 import { ComplaintListComponent } from './complaint/complaint-list/complaint.component';
 import { ComplaintPreviewComponent } from './complaint/complaint-preview/complaint-preview.component';
 import { AdminPermissionsComponent } from './permissions/admin-permissions/admin-permissions.component';
+import { NotificationsFormComponent } from './notifications/notifications-form.component';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { AdminPermissionsComponent } from './permissions/admin-permissions/admin
     ],
     declarations: [DashboardPage, VideoComponent, HtmlComponent, PdfComponent, PageContentItemsComponent, PageContentItemsFormComponent,
         CampComponent, CampFormComponent, CampPreviewComponent, DepartmentComponent, DepartmentFormComponent, DepartmentPreviewComponent,
-        SettingsComponent, SettingsFormComponent, SettingsPreviewComponent, ComplaintListComponent, ComplaintPreviewComponent,AdminPermissionsComponent],
+        SettingsComponent, SettingsFormComponent, SettingsPreviewComponent, ComplaintListComponent, ComplaintPreviewComponent,AdminPermissionsComponent,NotificationsFormComponent],
     exports: []
 })
 export class AdminModule { }
