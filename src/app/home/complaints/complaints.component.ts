@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { Camp, Settings } from "src/app/model";
+import { Settings } from "src/app/model";
 import { AppService } from "src/app/providers/app.service";
 
 @Component({
@@ -15,7 +15,6 @@ export class ComplaintsComponent {
     }
      ngOnInit() {
 
-        const currentCampId =  this.appSrvs.currentCampId
         this.campSettings = {...this.appSrvs.settings}
     }
     navTo(url: string) {
