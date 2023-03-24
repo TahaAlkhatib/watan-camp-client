@@ -99,6 +99,7 @@
   --ion-item-border-color: #0d3b6f;
 }
 
+
 dynamic-form {
   padding: 5px;
 }
@@ -279,6 +280,7 @@ dynamic-form {
 
 .ion-page {
   justify-content: flex-start;
+  overflow-y: auto;
 }
 
 .white-space {

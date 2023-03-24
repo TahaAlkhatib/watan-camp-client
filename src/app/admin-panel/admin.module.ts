@@ -33,6 +33,7 @@ import { ComplaintListComponent } from './complaint/complaint-list/complaint.com
 import { ComplaintPreviewComponent } from './complaint/complaint-preview/complaint-preview.component';
 import { AdminPermissionsComponent } from './permissions/admin-permissions/admin-permissions.component';
 import { NotificationsFormComponent } from './notifications/notifications-form.component';
+import { DynamicFormNativeThemeModule } from '@upupa/dynamic-form-native-theme';
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { NotificationsFormComponent } from './notifications/notifications-form.c
         CommonModule,
         FormsModule,
         TranslationModule,
-        DataTableModule, AdminRouterModule, MaterialModulesModule, DynamicFormModule, HtmlEditorModule.register('htmleditor'),
+        DataTableModule, AdminRouterModule, MaterialModulesModule, DynamicFormModule,DynamicFormNativeThemeModule, HtmlEditorModule.register('htmleditor'),
         UploadModule.forChild(`${environment.server_base_url}/storage`),
     ],
     providers: [

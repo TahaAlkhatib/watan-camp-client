@@ -36,14 +36,14 @@
                     <mat-hint></mat-hint>
                 </mat-form-field>
                 <button (click)="deleteItem(i)" color="warn" mat-button>{{'delete'|text}}</button>
-              </p>
+            </p>
             <div *ngIf="item.type == 'video'" class="video">
-                <mat-form-field  appearance="outline">
+                <mat-form-field appearance="outline">
                     <mat-label>{{'Video Url'|text}}</mat-label>
                     <input name="video" matInput placeholder="{{'Video Url'|text}}" [(ngModel)]="item.url">
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-hint></mat-hint>
-                  </mat-form-field>
+                </mat-form-field>
             </div>
             <div *ngIf="item.type == 'pdf'" class="pdf">
                 <mat-form-field appearance="outline">
@@ -51,14 +51,17 @@
                     <input name="pdf" matInput placeholder="{{'Pdf Url'|text}}" [(ngModel)]="item.url">
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-hint></mat-hint>
-                  </mat-form-field>
+                </mat-form-field>
+                <file-select (valueChange)="fileChanged($event)" [label]="'pdf file'" [(value)]="item.files" [path]="'contentitems/'+sector"></file-select>
             </div>
             <div *ngIf="item.type == 'html'" class="html">
                 <p>English content</p>
-                <form-html [uploadPath]="'contentitems/'+sector" [label]="'Content'" [(value)]="item.content"></form-html>
+                <form-html [uploadPath]="'contentitems/'+sector" [label]="'Content'" [(value)]="item.content">
+                </form-html>
 
                 <p>Arabic content</p>
-                <form-html [uploadPath]="'contentitems/'+sector" [label]="'Content'" [(value)]="item.arContent"></form-html>
+                <form-html [uploadPath]="'contentitems/'+sector" [label]="'Content'" [(value)]="item.arContent">
+                </form-html>
             </div>
         </div>
     </div>

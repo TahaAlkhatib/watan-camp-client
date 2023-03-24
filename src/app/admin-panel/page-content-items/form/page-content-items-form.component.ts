@@ -64,7 +64,7 @@ export class PageContentItemsFormComponent implements OnInit {
     }
 
     addPdf() {
-        this.model.items.push({ type: 'pdf', url: '' })
+        this.model.items.push({ type: 'pdf', url: '', files: [] })
     }
     addVideo() {
         this.model.items.push({ type: 'video', url: '' })
@@ -75,5 +75,10 @@ export class PageContentItemsFormComponent implements OnInit {
 
     deleteItem(index) {
         this.model.items.splice(index, 1)
+    }
+
+    fileChanged(e){
+        debugger
+        console.log(e)
     }
 }
