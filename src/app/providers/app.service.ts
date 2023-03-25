@@ -37,7 +37,7 @@ export class AppService {
     }
 
     async addUserToRoles(roles: string[], user: CampUser) {
-        return firstValueFrom(this.http.post(`${environment.server_base_url}/app/add-user-to-roles`, { roles, user }))
+        return firstValueFrom(this.http.post(`${environment.server_base_url}/add-user-to-roles`, { roles, user }))
     }
 
     async getCamps() {

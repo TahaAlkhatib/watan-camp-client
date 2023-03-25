@@ -67,10 +67,12 @@ export class UserFormComponent implements OnInit {
         delete this.model.roles
         try {
             if (model._id) {
+                delete model.password
+                delete model.confirmPassword
                 const res = await this.ds.put(`user/${model._id}`, model)
             }
             else {
-
+debugger
                 this.model = model;
 
                 this.loading.next(true)

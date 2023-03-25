@@ -321,8 +321,10 @@ export class AdminLayoutComponent implements OnInit {
     navigate(p, sub) {
         if (sub)
             this.router.navigateByUrl(`en/${p.prefix}${p.url}/${sub.url}`)
-        else
-            this.router.navigateByUrl(`en/${p.prefix}${p.url}`)
+        else {
+            if (!p.children?.length)
+                this.router.navigateByUrl(`en/${p.prefix}${p.url}`)
+        }
     }
 
     goToComplaints() {
