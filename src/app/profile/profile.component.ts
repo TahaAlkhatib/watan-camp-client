@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "@upupa/auth";
 import { LanguageService } from "@upupa/language";
+import { AppService } from "../providers/app.service";
 
 @Component({
     selector: 'profile',
@@ -12,16 +13,16 @@ export class ProfileComponent {
     isLoggedIn: boolean = false
     user:any = {
         avatar: null,
-        username: 'default user',
+        name: 'default user',
         email: 'default@default.com',
         address: 'default address',
         phone: '+90 xxx xxx xx xx',
         role: "employee, ben, doner",
-        dateOfBirth: new Date(),
+        dateOfBirth: 1990,
         camp: 'default camp',
         department: 'default',
     }
-    constructor(private router: Router, private lang: LanguageService, private auth: AuthService) {
+    constructor(private router: Router, private lang: LanguageService, private auth: AuthService,private appSrvs:AppService) {
 
     }
 
@@ -33,7 +34,9 @@ export class ProfileComponent {
             console.log(u);
 
             this.isLoggedIn = u ? true : false;
-            if (u) this.user = u;
+            if (u) this.user = {...this.user,...u};
+
+            this.user.camp = this.appSrvs.camps.find(c=>c._id == this.appSrvs.currentCampId).name
         })
 
     }

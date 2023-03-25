@@ -14,7 +14,8 @@ export class AboutComponent {
 
     }
     navTo(url: string) {
-        this.router.navigate([`${this.lang}/home/about/${url}`])
+        if(url === 'map') this.router.navigate([`${this.lang}/home/about/${url}`])
+        else  this.router.navigate([`${this.lang}/home/view-content/${url}`])
     }
     back() {
             this.router.navigate([`${this.lang}/home`])

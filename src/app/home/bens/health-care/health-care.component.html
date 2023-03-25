@@ -16,7 +16,7 @@
             <img src="/assets/img/physical-health.png" alt="">
         </div>
     </div>
-    <button [@simpleFadeAnimation] class="normal-btn" *ngFor="let btn of btns" (mousedown)="navTo(btn.url)">
+    <button [@simpleFadeAnimation] class="normal-btn" *ngFor="let btn of btns" (mousedown)="navToUrl(btn.url)">
         {{btn.name | text}}
     </button>
 </div>

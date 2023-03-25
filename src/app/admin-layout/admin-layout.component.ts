@@ -133,6 +133,46 @@ export class AdminLayoutComponent implements OnInit {
             ]
         },
         {
+            title: 'Health Care',
+            url: 'contentitems/contentitems-list',
+            prefix: 'admin/',
+            icon: 'body',
+            open: false,
+            children: [
+                {
+                    title: 'General Sports Exercises',
+                    url: 'hcgse',
+                    icon: 'document'
+                },
+                {
+                    title: 'General nutritional Program',
+                    url: 'hcgnp',
+                    icon: 'document'
+                },
+                {
+                    title: 'specialist contact info',
+                    url: 'hcsci',
+                    icon: 'document'
+                },
+                {
+                    title: 'health Sports Exercises',
+                    url: 'hchse',
+                    icon: 'document'
+                },
+                {
+                    title: 'health nutritional Program',
+                    url: 'hchnp',
+                    icon: 'document'
+                },
+                {
+                    title: 'health contact info',
+                    url: 'hchci',
+                    icon: 'document'
+                }
+
+            ]
+        },
+        {
             title: 'Account',
             url: 'account',
             prefix: '',
@@ -182,10 +222,27 @@ export class AdminLayoutComponent implements OnInit {
         },
         {
             title: 'About',
-            url: 'about',
-            prefix: '/app/tabs/',
+            url: 'contentitems/contentitems-list',
+            prefix: 'admin/',
             icon: 'information-circle',
-            open: false
+            open: false,
+            children: [
+                {
+                    title: 'Sectors and services',
+                    url: 'asas',
+                    icon: 'document'
+                },
+                {
+                    title: 'Contact camp management',
+                    url: 'asccm',
+                    icon: 'document'
+                },
+                {
+                    title: 'Camp location',
+                    url: 'acl',
+                    icon: 'document'
+                }
+            ]
         }
     ];
     dark = false;

@@ -24,21 +24,21 @@ export class HealthCareComponent {
     selection: string = 'health-care'
     lang= localStorage.getItem('language')
     btns = [
-        { name: "General Sports Exercises", url: "#" },
-        { name: "General nutritional Program", url: "#" },
-        { name: "specialist contact info", url: "#" }
+        { name: "General Sports Exercises", url: "hcgse" },
+        { name: "General nutritional Program", url: "hcgnp" },
+        { name: "specialist contact info", url: "hcsci" }
     ]
 
     health = [
-        { name: "General Sports Exercises", url: "#" },
-        { name: "General nutritional Program", url: "#" },
-        { name: "specialist contact info", url: "#" },
+        { name: "General Sports Exercises", url: "hcgse" },
+        { name: "General nutritional Program", url: "hcgnp" },
+        { name: "specialist contact info", url: "hcsci" },
 
     ]
     physics = [
-        { name: "health Sports Exercises", url: "#" },
-        { name: "health nutritional Program", url: "#" },
-        { name: "health contact info", url: "#" },
+        { name: "health Sports Exercises", url: "hchse" },
+        { name: "health nutritional Program", url: "hchnp" },
+        { name: "health contact info", url: "hchci" },
         
     ]
     constructor(private router: Router) {
@@ -76,6 +76,10 @@ export class HealthCareComponent {
         )
     }
     navTo(url: string) {
+
+    }
+    navToUrl(url:string){
+        this.router.navigate([this.lang,'home','view-content',url])
 
     }
     back() {
