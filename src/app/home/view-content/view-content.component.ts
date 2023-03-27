@@ -25,7 +25,7 @@ export class ViewContentComponent {
 
     ngOnInit() {
         this.section = this.route.snapshot.paramMap.get('section')
-        this.data = this.appService.items?.find(x => x.section == this.section)//&&x.campId == this.appService.currentCampId)
+        this.data = this.appService.items?.find(x => x.section == this.section && x.campId == this.appService.currentCampId)
     }
 
     openVideo(url) {

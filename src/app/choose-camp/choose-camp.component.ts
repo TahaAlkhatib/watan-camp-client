@@ -24,7 +24,8 @@ export class ChooseCampComponent implements OnInit {
     localStorage.setItem("campId", camp);
     this.campNameService.campName$.next(camp)
     const lang = localStorage.getItem("language");
-    this.router.navigate([lang,'home']);
+    // this.router.navigate([lang,'home']);
+    window.location.href = '/'
 
   }
 }

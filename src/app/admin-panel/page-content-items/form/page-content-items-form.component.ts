@@ -38,14 +38,16 @@ export class PageContentItemsFormComponent implements OnInit {
     }
 
     async ngOnInit() {
-        this.camps = this.appService.camps
 
         const contentitemsId = this.route.snapshot.paramMap.get('id')
         this.section = this.route.snapshot.paramMap.get('section')
         if (contentitemsId) {
             this.model = await firstValueFrom(this.ds.get<ContentItems>(`contentitems/${contentitemsId}`))
+            this.camps = this.appService.camps.filter(c => c._id == this.model.campId)
         } else {
             this.model = { _id: undefined, campId: undefined, items: [], section: this.section }
+            let excludedCamps = this.appService.items?.filter(it => it.section == this.section).map(it => it.campId) ?? []
+            this.camps = this.appService.camps.filter(c => !excludedCamps.some(e => e == c._id))
         }
     }
     async submit() {
@@ -77,7 +79,7 @@ export class PageContentItemsFormComponent implements OnInit {
         this.model.items.splice(index, 1)
     }
 
-    fileChanged(e){
+    fileChanged(e) {
         debugger
         console.log(e)
     }

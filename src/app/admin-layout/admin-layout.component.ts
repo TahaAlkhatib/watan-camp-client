@@ -270,13 +270,7 @@ export class AdminLayoutComponent implements OnInit {
         await this.permissionService.getPermissionRecords()
 
         this.appPages.forEach(p => {
-            p.show = true
-            let rec = this.permissionService.adminPermissions?.find(r => p.url?.indexOf(r.section) >= 0)
-            if (rec?.roles?.length) {
-                let roles = this.auth.user?.roles
-                if (roles?.length)
-                    p.show = roles.some(r => rec.roles.some(rc => rc == r))
-            }
+            p.show = this.permissionService.checkPermission(p.url, 'admin')
         })
 
         this.swUpdate.available.subscribe(async res => {

@@ -3,6 +3,7 @@ import { AuthService } from "@upupa/auth";
 import { DataService } from "@upupa/data";
 import { firstValueFrom } from "rxjs";
 import { AppPage, PermissionRecord } from "../model";
+import { AppService } from "./app.service";
 
 @Injectable({ providedIn: 'root' })
 export class PermissionsService {
@@ -131,7 +132,7 @@ export class PermissionsService {
     adminPermissions: PermissionRecord[] = []
     clientPermissions: PermissionRecord[] = []
 
-    constructor(private ds: DataService, private auth: AuthService) {
+    constructor(private ds: DataService, private auth: AuthService, public appService: AppService) {
 
     }
 
@@ -151,15 +152,17 @@ export class PermissionsService {
     }
 
     getPermissionRecord(section: string, app: 'client' | 'admin') {
-        return app == 'client' ? this.clientPermissions.find(x => x.section == section) : this.adminPermissions.find(x => x.section == section)
+        return app == 'client' ? this.clientPermissions.find(x => x.section == section) : this.adminPermissions.find(x => section.indexOf(x.section)>=0)
     }
 
     async checkPermission(section: string, app: 'client' | 'admin') {
         let record = this.getPermissionRecord(section, app)
-        if (!record?.roles?.length) return true
+        if (!record?.roles?.length || this.appService.user.username == 'admin') return true
 
-        return record.roles.some(r => this.auth.user?.roles?.some(x => x == r))
+        return record.roles.some(r => this.appService.user?.roles?.some(x => x == r))
     }
+
+
 
 
     getAdminPagesRecords() {
