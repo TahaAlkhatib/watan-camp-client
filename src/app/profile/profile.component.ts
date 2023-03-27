@@ -11,7 +11,7 @@ import { AppService } from "../providers/app.service";
 })
 export class ProfileComponent {
     isLoggedIn: boolean = false
-    user:any = {
+    user: any = {
         avatar: null,
         name: 'default user',
         email: 'default@default.com',
@@ -22,7 +22,10 @@ export class ProfileComponent {
         camp: 'default camp',
         department: 'default',
     }
-    constructor(private router: Router, private lang: LanguageService, private auth: AuthService,private appSrvs:AppService) {
+    constructor(private router: Router,
+        private lang: LanguageService,
+        private auth: AuthService,
+        private appSrvs: AppService) {
 
     }
 
@@ -30,14 +33,24 @@ export class ProfileComponent {
     async ngOnInit() {
         // const token = localStorage.getItem('token')
         // if(token) this.isLoggedIn = true 
+
+
         this.auth.user$.subscribe(u => {
-            console.log(u);
 
             this.isLoggedIn = u ? true : false;
-            if (u) this.user = {...this.user,...u};
+            const department = this.appSrvs.departments.find(d => d._id == this.appSrvs.user.department).name
+            console.log(department)
+            const camp = this.appSrvs.camps.find(c => c._id == this.appSrvs.currentCampId).name
+            u.camp = camp
+            u.department = department?? 'default department'
+            u.address = this.appSrvs.user.address ?? "Not added yet!"
+            u.role = this.appSrvs.user.role
+            u.dateOfBirth = this.appSrvs.user.dateOfBirth ?? "Not added yet!"
+            u.name = this.appSrvs.user.fName + " " + this.appSrvs.user.lName
+            if (u) this.user = { ...this.user, ...u };
 
-            this.user.camp = this.appSrvs.camps.find(c=>c._id == this.appSrvs.currentCampId).name
         })
+
 
     }
     navToSginIn() {

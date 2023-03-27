@@ -17,6 +17,7 @@ import { CampNameService } from "./camp-name.service";
 import { NotificationService } from "./notification.service";
 import { PermissionsService } from "./providers/permissions.service";
 import { ActivatedRoute } from "@angular/router";
+import { AuthService } from "@upupa/auth";
 
 @Component({
     selector: "app-root",
@@ -69,14 +70,15 @@ export class AppComponent implements OnInit {
         private campNameService: CampNameService,
         private notificationService: NotificationService,
         private permissionService: PermissionsService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
     ) {
         this.initializeApp();
     }
 
     async ngOnInit() {
         await this.permissionService.getPermissionRecords()
-
+        await this.appService.initEmployeeInfo()
+        await this.appService.getDepartments()
         if (!this.lang) this.lang = this.languageService.language
         this.languageService.language$.subscribe(l => {
             if (l?.length)
