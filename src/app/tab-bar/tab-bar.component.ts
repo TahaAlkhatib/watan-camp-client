@@ -15,7 +15,7 @@ export class TabBarComponent {
 
     }
     navTo(route: string) {
-        this.router.navigate([this.lang, 'home', 'reports'])
+        this.router.navigateByUrl(`${this.lang}/home/reports`)
     }
 
     navToMap() {

@@ -228,18 +228,23 @@ export class AdminLayoutComponent implements OnInit {
             open: false,
             children: [
                 {
-                    title: 'Sectors and services',
-                    url: 'asas',
+                    title: 'WATAN offices',
+                    url: 'awoff',
                     icon: 'document'
                 },
                 {
-                    title: 'Contact camp management',
+                    title: 'Websites & Platforms',
+                    url: 'asasw',
+                    icon: 'document'
+                },
+                {
+                    title: 'Program Watan',
                     url: 'asccm',
                     icon: 'document'
                 },
                 {
-                    title: 'Camp location',
-                    url: 'acl',
+                    title: 'WATAN News',
+                    url: 'aswne',
                     icon: 'document'
                 }
             ]

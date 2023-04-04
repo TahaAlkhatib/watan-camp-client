@@ -1,8 +1,8 @@
 :host {
-    background: linear-gradient(280deg,#00375F, #00569D);
+    background: linear-gradient(280deg, #00375f, #00569d);
     mix-blend-mode: normal;
     display: grid;
-    gap: 25px;
+    // gap: 25px;
     width: 100vw;
     padding-top: 20px;
     justify-items: center;
@@ -11,9 +11,9 @@
     animation-timing-function: ease-in-out;
 }
 
+
 @keyframes background-rotation {
     0% {
-         
     }
 
     25% {
@@ -25,15 +25,15 @@
     100% {
     }
 }
-.back{
+.back {
     height: 50px;
     width: 50px;
-    background-color: #F0F1F1;
+    background-color: #f0f1f1;
     border-radius: 50%;
     position: absolute;
     border: 1px solid gray;
-    top: 185px;
-    left: 15px;
+    // top: -50px;
+    // left: 15px;
     font-size: 0.6em !important;
     color: var(--color-light);
     display: flex;
@@ -41,9 +41,12 @@
     align-items: center;
     box-shadow: 0 0 7px rgb(46, 46, 46);
     transition: all 0.2s;
-    &:hover{
+    bottom: 0;
+    margin-bottom: -25px;
+    margin-left: -75vw;
+    z-index: 999;
+    &:hover {
         transform: scale(1.1);
-
     }
 }
 .main-content {
@@ -58,8 +61,22 @@
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     box-shadow: 0 -4px 10px #464646;
-    
+    position: relative;
+    padding-top: 50px !important;
+}
 
+.top{
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: normal;
+    display: grid;
+    gap: 25px;
+    padding-top: 20px;
+    justify-items: center;
+    animation: background-rotation 2s infinite;
+    transition: all 0.2;
+    animation-timing-function: ease-in-out;
+    position: relative;
 }
 
 .menu-btn {
@@ -71,15 +88,12 @@
     min-width: 60dvw;
     min-height: 60px;
     border-radius: 20px;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     color: var(--color-primary);
-    border: 1px solid #DEDEE4;
+    border: 1px solid #dedee4;
     font-size: 1.3em;
     font-weight: bold;
     transition: all 0.2s;
-
-
-   
 
     &::after {
         content: "";
@@ -89,15 +103,13 @@
         border-radius: 50%;
         width: 50px;
         height: 50px;
-        background-color: #F0F1F1;
+        background-color: #f0f1f1;
         z-index: 2;
         box-shadow: 0px 0px 4px black;
         transition: all 0.2s;
-
     }
 
     p {
-
         color: var(--color-primary);
         margin-top: 0;
         font-size: 0.8em;
@@ -117,10 +129,10 @@
     }
 
     &:hover {
-        background-color: #F0F1F1;
-        border: 1px solid #F0F1F1;
+        background-color: #f0f1f1;
+        border: 1px solid #f0f1f1;
 
-        box-shadow:0px 3px 6px  #00000029;
+        box-shadow: 0px 3px 6px #00000029;
         transform: scale(1.1);
         &::before {
             transform: scale(0);
@@ -133,10 +145,8 @@
         .icon {
             transform: translateX(-43px);
         }
-        p{
-        color: var(--color-secondry);
-
+        p {
+            color: var(--color-secondry);
         }
-
     }
 }

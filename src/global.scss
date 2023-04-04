@@ -104,6 +104,10 @@ dynamic-form {
   padding: 5px;
 }
 
+button{
+    line-height: 1.5 !important;
+}
+
 
 
 .btn {
@@ -392,5 +396,11 @@ dynamic-form {
 
   }
 
+
+}
+
+h1,h2,h3,h4,h5,h6,p,div,button {
+  font-family: '29ltbukrabolditalic' !important;
+  line-height: 1.5 !important;
 
 }

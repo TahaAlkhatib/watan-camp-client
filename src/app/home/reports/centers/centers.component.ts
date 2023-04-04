@@ -16,7 +16,7 @@ export class CentersComponent {
                 district: 'Harim',
                 subsDistrict: 'Dana',
                 community:'Tal elkaramej',
-                bakery: 'Watan Bakery'
+                bakery: 'WATAN Bakery'
             },
             {
                 name: 'Mill',

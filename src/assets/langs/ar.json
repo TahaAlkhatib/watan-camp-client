@@ -34,7 +34,7 @@
     "BENs": "المستفيدون",
     "Reports": "التقارير",
     "Complaints": "الشكاوي",
-    "About Watan": "حول وطن",
+    "About WATAN": "حول وطن",
     "Fill a complaint": "قدم شكوى",
     "Call": "اتصال",
     "Email": "ايميل",
@@ -52,6 +52,10 @@
     "Camp location": "مكان المخيم",
     "Contact camp management": "اتصل بادارة المخيم",
     "Camp map": "خريطة المخيم",
+    "WATAN offices": "مكاتب وطن ",
+    "Websites & Platforms": "منصات وطن ",
+    "Program WATAN": "برامج وطن ",
+    "WATAN News": "أخبار وطن",
     "Choose your language": "اختر لغتك",
     "English": "الانكليزية",
     "Choose your camp": "اختر المخيم",
@@ -100,12 +104,9 @@
     "Address": "العنوان",
     "Date of birth": "تاريخ الميلاد",
     "Role": "نوع الحساب",
-    "Welcome to Watan camp": "أهلا بكم في مخيم وطن",
+    "Welcome to WATAN camp": "أهلا بكم في مخيم وطن",
     "to see the content of this page": "لعرض محتويات هذه الصفحة",
     "Please sign in!": "يرجى تسجيل الدخول",
     "Camp": "المخيم",
     "E-mail": "البريد الالكتروني"
-
-
-
 }

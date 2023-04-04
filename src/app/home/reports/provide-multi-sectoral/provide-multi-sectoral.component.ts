@@ -12,7 +12,7 @@ constructor(private router:Router){}
      district: 'Idlib', 
      subsdistrict: `Ma'aret Tasmrine`, 
      community: "Kafr Jales", 
-     site: 'Watan camp 2 - Kafr Jalal' }]
+     site: 'WATAN camp 2 - Kafr Jalal' }]
 
      back() {
         const lang = localStorage.getItem('language')

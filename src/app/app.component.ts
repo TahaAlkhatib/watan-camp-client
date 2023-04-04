@@ -56,6 +56,11 @@ export class AppComponent implements OnInit {
     camp: string
     lang: string = localStorage.getItem('language')
 
+    langsDic= {
+        'en': 'EN',
+        'ar': 'عربي'
+    }
+
     adminPanel: boolean = false
     constructor(
         private menu: MenuController,

@@ -70,6 +70,7 @@ export class PageContentItemsFormComponent implements OnInit {
     }
     addVideo() {
         this.model.items.push({ type: 'video', url: '' })
+        debugger
     }
     addHtml() {
         this.model.items.push({ type: 'html', content: '' })
@@ -80,7 +81,6 @@ export class PageContentItemsFormComponent implements OnInit {
     }
 
     fileChanged(e) {
-        debugger
         console.log(e)
     }
 }

@@ -25,13 +25,13 @@
             <p>
                 <mat-form-field appearance="outline">
                     <mat-label>{{item.type | text}}{{' name'|text}}</mat-label>
-                    <input name="name" matInput placeholder="{{'Name'|text}}" [(ngModel)]="item.name">
+                    <input name="name{{i}}" matInput placeholder="{{'Name'|text}}" [(ngModel)]="item.name">
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-hint></mat-hint>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>{{item.type | text}}{{' arabic name'|text}}</mat-label>
-                    <input name="arName" matInput placeholder="{{'Arabic name'|text}}" [(ngModel)]="item.arName">
+                    <input name="arName{{i}}" matInput placeholder="{{'Arabic name'|text}}" [(ngModel)]="item.arName">
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-hint></mat-hint>
                 </mat-form-field>
@@ -40,7 +40,7 @@
             <div *ngIf="item.type == 'video'" class="video">
                 <mat-form-field appearance="outline">
                     <mat-label>{{'Video Url'|text}}</mat-label>
-                    <input name="video" matInput placeholder="{{'Video Url'|text}}" [(ngModel)]="item.url">
+                    <input name="video{{i}}" matInput placeholder="{{'Video Url'|text}}" [(ngModel)]="item.url">
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-hint></mat-hint>
                 </mat-form-field>
@@ -48,7 +48,7 @@
             <div *ngIf="item.type == 'pdf'" class="pdf">
                 <mat-form-field appearance="outline">
                     <mat-label>{{'Pdf Url'|text}}</mat-label>
-                    <input name="pdf" matInput placeholder="{{'Pdf Url'|text}}" [(ngModel)]="item.url">
+                    <input name="pdf{{i}}" matInput placeholder="{{'Pdf Url'|text}}" [(ngModel)]="item.url">
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-hint></mat-hint>
                 </mat-form-field>
