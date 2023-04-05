@@ -2,7 +2,9 @@
 <h1>{{'Number of benenficires' | text}}</h1>
     
 </div>
-<div class="wrappar">
+<report-items-view *ngIf="dbData" [body]="dbData"></report-items-view>
+
+<div *ngIf="!dbData" class="wrappar">
     <div class="details">
         <div class="line">
             <div class="left">{{'ofTent' | text}}:</div>

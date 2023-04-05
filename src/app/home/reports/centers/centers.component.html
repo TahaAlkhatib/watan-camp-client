@@ -2,7 +2,9 @@
     <h1>{{'centers of Services'| text}}</h1>
 
 </div>
-<div class="wrappar">
+<report-items-view *ngIf="dbData" [body]="dbData"></report-items-view>
+
+<div *ngIf="!dbData" class="wrappar">
     <div class="card" *ngFor="let item of data">
         <div class="title">{{'sector'| text}}: {{item.sector | text}}</div>
         <div class="details" *ngFor="let center of item.centers">

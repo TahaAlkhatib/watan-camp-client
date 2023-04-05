@@ -34,6 +34,8 @@ import { ComplaintPreviewComponent } from './complaint/complaint-preview/complai
 import { AdminPermissionsComponent } from './permissions/admin-permissions/admin-permissions.component';
 import { NotificationsFormComponent } from './notifications/notifications-form.component';
 import { DynamicFormNativeThemeModule } from '@upupa/dynamic-form-native-theme';
+import { ReportItemsComponent } from './reports/list/report-items.component';
+import { ReportItemsFormComponent } from './reports/form/report-items-form.component';
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import { DynamicFormNativeThemeModule } from '@upupa/dynamic-form-native-theme';
     ],
     declarations: [DashboardPage, VideoComponent, HtmlComponent, PdfComponent, PageContentItemsComponent, PageContentItemsFormComponent,
         CampComponent, CampFormComponent, CampPreviewComponent, DepartmentComponent, DepartmentFormComponent, DepartmentPreviewComponent,
-        SettingsComponent, SettingsFormComponent, SettingsPreviewComponent, ComplaintListComponent, ComplaintPreviewComponent,AdminPermissionsComponent,NotificationsFormComponent],
+        SettingsComponent, SettingsFormComponent, SettingsPreviewComponent, ComplaintListComponent, ComplaintPreviewComponent,
+        ReportItemsComponent,ReportItemsFormComponent,AdminPermissionsComponent,NotificationsFormComponent],
     exports: []
 })
 export class AdminModule { }

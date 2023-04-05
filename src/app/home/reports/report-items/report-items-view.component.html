@@ -1,0 +1,12 @@
+<div *ngIf="body" class="wrappar">
+    <div class="card" *ngFor="let sector of body.sectors">
+        <div class="title">{{lang == 'en'?sector.enName:sector.arName}}</div>
+        <div class="details" *ngFor="let block of sector.blocks">
+            <div *ngFor="let item of block.items" class="line">
+                <div class="left">{{lang == 'en'?item.enKey:item.arKey}}:</div>
+                <div class="right"> &nbsp;{{lang == 'en'?item.enValue:item.arValue}}</div>
+            </div>
+        </div>
+    </div>
+    <img src="/assets/general/Watan-logo.png" alt="">
+</div>

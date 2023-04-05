@@ -22,6 +22,7 @@ import { ViewContentComponent } from "./view-content/view-content.component";
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapComponent } from "./map/map.component";
 import { LanguageModule, TranslationModule } from "@upupa/language";
+import { ReportsItemsViewComponent } from "./reports/report-items/report-items-view.component";
 
 const materials = [MatIconModule]
 @NgModule({
@@ -51,7 +52,8 @@ const materials = [MatIconModule]
         ComplaintFormComponent,
         AboutComponent,
         ViewContentComponent,
-        MapComponent
+        MapComponent,
+        ReportsItemsViewComponent
     ]
 
 })

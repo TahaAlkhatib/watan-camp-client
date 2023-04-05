@@ -1,0 +1,90 @@
+<form class="form" *ngIf="model">
+    <mat-form-field appearance="fill">
+        <mat-label>Choose camp</mat-label>
+        <mat-select name="campId" [(ngModel)]="model.campId">
+            <mat-option *ngFor="let c of camps" [value]="c._id">
+                {{c.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="actions">
+
+        <button (click)="addSector()">
+            <img src="/assets/icons/html.png" alt="">
+            {{'Add Sector'|text}}</button>
+    </div>
+
+    <div class="page-items">
+        <div class="page-item" *ngFor="let item of model?.sectors;let i = index;">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{'Name'|text}}</mat-label>
+                    <input name="enName{{i}}" matInput placeholder="{{'Name'|text}}" [(ngModel)]="item.enName">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{' arabic name'|text}}</mat-label>
+                    <input name="arName{{i}}" matInput placeholder="{{'Arabic name'|text}}" [(ngModel)]="item.arName">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+                <button (click)="deleteSector(i)" color="warn" mat-button>{{'delete'|text}}</button>
+                <button (click)="addBlock(item)" color="primary" mat-button>{{'add block'|text}}</button>
+            </p>
+            <div class="blocks">
+                <div class="sector-block" *ngFor="let block of item.blocks;let j=index;">
+                    <h3>
+                        * Block {{j+1}} 
+                        <button (click)="deleteBlock(j)" color="warn" mat-button>{{'delete'|text}}</button>
+                            <button (click)="addItem(block)" color="primary" mat-button>{{'add item'|text}}</button>
+                        </h3>
+                    <p *ngFor="let it of block.items;let k=index;">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'english key'|text}}</mat-label>
+                            <input name="enKey{{k}}" matInput placeholder="{{'english key'|text}}"
+                                [(ngModel)]="it.enKey">
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-hint></mat-hint>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'arabic key'|text}}</mat-label>
+                            <input name="arKey{{k}}" matInput placeholder="{{'arabic key'|text}}"
+                                [(ngModel)]="it.arKey">
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-hint></mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'english value'|text}}</mat-label>
+                            <input name="enValue{{k}}" matInput placeholder="{{'english value'|text}}"
+                                [(ngModel)]="it.enValue">
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-hint></mat-hint>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'arabic value'|text}}</mat-label>
+                            <input name="arValue{{k}}" matInput placeholder="{{'arabic value'|text}}"
+                                [(ngModel)]="it.arValue">
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-hint></mat-hint>
+                        </mat-form-field>
+
+                        <button (click)="deleteItem(k)" color="warn" mat-button>{{'delete'|text}}</button>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</form>
+<div class="submition">
+
+    <button mat-raised-button color="primary" (click)="submit()">Save</button>
+    <button mat-raised-button (click)="goBack()">Cancel</button>
+</div>

@@ -2,7 +2,9 @@
 <h1>{{'Needs' | text}}</h1>
     
 </div>
-<div class="wrappar">
+<report-items-view *ngIf="dbData" [body]="dbData"></report-items-view>
+
+<div *ngIf="!dbData" class="wrappar">
     <div class="details" *ngFor="let item of data">
         <div class="line">
             <div class="sector">{{item.sector | text}}</div>

@@ -8,6 +8,8 @@ import { PageContentItemsFormComponent } from "./page-content-items/form/page-co
 import { PageContentItemsComponent } from "./page-content-items/list/page-content-items.component";
 import { PageContentItemsPreviewComponent } from "./page-content-items/preview/page-content-items-preview.component";
 import { AdminPermissionsComponent } from "./permissions/admin-permissions/admin-permissions.component";
+import { ReportItemsFormComponent } from "./reports/form/report-items-form.component";
+import { ReportItemsComponent } from "./reports/list/report-items.component";
 import { CampFormComponent } from "./settings/camp/camp-form/camp-form.component";
 import { CampComponent } from "./settings/camp/camp-list/camp.component";
 import { CampPreviewComponent } from "./settings/camp/camp-preview/camp-preview.component";
@@ -26,6 +28,11 @@ const routes: Route[] = [
     { path: 'contentitems/add-contentitems/:section', component: PageContentItemsFormComponent },
     { path: 'contentitems/edit-contentitems/:section/:id', component: PageContentItemsFormComponent },
     { path: 'contentitems/preview-contentitems/:section/:id', component: PageContentItemsPreviewComponent },
+
+
+    { path: 'report/report-list/:section', component: ReportItemsComponent },
+    { path: 'report/add-report/:section', component: ReportItemsFormComponent },
+    { path: 'report/edit-report/:section/:id', component: ReportItemsFormComponent },
     
     { path: 'complaint/complaint-list', component: ComplaintListComponent },
     { path: 'complaint/preview-complaint/:id', component: ComplaintPreviewComponent },

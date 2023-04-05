@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { AuthService } from "@upupa/auth";
 import { DataService } from "@upupa/data";
 import { BehaviorSubject, firstValueFrom } from "rxjs";
-import { Camp, CampUser, ContentItems, Department, Role, Settings } from "../model";
+import { Camp, CampUser, ContentItems, Department, ReportBody, Role, Settings } from "../model";
 import { environment } from "src/environments/environment";
 
 
@@ -17,6 +17,8 @@ export class AppService {
     camps: Camp[]
 
     items: ContentItems[] = []
+
+    reports:ReportBody[] = []
 
     currentCampId: string
 
@@ -63,6 +65,11 @@ export class AppService {
     async getItems() {
         this.items = await firstValueFrom(this.ds.get<ContentItems[]>(`contentitems`))
         return this.items
+    }
+
+    async getReports() {
+        this.reports = await firstValueFrom(this.ds.get<ReportBody[]>(`tournament`))
+        return this.reports
     }
 
     getCurrentCamp() {

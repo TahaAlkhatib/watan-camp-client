@@ -86,7 +86,8 @@ export class AdminLayoutComponent implements OnInit {
                 }
 
             ]
-        }, {
+        }, 
+        {
             title: 'BENs',
             url: 'contentitems/contentitems-list',
             prefix: 'admin/',
@@ -170,6 +171,40 @@ export class AdminLayoutComponent implements OnInit {
                     icon: 'document'
                 }
 
+            ]
+        },
+        {
+            title: 'Reports',
+            url: 'report/report-list',
+            prefix: 'admin/',
+            icon: 'body',
+            open: false,
+            children: [
+                {
+                    title: 'Provide multi-sectoral assistance project',
+                    url: 'remup',
+                    icon: 'document'
+                },
+                {
+                    title: 'Number of benenficires',
+                    url: 'renub',
+                    icon: 'document'
+                },
+                {
+                    title: 'Centers of services',
+                    url: 'reces',
+                    icon: 'document'
+                },
+                {
+                    title: 'Services/activities update',
+                    url: 'resau',
+                    icon: 'document'
+                },
+                {
+                    title: 'Needs',
+                    url: 'renee',
+                    icon: 'document'
+                }
             ]
         },
         {

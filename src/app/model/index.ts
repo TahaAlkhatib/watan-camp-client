@@ -10,6 +10,7 @@ export * from './setting'
 export * from './complaint'
 export * from './permission-record'
 export * from './notifications'
+export * from './reports'
 
 export const DepartmentManagerRole = 'dep-manager'
 export const ManagementRole = 'manager'

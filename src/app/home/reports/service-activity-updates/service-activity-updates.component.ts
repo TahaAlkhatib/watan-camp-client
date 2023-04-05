@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { ReportBody } from "src/app/model";
+import { AppService } from "src/app/providers/app.service";
 
 @Component({
     selector: 'service-activity-updates',
@@ -7,7 +9,7 @@ import { Router } from "@angular/router";
     styleUrls: ['service-activity-updates.component.scss']
 })
 export class ServicesActivityUpdatesComponent {
-    constructor(private router: Router) { }
+    constructor(private router: Router, private appService: AppService) { }
     data = [
         {
             sector: 'FSL', activities:
@@ -37,6 +39,15 @@ export class ServicesActivityUpdatesComponent {
                 ]
         },
     ]
+
+    dbData: ReportBody
+
+
+    ngOnInit() {
+        this.dbData = this.appService.reports?.find(r=>r.campId == this.appService.currentCampId && r.section == 'resau')
+        console.log(this.dbData)
+    }
+
     back() {
         const lang = localStorage.getItem('language')
         this.router.navigate([`${lang}/home/reports`])
