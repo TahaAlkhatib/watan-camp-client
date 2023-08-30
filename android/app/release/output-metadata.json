@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.ionicframework.conferenceapp",
+  "applicationId": "foundation.watan.watancamp",
   "variantName": "release",
   "elements": [
     {

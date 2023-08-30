@@ -8,6 +8,7 @@ import { firstValueFrom } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { AppService } from '../../../providers/app.service';
 import { User } from '@upupa/auth';
+import * as XLSX from "xlsx";
 
 @Component({
     selector: 'user-list',
@@ -28,11 +29,12 @@ export class UserListComponent implements OnInit {
         { variant: 'icon', name: 'password', icon: 'password', menu: true },
         { position: 'menu', name: 'delete', icon: 'delete_outline', text: 'Delete', menu: true },
         { position: 'bulk', name: 'delete', icon: 'delete_outline', text: 'Delete', bulk: true },
-        { position: 'header', name: 'create', icon: 'add_circle_outline', text: 'Create', bulk: true }
+        { position: 'header', name: 'create', icon: 'add_circle_outline', text: 'Create', bulk: true },
+        { position: 'header', name: 'export', icon: 'article_outline', text: 'Export To Excel', bulk: true }
     ]
 
-    constructor(private ds: DataService, public bus: EventBus,private http: HttpClient,
-        private confirmService: ConfirmService, public router: Router,private activatedRoute:ActivatedRoute,private appService:AppService) { }
+    constructor(private ds: DataService, public bus: EventBus, private http: HttpClient,
+        private confirmService: ConfirmService, public router: Router, private activatedRoute: ActivatedRoute, private appService: AppService) { }
 
     ngOnInit(): void {
         let source = new ServerDataSource(this.ds, '/user', ['_id', 'name', 'email', 'department'])
@@ -58,10 +60,13 @@ export class UserListComponent implements OnInit {
 
         switch (x.action.name) {
             case 'password':
-                await firstValueFrom(this.http.post(`${environment.server_base_url}/auth/adminreset`,{email:x.data[0].email, new_password:'Master123'})) 
+                await firstValueFrom(this.http.post(`${environment.server_base_url}/auth/adminreset`, { email: x.data[0].email, new_password: 'Master123' }))
                 break
             case 'create':
                 this.router.navigateByUrl('en/account/add-user')
+                break;
+            case 'export':
+                await this.exportToExcel()
                 break;
             case 'edit': this.router.navigateByUrl(`en/account/edit-user/${x.data[0]._id}`); break;
             case 'delete':
@@ -103,6 +108,19 @@ export class UserListComponent implements OnInit {
         // }).afterClosed());
 
         // if (res) this.inputs.adapter.refresh();
+    }
+
+
+    async exportToExcel() {
+        let users: User[] = await firstValueFrom(this.ds.get<User[]>('user', { per_page: 9999999 }))
+
+        let ws = XLSX.utils.json_to_sheet(users)
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+        XLSX.writeFile(wb, 'users.xlsx')
+
+
     }
 
 }

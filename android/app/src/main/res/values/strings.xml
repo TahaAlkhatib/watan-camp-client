@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">watan-camp</string>
-    <string name="title_activity_main">watan-camp</string>
-    <string name="package_name">com.raptor7.watan-camp</string>
-    <string name="custom_url_scheme">com.raptor7.watan-camp</string>
+    <string name="app_name">my camp</string>
+    <string name="title_activity_main">my camp</string>
+    <string name="package_name">foundation.watan.my-camp-watan</string>
+    <string name="custom_url_scheme">foundation.watan.my-camp-watan</string>
 </resources>

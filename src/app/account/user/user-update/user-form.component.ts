@@ -72,7 +72,6 @@ export class UserFormComponent implements OnInit {
                 const res = await this.ds.put(`user/${model._id}`, model)
             }
             else {
-debugger
                 this.model = model;
 
                 this.loading.next(true)

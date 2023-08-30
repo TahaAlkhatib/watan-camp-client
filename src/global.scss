@@ -44,7 +44,7 @@
 }
 
 @font-face {
-  font-family: '29ltbukraregular';
+  font-family: '29ltbukra';
   src: url('assets/fonts/29ltbukraregular.otf')format("opentype");
   font-weight: bold;
 }
@@ -75,7 +75,7 @@
 }
 
 * {
-  font-family: '29ltbukrabolditalic';
+  font-family: '29ltbukra';
 }
 
 // @font-face {
@@ -318,7 +318,7 @@ button{
     p {
       font-size: 0.6em;
       line-height: 16px;
-      font-family: '29ltbukraregular';
+      font-family: '29ltbukra';
       color: var(--color-primary);
 
       strong {
@@ -330,7 +330,7 @@ button{
     ol {
       font-size: 0.7em;
       line-height: 18px;
-      font-family: '29ltbukraregular';
+      font-family: '29ltbukra';
       color: var(--color-primary);
 
       li {
@@ -392,7 +392,7 @@ button{
   h4,
   h5,
   h6 {
-    font-family: '29ltbukrabolditalic';
+    font-family: '29ltbukra';
 
   }
 
@@ -400,7 +400,7 @@ button{
 }
 
 h1,h2,h3,h4,h5,h6,p,div,button {
-  font-family: '29ltbukrabolditalic' !important;
+  font-family: '29ltbukra' !important;
   line-height: 1.5 !important;
 
 }

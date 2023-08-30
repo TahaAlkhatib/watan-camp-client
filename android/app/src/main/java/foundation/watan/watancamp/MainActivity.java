@@ -1,4 +1,4 @@
-package foundation.watan.conferenceapp;
+package foundation.watan.watancamp;
 
 import foundation.getcapacitor.BridgeActivity;
 

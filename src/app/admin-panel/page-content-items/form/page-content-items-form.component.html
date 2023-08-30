@@ -56,11 +56,11 @@
             </div>
             <div *ngIf="item.type == 'html'" class="html">
                 <p>English content</p>
-                <form-html [uploadPath]="'contentitems/'+sector" [label]="'Content'" [(value)]="item.content">
+                <form-html [uploadPath]="'contentitems'" [label]="'Content'" [(value)]="item.content">
                 </form-html>
 
                 <p>Arabic content</p>
-                <form-html [uploadPath]="'contentitems/'+sector" [label]="'Content'" [(value)]="item.arContent">
+                <form-html [uploadPath]="'contentitems'" [label]="'Content'" [(value)]="item.arContent">
                 </form-html>
             </div>
         </div>

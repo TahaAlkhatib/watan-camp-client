@@ -1,7 +1,7 @@
 {
-  "name": "ionic-conference-app",
-  "version": "0.0.0",
-  "description": "Ionic Conference App",
+  "name": "my-camp-watan",
+  "version": "0.0.1",
+  "description": "my camp - WATAN",
   "author": "Ionic Team <hi@ionicframework.com>",
   "license": "Apache-2.0",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/ionic-conference-app.git"
+    "url": "https://github.com/ionic-team/my-camp-watan.git"
   },
   "private": true,
   "dependencies": {

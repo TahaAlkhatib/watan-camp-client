@@ -44,7 +44,7 @@ import { ReportItemsFormComponent } from './reports/form/report-items-form.compo
         CommonModule,
         FormsModule,
         TranslationModule,
-        DataTableModule, AdminRouterModule, MaterialModulesModule, DynamicFormModule,DynamicFormNativeThemeModule, HtmlEditorModule.register('htmleditor'),
+        DataTableModule, AdminRouterModule, MaterialModulesModule, DynamicFormModule,DynamicFormNativeThemeModule, HtmlEditorModule.register(`${environment.server_base_url}/storage`),
         UploadModule.forChild(`${environment.server_base_url}/storage`),
     ],
     providers: [

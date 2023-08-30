@@ -26,9 +26,9 @@ export class ComplaintListComponent implements OnInit {
     }
     actions: ActionDescriptor[] = [
         { variant: 'icon', name: 'preview', icon: 'preview', menu: false },
-        { variant: 'icon', name: 'edit', icon: 'edit', menu: true },
+        // { variant: 'icon', name: 'edit', icon: 'edit', menu: true },
         { position: 'menu', name: 'delete', icon: 'delete_outline', text: 'Delete', menu: true },
-        { position: 'bulk', name: 'delete', icon: 'delete_outline', text: 'Delete', bulk: true },
+        // { position: 'bulk', name: 'delete', icon: 'delete_outline', text: 'Delete', bulk: true },
         // { position: 'header', name: 'create', icon: 'add_circle_outline', text: 'Create', bulk: true },
         { position: 'header', name: 'export', icon: 'article_outline', text: 'Export To Excel', bulk: true }
     ]

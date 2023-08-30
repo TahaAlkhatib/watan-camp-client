@@ -4,7 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 export const environment = {
   production: false,
-  server_base_url: 'http://localhost:3425'
+  server_base_url: 'https://campserver.watan.foundation'
+//   server_base_url: 'http://localhost:3425'
 };
 
 /*
